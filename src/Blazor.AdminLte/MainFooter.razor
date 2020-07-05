@@ -1,0 +1,15 @@
+﻿<!-- Main Footer -->
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+        @Right
+    </div>
+    <!-- Default to the left -->
+        @Default
+</footer>
+@code {
+    [Parameter]
+    public RenderFragment Right { get; set; }
+    [Parameter]
+    public RenderFragment Default { get; set; }
+}

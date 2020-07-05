@@ -1,0 +1,9 @@
+﻿<li class="nav-item d-none d-sm-inline-block">
+    <a href="@Link" class="nav-link">@ChildContent</a>
+</li>
+@code {
+    [Parameter]
+    public string Link { get; set; } = "#";
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

@@ -1,0 +1,27 @@
+﻿<li class="nav-item has-treeview menu-@(menuState)">
+    <a href="@Link" class="nav-link active">
+        <i class="nav-icon @Icon"></i>
+        <p>
+            @Title
+            <i class="right fas fa-angle-left"></i>
+        </p>
+    </a>
+    <ul class="nav nav-treeview">
+        @Items
+    </ul>
+</li>
+@code {
+    [Parameter]
+    public string Link { get; set; } = "#";
+    [Parameter]
+    public string Icon { get; set; }
+    [Parameter]
+    public RenderFragment Title { get; set; }
+    [Parameter]
+    public RenderFragment Items { get; set; }
+
+    [Parameter]
+    public MenuState MenuState { get; set; }
+
+    private string menuState => MenuState.GetDescription<StyleAttribute>();
+}

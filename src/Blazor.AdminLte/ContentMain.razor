@@ -1,0 +1,9 @@
+﻿ <!-- Main content -->
+<div class="content">
+    @ChildContent
+</div>
+<!-- /.content -->
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

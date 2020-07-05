@@ -1,0 +1,10 @@
+﻿<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    @ChildContent
+</aside>
+<!-- /.control-sidebar -->
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

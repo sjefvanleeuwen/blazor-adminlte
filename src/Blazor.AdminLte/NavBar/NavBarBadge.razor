@@ -1,0 +1,14 @@
+﻿<a class="nav-link" data-toggle="dropdown" href="#">
+    <i class="@Icon"></i>
+    <span class="badge badge-@color navbar-badge">@ChildContent</span>
+</a>
+@code {
+    [Parameter]
+    public string Icon { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public Color Color { get; set; }
+
+    private string color => Color.GetDescription<StyleAttribute>();
+}

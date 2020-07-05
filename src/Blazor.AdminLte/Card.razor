@@ -1,0 +1,16 @@
+﻿<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Title</h5>
+        <p class="card-text">
+            @Contents
+        </p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public RenderFragment Title { get; set; }
+    [Parameter]
+    public RenderFragment Contents { get; set; }
+}

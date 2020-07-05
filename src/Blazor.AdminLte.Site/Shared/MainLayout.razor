@@ -1,0 +1,32 @@
+﻿@inherits LayoutComponentBase
+<NavBar>
+    <NavBarLeft>
+        <NavBarMenuItem Link="/">Home</NavBarMenuItem>
+        <NavBarMenuItem>Content</NavBarMenuItem><!-- defaults to # -->
+    </NavBarLeft>
+    <NavBarSearch></NavBarSearch>
+    <NavBarRight></NavBarRight>
+</NavBar>
+<SideBarContainer>
+    <BrandLogo Link="https://adminlte.io/" Logo="dist/img/AdminLTELogo.png">AdminLTE 3</BrandLogo>
+    <SideBar>
+        <!-- Sidebar user panel (optional) -->
+        <SideBarUserPanel UserImage="dist/img/user2-160x160.jpg">Alexander Pierce</SideBarUserPanel>
+        <SideBarSearch></SideBarSearch>
+        <SideBarMenu></SideBarMenu>
+    </SideBar>
+</SideBarContainer>
+<ContentWrapper>
+    @Body
+</ContentWrapper>
+<ControlSideBar></ControlSideBar>
+<MainFooter>
+    <Default>
+        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </Default>
+    <Right>
+        For Microsoft Blazor
+    </Right>
+</MainFooter>
+
+
