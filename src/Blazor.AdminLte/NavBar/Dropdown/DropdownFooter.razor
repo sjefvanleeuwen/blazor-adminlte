@@ -1,0 +1,13 @@
+﻿<a href="@Link" @onclick="OnClick" class="dropdown-item dropdown-footer">
+    @ChildContent
+</a>
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string Link { get; set; } = "#";
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+}

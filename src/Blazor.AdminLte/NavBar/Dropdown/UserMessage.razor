@@ -1,0 +1,40 @@
+﻿<!-- Message Start -->
+<div class="media">
+    <img src="@ProfilePicture" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+    <div class="media-body">
+        <h3 class="dropdown-item-title">
+            @UserName
+            <span class="float-right text-sm text-@iconColor"><i class="@Icon"></i></span>
+        </h3>
+        <p class="text-sm">@Message</p>
+        @{
+            var prettyDate = DateTime.GetPrettyDate();
+            if (prettyDate is null)
+            {
+                <p class="text-sm text-muted"><i class="far fa-calendar mr-1"></i>@DateTime</p>
+            }
+            else
+            {
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>@prettyDate</p>
+            }
+        }
+    </div>
+</div>
+<!-- Message End -->
+@code {
+    [Parameter]
+    public string ProfilePicture { get; set; }
+    [Parameter]
+    public string Icon { get; set; }
+    [Parameter]
+    public Color IconColor { get; set; }
+    [Parameter]
+    public RenderFragment Message { get; set; }
+    [Parameter]
+    public RenderFragment UserName { get; set; }
+    [Parameter]
+    public DateTime DateTime { get; set; }
+
+
+    private string iconColor => IconColor.GetDescription<StyleAttribute>();
+}

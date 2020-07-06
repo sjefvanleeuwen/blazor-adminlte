@@ -1,0 +1,22 @@
+﻿<a href="#" class="dropdown-item">
+    <i class="@Icon"></i>@Message
+    @{
+        var prettyDate = DateTime.GetPrettyDate();
+        if (prettyDate is null)
+        {
+            <p class="float-right text-muted text-sm"><i class="far fa-calendar mr-1"></i>@DateTime</p>
+        }
+        else
+        {
+            <p class="float-right text-muted text-sm"><i class="far fa-clock mr-1"></i>@prettyDate</p>
+        }
+    }
+</a>
+@code {
+    [Parameter]
+    public string Icon { get; set; }
+    [Parameter]
+    public RenderFragment Message { get; set; }
+    [Parameter]
+    public DateTime DateTime { get; set; }
+}
