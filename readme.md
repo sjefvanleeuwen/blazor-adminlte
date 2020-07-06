@@ -144,7 +144,23 @@ The example includes markup that shows how to setup your starter page in Blazor.
         <!-- Sidebar user panel (optional) -->
         <SideBarUserPanel UserImage="dist/img/user2-160x160.jpg">Alexander Pierce</SideBarUserPanel>
         <SideBarSearch></SideBarSearch>
-        <SideBarMenu></SideBarMenu>
+        <SideBarMenu>
+            <SideBarTreeView MenuState="MenuState.Open" Icon="fas fa-tachometer-alt">
+                <Title>Starter Pages</Title>
+                <Items>
+                    <SideBarMenuItem Icon="far fa-circle" NavLinkState="NavLinkState.Active">
+                        Active Page
+                    </SideBarMenuItem>
+                    <SideBarMenuItem Icon="far fa-circle">
+                        Inactive Page
+                    </SideBarMenuItem>
+                </Items>
+            </SideBarTreeView>
+            <SideBarMenuItem Icon="fas fa-th">
+                Simple Link
+                <span class="right badge badge-danger">New</span>
+            </SideBarMenuItem>
+        </SideBarMenu>
     </SideBar>
 </SideBarContainer>
 <ContentWrapper>
