@@ -2,22 +2,12 @@
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
-             with font-awesome or any other icon font library -->
-        <SideBarTreeView MenuState="MenuState.Open" Icon="fas fa-tachometer-alt">
-            <Title>Starter Pages</Title>
-            <Items>
-                <SideBarMenuItem Icon="far fa-circle" NavLinkState="NavLinkState.Active">
-                    Active Page
-                </SideBarMenuItem>
-                <SideBarMenuItem Icon="far fa-circle">
-                    Inactive Page
-                </SideBarMenuItem>
-            </Items>
-        </SideBarTreeView>
-        <SideBarMenuItem Icon="fas fa-th">
-            Simple Link
-            <span class="right badge badge-danger">New</span>
-        </SideBarMenuItem>
+         with font-awesome or any other icon font library -->
+        @ChildContent
     </ul>
 </nav>
 <!-- /.sidebar-menu -->
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}
