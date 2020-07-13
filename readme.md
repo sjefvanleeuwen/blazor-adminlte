@@ -1,4 +1,5 @@
 ﻿![adminlte for blazor](docs/img/blazor-adminlte.svg)
+
 ![.NET Core](https://github.com/sjefvanleeuwen/blazor-adminlte/workflows/.NET%20Core/badge.svg)
 
 # What is it?
