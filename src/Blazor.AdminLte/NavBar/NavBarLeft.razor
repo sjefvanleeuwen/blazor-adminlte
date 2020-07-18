@@ -1,12 +1,25 @@
 ﻿@namespace Blazor.AdminLte
+@inject IJSRuntime JS
 <!-- Left navbar links -->
 <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a @ref="pushButton" class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     @ChildContent
 </ul>
 @code {
     [Parameter]
     public RenderFragment ChildContent { get; set; }
+
+    ElementReference pushButton { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // initiates the data-widget from blazor, preserves the virtual dom.
+            JS.InvokeVoidAsync("click", pushButton);
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
 }
