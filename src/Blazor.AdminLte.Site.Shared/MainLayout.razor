@@ -1,0 +1,118 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS 
+<NavBar>
+    <NavBarLeft>
+        <NavBarMenuItem Link="/">Home</NavBarMenuItem>
+        <NavBarMenuItem>Content</NavBarMenuItem><!-- defaults to # -->
+    </NavBarLeft>
+    <NavBarSearch></NavBarSearch>
+    <NavBarRight>
+        <NavBarDropDown>
+            <NavBarBadge Color="Color.Danger" Icon="far fa-comments">4</NavBarBadge>
+            <NavBarDropDownMenu>
+                <NavBarDropDownMenuItem>
+                    <UserMessage DateTime="dt.AddMinutes(-2)" ProfilePicture="_content/Blazor.AdminLte.Site.Shared/dist/img/user7-128x128.jpg" Icon="fas fa-star">
+                        <UserName>Patricia Maundrell</UserName>
+                        <Message>Follow up</Message>
+                    </UserMessage>
+                </NavBarDropDownMenuItem>
+                <DropdownDivider />
+                <NavBarDropDownMenuItem>
+                    <UserMessage DateTime="dt.AddHours(-4)" ProfilePicture="_content/Blazor.AdminLte.Site.Shared/dist/img/user1-128x128.jpg" Icon="fas fa-star" IconColor="Color.Warning">
+                        <UserName>Brad Diesel</UserName>
+                        <Message>Call me whenever you can...</Message>
+                    </UserMessage>
+                </NavBarDropDownMenuItem>
+                <DropdownDivider />
+                <NavBarDropDownMenuItem>
+                    <UserMessage DateTime="dt.AddDays(-8)" ProfilePicture="_content/Blazor.AdminLte.Site.Shared/dist/img/user8-128x128.jpg" Icon="fas fa-star" IconColor="Color.Danger">
+                        <UserName>John Pierce</UserName>
+                        <Message>I got your message bro</Message>
+                    </UserMessage>
+                </NavBarDropDownMenuItem>
+                <DropdownDivider />
+                <NavBarDropDownMenuItem>
+                    <UserMessage DateTime="dt.AddDays(-31)" ProfilePicture="_content/Blazor.AdminLte.Site.Shared/dist/img/user3-128x128.jpg" Icon="fas fa-star">
+                        <UserName>Nora Silvester</UserName>
+                        <Message>The subject goes here</Message>
+                    </UserMessage>
+                </NavBarDropDownMenuItem>
+                <DropdownDivider />
+                <DropdownFooter OnClick="SeeAllMessages">See All Messages</DropdownFooter>
+            </NavBarDropDownMenu>
+        </NavBarDropDown>
+        <NavBarDropDown>
+            <NavBarBadge Color="Color.Warning" Icon="far fa-bell">15</NavBarBadge>
+            <NavBarDropDownMenu>
+                <DropdownHeader>15 Notifications</DropdownHeader>
+                <DropdownDivider></DropdownDivider>
+                <NotificationMessage DateTime="dt.AddMinutes(-3)" Icon="fas fa-envelope mr-2">
+                    <Message>4 new messages</Message>
+                </NotificationMessage>
+                <DropdownDivider></DropdownDivider>
+                <NotificationMessage DateTime="dt.AddHours(-12)" Icon="fas fa-users mr-2">
+                    <Message>8 friend requests</Message>
+                </NotificationMessage>
+                <DropdownDivider></DropdownDivider>
+                <NotificationMessage DateTime="dt.AddDays(-2)" Icon="fas fa-file mr-2">
+                    <Message>3 new reports</Message>
+                </NotificationMessage>
+                <DropdownDivider></DropdownDivider>
+                <DropdownFooter OnClick="SeeAllNotifications">See All Notifications</DropdownFooter>
+            </NavBarDropDownMenu>
+        </NavBarDropDown>
+        <NavBarSideBarControl></NavBarSideBarControl>
+    </NavBarRight>
+</NavBar>
+<SideBarContainer>
+    <BrandLogo Link="https://adminlte.io/" Logo="_content/Blazor.AdminLte.Site.Shared/dist/img/AdminLTELogo.png">AdminLTE 3</BrandLogo>
+    <SideBar>
+        <!-- Sidebar user panel (optional) -->
+        <SideBarUserPanel UserImage="_content/Blazor.AdminLte.Site.Shared/dist/img/user2-160x160.jpg">Alexander Pierce</SideBarUserPanel>
+        <SideBarSearch></SideBarSearch>
+        <SideBarMenu>
+            <SideBarTreeView MenuState="MenuState.Open" Icon="fas fa-tachometer-alt">
+                <Title>Starter Pages</Title>
+                <Items>
+                    <SideBarMenuItem Icon="far fa-circle" Link="starter-pages/active-page">
+                        Active Page
+                    </SideBarMenuItem>
+                    <SideBarMenuItem Icon="far fa-circle">
+                        Inactive Page
+                    </SideBarMenuItem>
+                </Items>
+            </SideBarTreeView>
+            <SideBarMenuItem Link="simple-link" Icon="fas fa-th">
+                Simple Link
+                <span class="right badge badge-danger">New</span>
+            </SideBarMenuItem>
+        </SideBarMenu>
+    </SideBar>
+</SideBarContainer>
+<ContentWrapper>
+    @Body
+</ContentWrapper>
+<ControlSideBar>Hello World!</ControlSideBar>
+<MainFooter>
+    <Default>
+        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </Default>
+    <Right>
+        Blazorized by Sjef van Leeuwen
+    </Right>
+</MainFooter>
+@code {
+
+    private DateTime dt = DateTime.Now;
+
+    private void SeeAllMessages(Tuple<IDropdownFooter, MouseEventArgs> args)
+    {
+        NavigationManager.NavigateTo("messages/see-all-messages");
+    }
+
+    private void SeeAllNotifications(Tuple<IDropdownFooter, MouseEventArgs> args)
+    {
+        NavigationManager.NavigateTo("messages/see-all-notifications");
+    }
+}
