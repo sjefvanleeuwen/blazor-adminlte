@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore ./src
+      run: dotnet restore ./src/Blazor.AdminLte
     - name: Build
-      run: dotnet build ./src --configuration Release --no-restore
-    - name: Test
-      run: dotnet test ./src --no-restore --verbosity normal
+      run: dotnet build ./src/Blazor.AdminLte --configuration Release --no-restore
+#    - name: Test
+#      run: dotnet test ./src/Blazor.AdminLte --no-restore --verbosity normal
