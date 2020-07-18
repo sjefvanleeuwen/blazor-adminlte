@@ -1,4 +1,5 @@
 ﻿@namespace Blazor.AdminLte
+@implements IDisposable
 @inject NavigationManager Nav
 <li class="nav-item">
     <a href="@Link" class="nav-link @navLinkState">
@@ -20,11 +21,21 @@
 
     private string navLinkState { get; set; }
 
-    protected override Task OnAfterRenderAsync(bool firstRender)
+    private void LocationChanged(object sender, LocationChangedEventArgs args)
     {
         NavLinkState = new Uri(Nav.Uri).PathAndQuery.Trim('/') == Link.Trim('/') ? NavLinkState.Active : NavLinkState.Inactive;
         navLinkState = NavLinkState.GetDescription<StyleAttribute>();
         StateHasChanged();
-        return base.OnAfterRenderAsync(firstRender);
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        Nav.LocationChanged += LocationChanged;
+        return base.OnInitializedAsync();
+    }
+
+    void IDisposable.Dispose()
+    {
+        Nav.LocationChanged -= LocationChanged;
     }
 }
