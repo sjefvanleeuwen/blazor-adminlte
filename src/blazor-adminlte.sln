@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.AdminLte.Site.Shared
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.AdminLte.Wasm", "Blazor.AdminLte.Wasm\Blazor.AdminLte.Wasm.csproj", "{18C07DB3-6FAC-454A-AAB1-32D8AF3E8905}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.AdminLte.Content", "Blazor.AdminLte.Content\Blazor.AdminLte.Content.csproj", "{38FD34A9-6D18-4F54-B1ED-484854C334D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{18C07DB3-6FAC-454A-AAB1-32D8AF3E8905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18C07DB3-6FAC-454A-AAB1-32D8AF3E8905}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18C07DB3-6FAC-454A-AAB1-32D8AF3E8905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38FD34A9-6D18-4F54-B1ED-484854C334D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38FD34A9-6D18-4F54-B1ED-484854C334D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38FD34A9-6D18-4F54-B1ED-484854C334D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38FD34A9-6D18-4F54-B1ED-484854C334D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
