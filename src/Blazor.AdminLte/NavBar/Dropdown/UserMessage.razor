@@ -1,4 +1,5 @@
-﻿<!-- Message Start -->
+﻿@namespace Blazor.AdminLte
+<!-- Message Start -->
 <div class="media">
     <img src="@ProfilePicture" alt="User Avatar" class="img-size-50 mr-3 img-circle">
     <div class="media-body">
@@ -22,6 +23,7 @@
 </div>
 <!-- Message End -->
 @code {
+
     [Parameter]
     public string ProfilePicture { get; set; }
     [Parameter]
@@ -34,7 +36,5 @@
     public RenderFragment UserName { get; set; }
     [Parameter]
     public DateTime DateTime { get; set; }
-
-
     private string iconColor => IconColor.GetDescription<StyleAttribute>();
 }

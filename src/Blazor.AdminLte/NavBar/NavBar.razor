@@ -1,9 +1,14 @@
 ﻿<!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+@namespace Blazor.AdminLte
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" @onclick="Update">
     @ChildContent
 </nav>
 <!-- /.navbar -->
 @code {
     [Parameter]
     public RenderFragment ChildContent { get; set; }
+    private void Update()
+    {
+        StateHasChanged();
+    }
 }

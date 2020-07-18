@@ -1,7 +1,13 @@
-﻿<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+﻿@namespace Blazor.AdminLte
+@inject Microsoft.JSInterop.IJSRuntime js
+<div id="@id" class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
     @ChildContent
 </div>
 @code {
+    private string id = Guid.NewGuid().ToString();
+
+
     [Parameter]
     public RenderFragment ChildContent { get; set; }
+
 }

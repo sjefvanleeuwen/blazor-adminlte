@@ -1,14 +1,26 @@
-﻿<a class="nav-link" data-toggle="dropdown" href="#">
+﻿@namespace Blazor.AdminLte
+@inject Microsoft.JSInterop.IJSRuntime js
+<a @ref="reference" id="@id" class="nav-link" href="#" @onclick="Toggle" @onfocusout="Toggle" @onfocusout:preventDefault @onclick:preventDefault>
     <i class="@Icon"></i>
     <span class="badge badge-@color navbar-badge">@ChildContent</span>
 </a>
 @code {
+
+    private ElementReference reference;
+    private string id = Guid.NewGuid().ToString();
     [Parameter]
     public string Icon { get; set; }
     [Parameter]
     public RenderFragment ChildContent { get; set; }
     [Parameter]
     public Color Color { get; set; }
-
+    //data-toggle="dropdown"
     private string color => Color.GetDescription<StyleAttribute>();
+
+    private async Task Toggle(object e)
+    {
+        await Task.Delay(150);
+        await js.InvokeAsync<string>("toggleMenu", new[] { id });
+        StateHasChanged();
+    }
 }

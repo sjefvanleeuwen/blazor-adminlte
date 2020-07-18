@@ -1,13 +1,21 @@
-﻿<a href="@Link" @onclick="OnClick" class="dropdown-item dropdown-footer">
+﻿@namespace Blazor.AdminLte
+@implements IDropdownFooter
+<a href="@Link" @onclick="onClick" class="dropdown-item dropdown-footer" @onclick:preventDefault>
     @ChildContent
 </a>
 @code {
+
     [Parameter]
     public RenderFragment ChildContent { get; set; }
 
     [Parameter]
     public string Link { get; set; } = "#";
 
+    private void onClick(MouseEventArgs args)
+    {
+        OnClick.InvokeAsync(new Tuple<IDropdownFooter, MouseEventArgs>(this, args));
+    }
+
     [Parameter]
-    public EventCallback<MouseEventArgs> OnClick { get; set; }
+    public EventCallback<Tuple<IDropdownFooter, MouseEventArgs>> OnClick { get; set; }
 }
