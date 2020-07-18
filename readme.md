@@ -1,5 +1,7 @@
 ﻿![adminlte for blazor](docs/img/blazor-adminlte.svg)
 
+![.NET Core](https://github.com/sjefvanleeuwen/blazor-adminlte/workflows/.NET%20Core/badge.svg)
+
 # What is it?
 
 ADMINLTE for Blazor is a collection of reusable components, with which you can easily develop digital services as a designer or developer. Think of buttons, form elements and page templates. This project adapts ADMINLTE 3 so the components can be used from .NET Core Blazor.
