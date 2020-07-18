@@ -17,8 +17,16 @@ The project is in early stage currently, but expanded almost daily. Feel free to
 Start a new Blazor APP and simply install the nuget package.
 
 ```
-Not yet published.... t.b.a.
+Install-Package Blazorized.AdminLte
 ```
+or visit https://www.nuget.org/packages/Blazorized.AdminLte/ for more installation options.
+
+If you want to include the current supported ADMINLTE 3.0.5 static css / js / icons content etc.:
+
+```
+Install-Package Blazorized.AdminLte.Content -Version 3.0.5
+```
+or visit https://www.nuget.org/packages/Blazorized.AdminLte.Content/ for more installation options.
 
 ## Index
 
