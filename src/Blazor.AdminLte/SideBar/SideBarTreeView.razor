@@ -1,19 +1,20 @@
 ﻿@namespace Blazor.AdminLte
+@inject IJSRuntime JS  
 <li class="nav-item has-treeview menu-@(menuState)">
-    <a href="@Link" class="nav-link active">
+    <a href="@Link" class="nav-link active" @onclick="OnClick">
         <i class="nav-icon @Icon"></i>
         <p>
             @Title
             <i class="right fas fa-angle-left"></i>
         </p>
     </a>
-    <ul class="nav nav-treeview">
+    <ul @ref="ul" class="nav nav-treeview">
         @Items
     </ul>
 </li>
 @code {
     [Parameter]
-    public string Link { get; set; } = "#";
+    public string Link { get; set; } = "javascript:void()";
     [Parameter]
     public string Icon { get; set; }
     [Parameter]
@@ -25,4 +26,13 @@
     public MenuState MenuState { get; set; }
 
     private string menuState => MenuState.GetDescription<StyleAttribute>();
+
+    private ElementReference ul { get; set; }
+    private bool Visible { get; set; }
+
+    private void OnClick()
+    {
+        MenuState = MenuState == MenuState.Open ? MenuState.Open : MenuState.Closed;
+        JS.InvokeVoidAsync("toggleSideMenu", ul);
+    }
 }
