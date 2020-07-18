@@ -1,9 +1,12 @@
 ﻿@namespace Blazor.AdminLte
+@inject IJSRuntime JS
+
 <!-- Sidebar Menu -->
 <nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <ul @ref="widget" class="nav nav-pills nav-sidebar flex-column" role="menu">
+        @*data-widget="treeview" role="menu" data-accordion="false"*@
         <!-- Add icons to the links using the .nav-icon class
-         with font-awesome or any other icon font library -->
+        with font-awesome or any other icon font library -->
         @ChildContent
     </ul>
 </nav>
@@ -11,4 +14,11 @@
 @code {
     [Parameter]
     public RenderFragment ChildContent { get; set; }
+    ElementReference widget { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        JS.InvokeVoidAsync("addClass", widget, "data-widget='treeview'");
+        return base.OnAfterRenderAsync(firstRender);
+    }
 }
