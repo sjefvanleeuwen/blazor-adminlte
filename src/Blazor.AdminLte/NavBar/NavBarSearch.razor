@@ -1,11 +1,35 @@
 ﻿@namespace Blazor.AdminLte
+@inject NavigationManager Nav
 <form class="form-inline ml-3">
     <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control form-control-navbar" @bind-value="@SearchQuery" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit">
+            <button class="btn btn-navbar" type="submit" @onclick:preventDefault @onclick="Search">
                 <i class="fas fa-search"></i>
             </button>
         </div>
     </div>
 </form>
+@code {
+
+    /// <summary>
+    /// Search page, defaults to /search/{ForRoute}/{SearchQuery}
+    /// The page should consume the ForRoute and SearchQuery Parameters from the route path.
+    /// </summary>
+    [Parameter] public string SearchPage { get; set; } = "search";
+    [Parameter] public string SearchQuery { get; set; } = "";
+
+
+    private void Search()
+    {
+        var r = System.Web.HttpUtility.ParseQueryString(Nav.Uri).Get("route");
+        if (string.IsNullOrWhiteSpace(r))
+        {
+            r = new Uri(Nav.Uri).PathAndQuery.Trim('/');
+        }
+        if (string.IsNullOrWhiteSpace(r))
+            r = "index";
+        var q = "?&query=" + SearchQuery + "&route=" + r;
+        Nav.NavigateTo($"{SearchPage}/{q}");
+    }
+}

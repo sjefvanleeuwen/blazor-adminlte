@@ -1,0 +1,43 @@
+﻿@implements IDisposable
+@inject NavigationManager Nav
+@page "/search"
+<ContentHeader>
+    <Header>
+        Search
+    </Header>
+</ContentHeader>
+<ContentMain>
+    <Card>
+        <Title>Search for @Route()</Title>
+        <Contents>Query: @SearchQuery()</Contents>
+    </Card>
+</ContentMain>
+@code {
+
+
+    string SearchQuery()
+    {
+        return System.Web.HttpUtility.ParseQueryString(Nav.Uri).Get("query");
+    }
+
+    string Route()
+    {
+        return System.Web.HttpUtility.ParseQueryString(Nav.Uri).Get("route");
+    }
+
+    private void LocationChanged(object sender,LocationChangedEventArgs args)
+    {
+        StateHasChanged();
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        Nav.LocationChanged += LocationChanged;
+        return base.OnInitializedAsync();
+    }
+
+    void IDisposable.Dispose()
+    {
+       Nav.LocationChanged -= LocationChanged;
+    }
+}
