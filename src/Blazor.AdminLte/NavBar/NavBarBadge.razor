@@ -1,13 +1,11 @@
 ﻿@namespace Blazor.AdminLte
 @inject Microsoft.JSInterop.IJSRuntime js
-<a @ref="reference" id="@id" class="nav-link" href="#" @onclick="Toggle" @onfocusout="Toggle" @onfocusout:preventDefault @onclick:preventDefault>
+<a @ref="reference" class="nav-link" href="#" @onclick="Toggle" @onfocusout="Hide" @onfocusout:preventDefault @onclick:preventDefault>
     <i class="@Icon"></i>
     <span class="badge badge-@color navbar-badge">@ChildContent</span>
 </a>
 @code {
-
     private ElementReference reference;
-    private string id = Guid.NewGuid().ToString();
     [Parameter]
     public string Icon { get; set; }
     [Parameter]
@@ -19,8 +17,14 @@
 
     private async Task Toggle(object e)
     {
+        await js.InvokeAsync<string>("toggleMenu", reference);
+        StateHasChanged();
+    }
+
+    private async Task Hide()
+    {
         await Task.Delay(150);
-        await js.InvokeAsync<string>("toggleMenu", new[] { id });
+        await js.InvokeAsync<string>("hideMenu", reference);
         StateHasChanged();
     }
 }
