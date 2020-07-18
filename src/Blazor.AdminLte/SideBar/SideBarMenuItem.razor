@@ -1,4 +1,5 @@
 ﻿@namespace Blazor.AdminLte
+@inject NavigationManager Nav
 <li class="nav-item">
     <a href="@Link" class="nav-link @navLinkState">
         <i class="nav-icon @Icon"></i>
@@ -11,11 +12,19 @@
     [Parameter]
     public string Icon { get; set; }
     [Parameter]
-    public string Link { get; set; } = "#";
+    public string Link { get; set; } = "javascript:void()";
     [Parameter]
     public RenderFragment ChildContent { get; set; }
     [Parameter]
     public NavLinkState NavLinkState { get; set; }
 
-    private string navLinkState => NavLinkState.GetDescription<StyleAttribute>();
+    private string navLinkState { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        NavLinkState = new Uri(Nav.Uri).PathAndQuery.Trim('/') == Link.Trim('/') ? NavLinkState.Active : NavLinkState.Inactive;
+        navLinkState = NavLinkState.GetDescription<StyleAttribute>();
+        StateHasChanged();
+        return base.OnAfterRenderAsync(firstRender);
+    }
 }
