@@ -1,0 +1,53 @@
+﻿@namespace Blazor.AdminLte
+<div class="info-box bg-@backgroundColor">
+    <span class="info-box-icon bg-@iconBackgroundColor"><i class="@Icon"></i></span>
+    <div class="info-box-content">
+        <span class="info-box-text">@Title</span>
+        <span class="info-box-number">@Number</span>
+        @if (backgroundColor != "" && Percentage != null)
+        {
+            <div class="progress">
+                <div class="progress-bar" style="width: @(Percentage)%"></div>
+            </div>
+            if (ProgressDescription != null)
+            {
+            <span class="progress-description">
+                @ProgressDescription
+            </span>
+            }
+        }
+    </div>
+</div>
+@code {
+        [Parameter]
+        public string Icon { get; set; }
+        [Parameter]
+        public RenderFragment Title { get; set; }
+        [Parameter]
+        public double Number { get; set; }
+        [Parameter]
+        public double? Percentage { get; set; }
+        [Parameter]
+        public RenderFragment ProgressDescription { get; set; }
+        [Parameter]
+        public Color IconBackgroundColor { get; set; }
+        [Parameter]
+        public Color BackgroundColor { get; set; }
+        [Parameter]
+        public Gradient Gradient { get; set; }
+
+    private string backgroundColor {
+        get
+        {
+            return (this.Gradient == Gradient.Gradient ? Gradient.GetDescription<StyleAttribute>() + "-" : string.Empty) + BackgroundColor.GetDescription<StyleAttribute>();
+        }
+    }
+
+    private string iconBackgroundColor
+    {
+        get
+        {
+            return (this.Gradient == Gradient.Gradient ? Gradient.GetDescription<StyleAttribute>() + "-" : string.Empty) + IconBackgroundColor.GetDescription<StyleAttribute>();
+        }
+    }
+}
