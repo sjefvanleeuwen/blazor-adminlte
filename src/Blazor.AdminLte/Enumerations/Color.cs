@@ -43,6 +43,8 @@
         [Style("teal")]
         Teal,
         [Style("olive")]
-        Olive
+        Olive,
+        [Style("white")]
+        White
     }
 }
