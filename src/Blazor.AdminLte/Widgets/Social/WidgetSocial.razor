@@ -1,9 +1,9 @@
 ﻿@namespace Blazor.AdminLte
 <div class="card card-widget widget-user">
     <!-- Add the bg color to the header using any of the bg-* classes -->
-    <div class="widget-user-header bg-@backgroundColor">
-        <h3 class="widget-user-username">@Name</h3>
-        <h5 class="widget-user-desc">@Title</h5>
+    <div class="widget-user-header bg-@backgroundColor text-@headerForeColor" style="background: url('@BackgroundImage') center center;">
+        <h3 class="widget-user-username text-@hAlign">@Name</h3>
+        <h5 class="widget-user-desc text-@hAlign">@Title</h5>
     </div>
     <div class="widget-user-image">
         <img src="@Image" alt="User Avatar" class="@imageEffect @elevation">
@@ -60,14 +60,20 @@
     [Parameter]
     public string Image { get; set; }
     [Parameter]
-    public string Logo { get; set; }
+    public string BackgroundImage { get; set; }
     [Parameter]
     public Elevation Elevation { get; set; }
     [Parameter]
     public ImageEffect ImageEffect { get; set; }
     [Parameter]
     public Color BackgroundColor { get; set; }
+    [Parameter]
+    public Color HeaderForeColor { get; set; }
+    [Parameter]
+    public HAlign HeaderAlign { get; set; }
 
+    private string hAlign => HeaderAlign.GetDescription<StyleAttribute>();
+    private string headerForeColor => HeaderForeColor.GetDescription<StyleAttribute>();
     private string backgroundColor => BackgroundColor.GetDescription<StyleAttribute>();
     private string elevation => Elevation.GetDescription<StyleAttribute>();
     private string imageEffect => ImageEffect.GetDescription<StyleAttribute>();
