@@ -31,3 +31,7 @@ function removeClass(el, _class) {
 function click(el) {
     $(el).click();
 }
+
+function carousel(el) {
+    $(el).carousel();
+}
