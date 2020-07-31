@@ -1,0 +1,74 @@
+﻿@namespace Blazor.AdminLte
+<div class="card card-widget widget-user">
+    <!-- Add the bg color to the header using any of the bg-* classes -->
+    <div class="widget-user-header bg-@backgroundColor">
+        <h3 class="widget-user-username">@Name</h3>
+        <h5 class="widget-user-desc">@Title</h5>
+    </div>
+    <div class="widget-user-image">
+        <img src="@Image" alt="User Avatar" class="@imageEffect @elevation">
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-sm-4 border-right">
+                <div class="description-block">
+                    <h5 class="description-header">@DescriptionHeader1</h5>
+                    <span class="description-text">@Description1</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 border-right">
+                <div class="description-block">
+                    <h5 class="description-header">@DescriptionHeader2</h5>
+                    <span class="description-text">@Description2</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4">
+                <div class="description-block">
+                    <h5 class="description-header">@DescriptionHeader3</h5>
+                    <span class="description-text">@Description3</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+@code {
+    [Parameter]
+    public RenderFragment DescriptionHeader1 { get; set; }
+    [Parameter]
+    public RenderFragment DescriptionHeader2 { get; set; }
+    [Parameter]
+    public RenderFragment DescriptionHeader3 { get; set; }
+
+    [Parameter]
+    public RenderFragment Description1 { get; set; }
+    [Parameter]
+    public RenderFragment Description2 { get; set; }
+    [Parameter]
+    public RenderFragment Description3 { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
+    [Parameter]
+    public string Name { get; set; }
+    [Parameter]
+    public string Image { get; set; }
+    [Parameter]
+    public string Logo { get; set; }
+    [Parameter]
+    public Elevation Elevation { get; set; }
+    [Parameter]
+    public ImageEffect ImageEffect { get; set; }
+    [Parameter]
+    public Color BackgroundColor { get; set; }
+
+    private string backgroundColor => BackgroundColor.GetDescription<StyleAttribute>();
+    private string elevation => Elevation.GetDescription<StyleAttribute>();
+    private string imageEffect => ImageEffect.GetDescription<StyleAttribute>();
+}
