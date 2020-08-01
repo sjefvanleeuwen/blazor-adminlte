@@ -199,6 +199,6 @@ The example includes markup that shows how to setup your starter page in Blazor.
 }
 ```
 
-This renders:
+With such markup you can render something like this:
 
 ![screenshot](docs/img/adminlte-screenshot.png)
