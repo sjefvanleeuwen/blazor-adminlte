@@ -1,15 +1,51 @@
 ﻿@namespace Blazor.AdminLte
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">@Title</h5>
-        <p class="card-text">
+@inject IJSRuntime JS
+    <div @ref="card" class="card card-@headerBackgroundColor
+         @(Expandable ? "collapsed-card" :string.Empty)
+         @(CardStyle == CardStyle.Solid ? "bg-" + headerBackgroundColor : string.Empty)
+         @(CardStyle == CardStyle.Outline ? "card-outline":string.Empty)
+         ">
+        <div class="card-header">
+            <h3 class="card-title">@Title</h3>
+            <div class="card-tools">
+                @if (OnRefresh.HasDelegate)
+                {
+                    <button type="button" class="btn btn-tool" data-card-widget="card-refresh" @onclick="onRefresh">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                }
+                @if (Maximizable)
+                {
+                    <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                }
+                @if (Collapsable || Expandable)
+                {
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                }
+                @if (Removable)
+                {
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                }
+            </div>
+        </div>
+        <div class="card-body">
             @Contents
-        </p>
+        </div>
+        @if (LoadingState != LoadingState.None)
+        {
+        <div class="@(LoadingState.GetDescription<StyleAttribute>())">
+            <i class="fas fa-2x fa-sync-alt"></i>
+        </div>
+        }
     </div>
-</div>
+
 @code {
-    [Parameter]
-    public RenderFragment Title { get; set; }
-    [Parameter]
-    public RenderFragment Contents { get; set; }
+
+
 }

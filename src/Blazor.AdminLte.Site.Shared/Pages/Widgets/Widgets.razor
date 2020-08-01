@@ -112,6 +112,200 @@
                 </WidgetSocial>
             </Column>
         </Row>
+        <h5>Cards</h5>
+        <h6>Abilities</h6>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Primary" Expandable="true">
+                    <Title>Expandable</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Success" Collapsable="true">
+                    <Title>Collapsable</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Warning" Removable="true">
+                    <Title>Removable</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Danger" Maximizable="true">
+                    <Title>Maximizable</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+        </Row>
+
+
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Primary" OnRefresh="GetContent">
+                    <Title>Card Refresh</Title>
+                    <Contents>
+                        @BodyRefreshCard
+                    </Contents>
+                </Card>
+            </Column>
+            @code {
+                private MarkupString BodyRefreshCard { get; set; } = (MarkupString)"The body of the card";
+                private void GetContent(Tuple<ICard, MouseEventArgs> tuple)
+                {
+                    BodyRefreshCard = (MarkupString)"The body of the card, after refresh";
+                }
+            }
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Success" OnRefresh="GetContent2" Collapsable="true" Removable="true" Maximizable="true">
+                    <Title>All together</Title>
+                    <Contents>
+                        @BodyRefreshCard2
+                    </Contents>
+                </Card>
+            </Column>
+            @code {
+                private MarkupString BodyRefreshCard2 { get; set; } = (MarkupString)"The body of the card";
+                private void GetContent2(Tuple<ICard, MouseEventArgs> tuple)
+                {
+                    BodyRefreshCard2 = (MarkupString)"The body of the card, after refresh";
+                }
+            }
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Warning" LoadingState="LoadingState.Normal">
+                    <Title>Loading state</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Danger" LoadingState="LoadingState.Dark">
+                    <Title>Loading state (dark)</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+        </Row>
+
+
+        <h6>Color Variations</h6>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Primary">
+                    <Title>Primary</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Success" Removable="true">
+                    <Title>Success</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Warning" Collapsable="true">
+                    <Title>Warning</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Danger">
+                    <Title>Danger</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+        </Row>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Primary" CardStyle="CardStyle.Outline">
+                    <Title>Primary Outline</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Success" Removable="true" CardStyle="CardStyle.Outline">
+                    <Title>Success Outline</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Warning" Collapsable="true" CardStyle="CardStyle.Outline">
+                    <Title>Warning Outline</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Danger" CardStyle="CardStyle.Outline">
+                    <Title>Danger Outline</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+        </Row>
+
+
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Primary" CardStyle="CardStyle.Solid">
+                    <Title>Primary Outline</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Success" Removable="true" CardStyle="CardStyle.Solid">
+                    <Title>Success Outline</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Warning" Collapsable="true" CardStyle="CardStyle.Solid">
+                    <Title>Warning Outline</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Danger" CardStyle="CardStyle.Solid">
+                    <Title>Danger Outline</Title>
+                    <Contents>
+                        The body of the card
+                    </Contents>
+                </Card>
+            </Column>
+        </Row>
+
     </div>
 @code {
 
