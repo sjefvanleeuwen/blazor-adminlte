@@ -1,0 +1,21 @@
+﻿@content
+
+@code {
+    [Parameter]
+    public RenderFragment content { get; set; }
+
+    public bool OverrideParentContent { get; set; }
+
+    public string SetContent(RenderFragment ctx, bool overrideParentContent = false)
+    {
+        content = (RenderFragment)ctx.Clone();
+
+        OverrideParentContent = overrideParentContent;
+        return null;
+    }
+
+    public RenderFragment GetContent()
+    {
+        return content;
+    }
+}

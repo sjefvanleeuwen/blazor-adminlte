@@ -1,14 +1,14 @@
-﻿@page "/starter-pages/active-page"
+﻿@page "/injections/navbar-left"
 @inject NavBarLeftInjectableMenu menu
-@menu.SetContent(@<ActivePageMenu />, true)
+@menu.SetContent(@<NavBarLeftMenu />)
 <ContentHeader>
     <Header>
-        ActivePage
+        NavBar Left
     </Header>
 </ContentHeader>
 <ContentMain>
     <Card>
-        <Title>Some active page content</Title>
+        <Title>Title</Title>
         <Contents>Contents</Contents>
     </Card>
 </ContentMain>

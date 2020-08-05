@@ -1,10 +1,15 @@
 ﻿@inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
-@inject IJSRuntime JS 
+@inject IJSRuntime JS
+@inject NavBarLeftInjectableMenu navBarLeftInjectableMenu
 <NavBar>
     <NavBarLeft>
-        <NavBarMenuItem Link="/">Home</NavBarMenuItem>
-        <NavBarMenuItem>Content</NavBarMenuItem><!-- defaults to # -->
+        @if (!navBarLeftInjectableMenu.OverrideParentContent)
+        {
+            <NavBarMenuItem Link="/">Home</NavBarMenuItem>
+            <NavBarMenuItem>Content</NavBarMenuItem><!-- defaults to # -->
+        }
+        @navBarLeftInjectableMenu.content <!-- Injectable for custom menu content per page -->
     </NavBarLeft>
     <NavBarSearch></NavBarSearch>
     <NavBarRight>
@@ -87,6 +92,17 @@
                 </SideBarMenuItem>
             </Items>
         </SideBarTreeView>
+        <SideBarTreeView MenuState="MenuState.Open" Icon="fas fa-tachometer-alt">
+            <Title>Content Injections</Title>
+            <Items>
+                <SideBarMenuItem Icon="far fa-circle" Link="injections/navbar-left">
+                    NavBar Left
+                </SideBarMenuItem>
+                <SideBarMenuItem Icon="far fa-circle" Link="injections/navbar-left-override">
+                    NavBar Left Override
+                </SideBarMenuItem>
+            </Items>
+        </SideBarTreeView>
         <SideBarTreeView MenuState="MenuState.Closed" Icon="fas fa-tachometer-alt">
             <Title>UI Elements</Title>
             <Items>
@@ -116,7 +132,13 @@
     </Right>
 </MainFooter>
 @code {
-
+    protected override void OnParametersSet()
+    {
+        navBarLeftInjectableMenu.content = null; // for refreshing custom menu injectables per page.
+        navBarLeftInjectableMenu.OverrideParentContent = false; // reset default to show parent menu content items.
+    }
+}
+@code {
     private DateTime dt = DateTime.Now;
 
     private void SeeAllMessages(Tuple<IDropdownFooter, MouseEventArgs> args)
@@ -128,4 +150,5 @@
     {
         NavigationManager.NavigateTo("messages/see-all-notifications");
     }
+
 }

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Westwind.AspNetCore.LiveReload;
+using Blazor.AdminLte;
 
 namespace Blazor.AdminLte.Site
 {
@@ -26,6 +27,7 @@ namespace Blazor.AdminLte.Site
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddMvc().AddRazorRuntimeCompilation();
             services.AddServerSideBlazor();
+            services.AddAdminLte();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

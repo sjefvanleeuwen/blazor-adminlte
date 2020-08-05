@@ -1,14 +1,14 @@
-﻿@page "/starter-pages/active-page"
+﻿@page "/injections/navbar-left-override"
 @inject NavBarLeftInjectableMenu menu
-@menu.SetContent(@<ActivePageMenu />, true)
+@menu.SetContent(@<NavBarLeftMenu />,true)
 <ContentHeader>
     <Header>
-        ActivePage
+        Navbar Left Override
     </Header>
 </ContentHeader>
 <ContentMain>
     <Card>
-        <Title>Some active page content</Title>
+        <Title>Title</Title>
         <Contents>Contents</Contents>
     </Card>
 </ContentMain>
