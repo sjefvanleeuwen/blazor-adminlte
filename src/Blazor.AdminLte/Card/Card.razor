@@ -20,10 +20,16 @@
                         <i class="fas fa-expand"></i>
                     </button>
                 }
-                @if (Collapsable || Expandable)
+                @if (Collapsable)
                 {
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
+                    </button>
+                }
+                @if (Expandable)
+                {
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
                     </button>
                 }
                 @if (Removable)
