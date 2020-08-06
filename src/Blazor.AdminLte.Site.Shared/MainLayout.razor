@@ -134,8 +134,9 @@
 @code {
     protected override void OnParametersSet()
     {
-        navBarLeftInjectableMenu.content = null; // for refreshing custom menu injectables per page.
-        navBarLeftInjectableMenu.OverrideParentContent = false; // reset default to show parent menu content items.
+        // content = null; for refreshing custom menu injectables per page.
+        // no override; reset default to show parent menu content items.
+        navBarLeftInjectableMenu.SetContent(null, false);
     }
 }
 @code {
