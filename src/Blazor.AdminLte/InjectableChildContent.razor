@@ -8,7 +8,15 @@
 
     public string SetContent(RenderFragment ctx, bool overrideParentContent = false)
     {
-        content = (RenderFragment)ctx.Clone();
+        if (ctx == null)
+        {
+            content = null;
+        }
+        else
+        {
+            content = (RenderFragment)ctx.Clone();
+        }
+
 
         OverrideParentContent = overrideParentContent;
         return null;
