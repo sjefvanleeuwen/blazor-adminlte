@@ -1,55 +1,21 @@
 ﻿@namespace Blazor.AdminLte
-@inject IJSRuntime JS
-    <div @ref="card" class="card card-@headerBackgroundColor
-         @(Expandable ? "collapsed-card" :string.Empty)
-         @(CardStyle == CardStyle.Solid ? "bg-" + headerBackgroundColor : string.Empty)
-         @(CardStyle == CardStyle.Outline ? "card-outline":string.Empty)
-         ">
-        <div class="card-header">
-            <h3 class="card-title">@Title</h3>
-            <div class="card-tools">
-                @if (OnRefresh.HasDelegate)
-                {
-                    <button type="button" class="btn btn-tool" @onclick="onRefresh">
-                        <i class="fas fa-sync-alt"></i>
-                    </button>
-                }
-                @if (Maximizable)
-                {
-                    <button type="button" class="btn btn-tool" data-card-widget="maximize">
-                        <i class="fas fa-expand"></i>
-                    </button>
-                }
-                @if (Collapsable)
-                {
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                }
-                @if (Expandable)
-                {
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                }
-                @if (Removable)
-                {
-                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                }
-            </div>
-        </div>
-        <div class="card-body">
-            @Contents
-        </div>
-        @if (LoadingState != LoadingState.None)
-        {
+<div @ref="CardReference" @attributes="@Attributes">
+    <div class="card-header">
+        @Title
+        <CascadingValue Name="ToolOptions" Value="ToolOptions">
+            @Header
+        </CascadingValue>
+    </div>
+    <div class="card-body">
+        @Body
+    </div>
+    @if (LoadingState != LoadingState.None)
+    {
         <div class="@(LoadingState.GetDescription<StyleAttribute>())">
             <i class="fas fa-2x fa-sync-alt"></i>
         </div>
-        }
-    </div>
+    }
+</div>
 
 @code {
 

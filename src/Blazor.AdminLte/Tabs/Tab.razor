@@ -1,0 +1,4 @@
+﻿@namespace Blazor.AdminLte
+    <li class="nav-item">
+        <a class="nav-link @(IsActive ? "active" : string.Empty)" id="@(ContentsIdentifier)-tab" data-toggle="pill" href="#@(ContentsIdentifier)" role="tab" aria-controls="@ContentsIdentifier" aria-selected="@IsActive">@ChildContent</a>
+    </li>

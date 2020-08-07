@@ -1,0 +1,34 @@
+﻿@page "/tabs"
+<ContentHeader>
+    <Header>
+        Tabs
+    </Header>
+</ContentHeader>
+<ContentMain>
+    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary }">
+        <Header>
+            <TabList Identifier="tabExample">
+                <Tab ContentsIdentifier="Tab1">Tab1</Tab>
+                <Tab ContentsIdentifier="Tab2" IsActive="true">Tab2</Tab>
+                <Tab ContentsIdentifier="Tab3">Tab3</Tab>
+                <Tab ContentsIdentifier="Tab4">Tab4</Tab>
+            </TabList>
+        </Header>
+        <Body>
+            <TabBodyList Identifier="tabExample">
+                <TabBodyItem Identifier="Tab1">
+                    Body for Tab 1
+                </TabBodyItem>
+                <TabBodyItem Identifier="Tab2" IsActive="true">
+                    Body for Tab 2
+                </TabBodyItem>
+                <TabBodyItem Identifier="Tab3">
+                    Body for Tab 3
+                </TabBodyItem>
+                <TabBodyItem Identifier="Tab4">
+                    Body for Tab 4
+                </TabBodyItem>
+            </TabBodyList>
+        </Body>
+    </Card>
+</ContentMain>
