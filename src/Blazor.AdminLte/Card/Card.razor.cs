@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Blazor.AdminLte
 {
@@ -30,6 +29,8 @@ namespace Blazor.AdminLte
         private IDictionary<string, object> Attributes => GetAttributes();
         private string DisplayHeaderBackgroundColor => HeaderBackgroundColor.GetDescription<StyleAttribute>();
         private string DisplayCardType => Type.GetDescription<StyleAttribute>();
+        private IDictionary<string, object> HeaderAttributes => GetHeaderAttributes();
+        private bool IsTabs => Type == CardType.Tabs;
 
         private IDictionary<string, object> GetAttributes()
         {
@@ -50,6 +51,9 @@ namespace Blazor.AdminLte
                     case CardStyle.Outline:
                         attributes["class"] = $"{attributes["class"]} card-outline";
                         break;
+                    case CardStyle.OutlineTabs:
+                        attributes["class"] = $"{attributes["class"]} card-outline-tabs";
+                        break;
                     case CardStyle.Solid:
                         attributes["class"] = $"{attributes["class"]} bg-{DisplayHeaderBackgroundColor}";
                         break;
@@ -61,6 +65,31 @@ namespace Blazor.AdminLte
                         break;
                 }
             }
+            if (IsTabs)
+            {
+                attributes["class"] = $"{attributes["class"]} {DisplayCardType}";
+            }
+
+            return attributes;
+        }
+
+        private IDictionary<string, object> GetHeaderAttributes()
+        {
+            var attributes = new Dictionary<string, object>();
+            attributes["class"] = "card-header";
+            if (IsTabs)
+            {
+                attributes["class"] = $"{attributes["class"]} p-0";
+                if (!Styles.ToList().Contains(CardStyle.OutlineTabs))
+                {
+                    attributes["class"] = $"{attributes["class"]} pt-1";
+                }
+            }
+            if (Styles.ToList().Contains(CardStyle.Outline))
+            {
+                attributes["class"] = $"{attributes["class"]} border-bottom-0";
+            }
+            
             return attributes;
         }
     }

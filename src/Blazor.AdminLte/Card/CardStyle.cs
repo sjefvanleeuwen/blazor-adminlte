@@ -4,6 +4,7 @@
     {
         None,
         Outline,
+        OutlineTabs,
         Solid,
         Primary
     }
