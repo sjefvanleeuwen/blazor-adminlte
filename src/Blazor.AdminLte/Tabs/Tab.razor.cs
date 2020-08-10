@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System;
+using System.Collections.Generic;
 
 namespace Blazor.AdminLte
 {
@@ -6,16 +8,20 @@ namespace Blazor.AdminLte
     {
         [CascadingParameter(Name = "ParentIdentifier")]
         public string ParentIdentifier { get; set; }
+        [CascadingParameter(Name = "ControlleredByBlazor")]
+        public bool ControlleredByBlazor { get; set; }
 
         [Parameter]
         public string ContentsIdentifier { get; set; }
-
         [Parameter]
         public bool IsActive { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        private string CompositeIdentifier => $"{ParentIdentifier}_{ContentsIdentifier}";
+        [Parameter]
+        public EventCallback OnClick { get; set; }
+
+        private string CompositeIdentifier => $"{ParentIdentifier}_{ContentsIdentifier}{(ControlleredByBlazor ? "_" : string.Empty)}";
     }
 }
