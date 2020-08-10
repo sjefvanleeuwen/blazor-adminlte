@@ -1,4 +1,6 @@
 ﻿@namespace Blazor.AdminLte
 <div class="tab-content" id="@(Identifier)Content">
-    @ChildContent
+    <CascadingValue Name="ParentIdentifier" Value="@Identifier">
+        @ChildContent
+    </CascadingValue>
 </div>

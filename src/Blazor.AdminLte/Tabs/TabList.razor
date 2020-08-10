@@ -1,4 +1,6 @@
 ﻿@namespace Blazor.AdminLte
 <ul id="@Identifier" class="nav nav-tabs" role="tablist">
-    @ChildContent
+    <CascadingValue Name="ParentIdentifier" Value="@Identifier">
+        @ChildContent
+    </CascadingValue>
 </ul>
