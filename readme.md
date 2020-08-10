@@ -10,6 +10,11 @@ ADMINLTE for Blazor is a collection of reusable components, with which you can e
 # Status
 
 The project is in early stage currently, but expanded almost daily. Feel free to follow the project and receive updates as they arrive.
+**Note** that components and their naming conventions might change until a major version is released.
+
+We also provide various integrations in a seperate project, to help you started with more complex web applications Here:
+
+https://github.com/sjefvanleeuwen/blazorized-adminlte-plugins
 
 # Installation
 
