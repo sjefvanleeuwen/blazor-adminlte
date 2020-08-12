@@ -1,0 +1,7 @@
+﻿<a href="@Url" class="small-box-footer">@Label <i class="fas fa-arrow-circle-right"></i></a>
+@code { 
+    [Parameter]
+    public string Label { get; set; } = "More info";
+    [Parameter]
+    public string Url { get; set; } = "#";
+}

@@ -1,0 +1,14 @@
+﻿@namespace  Blazor.AdminLte
+<div class="small-box bg-@DisplayBackgroundColor">
+    <div class="inner">
+        <h3>@Value</h3>
+        <p>@Title</p>
+    </div>
+    @if (!string.IsNullOrEmpty(Icon))
+    {
+    <div class="icon">
+        <i class="@Icon"></i>
+    </div>
+    }
+    @Footer
+</div>
