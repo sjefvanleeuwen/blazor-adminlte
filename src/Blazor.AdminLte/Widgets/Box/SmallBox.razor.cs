@@ -16,6 +16,8 @@ namespace Blazor.AdminLte
         [Parameter]
         public Gradient Gradient { get; set; }
         [Parameter]
+        public LoadingState LoadingState { get; set; }
+        [Parameter]
         public RenderFragment Footer { get; set; }     
 
         private string DisplayBackgroundColor =>

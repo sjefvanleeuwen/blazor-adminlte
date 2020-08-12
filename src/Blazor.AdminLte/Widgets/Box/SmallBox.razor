@@ -1,14 +1,20 @@
 ﻿@namespace  Blazor.AdminLte
-<div class="small-box bg-@DisplayBackgroundColor">
-    <div class="inner">
-        <h3>@Value</h3>
-        <p>@Title</p>
+    <div class="small-box bg-@DisplayBackgroundColor">
+        <div class="inner">
+            <h3>@Value</h3>
+            <p>@Title</p>
+        </div>
+        @if (!string.IsNullOrEmpty(Icon))
+        {
+            <div class="icon">
+                <i class="@Icon"></i>
+            </div>
+        }
+        @Footer
+        @if (LoadingState != LoadingState.None)
+        {
+            <div class="@(LoadingState.GetDescription<StyleAttribute>())">
+                <i class="fas fa-2x fa-sync-alt"></i>
+            </div>
+        }
     </div>
-    @if (!string.IsNullOrEmpty(Icon))
-    {
-    <div class="icon">
-        <i class="@Icon"></i>
-    </div>
-    }
-    @Footer
-</div>
