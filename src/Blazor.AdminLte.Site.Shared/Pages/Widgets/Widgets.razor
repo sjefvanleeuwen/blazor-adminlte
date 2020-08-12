@@ -1,324 +1,380 @@
 ﻿@page "/widgets"
-<div class="container-fluid">
-    <h1>Widgets</h1>
-    <h5>Info Box</h5>
-    <Row>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox IconBackgroundColor="Color.Danger" Icon="far fa-envelope" Number=1410>
-                <Title>Messages</Title>
-            </InfoBox>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox IconBackgroundColor="Color.Success" Icon="far fa-flag" Number=410>
-                <Title>Bookmarks</Title>
-            </InfoBox>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox IconBackgroundColor="Color.Warning" Icon="far fa-copy" Number=13648>
-                <Title>Uploads</Title>
-            </InfoBox>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox Gradient="Gradient.Gradient" IconBackgroundColor="Color.Info" Icon="far fa-star" Number=93139>
-                <Title>Likes</Title>
-            </InfoBox>
-        </Column>
-    </Row>
-    <h5>Info Box With bg-*</h5>
-    <Row>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox BackgroundColor="Color.Info" Icon="far fa-bookmark" Percentage=70 Number=41.410>
-                <Title>Bookmarks</Title>
-                <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
-            </InfoBox>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox BackgroundColor="Color.Success" Icon="far fa-thumbs-up" Percentage=70 Number=41.410>
-                <Title>Likes</Title>
-                <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
-            </InfoBox>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox BackgroundColor="Color.Warning" Icon="far fa-calendar" Percentage=70 Number=41.410>
-                <Title>Events</Title>
-                <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
-            </InfoBox>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox BackgroundColor="Color.Danger" Icon="far fa-comments" Percentage=70 Number=41.410>
-                <Title>Comments</Title>
-                <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
-            </InfoBox>
-        </Column>
-    </Row>
-    <h5>Info Box With bg-gradient-*</h5>
-    <Row>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox Gradient="Gradient.Gradient" BackgroundColor="Color.Info" Icon="far fa-bookmark" Percentage=70 Number=41.410>
-                <Title>Bookmarks</Title>
-                <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
-            </InfoBox>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox Gradient="Gradient.Gradient" BackgroundColor="Color.Success" Icon="far fa-thumbs-up" Percentage=70 Number=41.410>
-                <Title>Likes</Title>
-                <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
-            </InfoBox>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox Gradient="Gradient.Gradient" BackgroundColor="Color.Warning" Icon="far fa-calendar" Percentage=70 Number=41.410>
-                <Title>Events</Title>
-                <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
-            </InfoBox>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <InfoBox Gradient="Gradient.Gradient" BackgroundColor="Color.Danger" Icon="far fa-comments" Percentage=70 Number=41.410>
-                <Title>Comments</Title>
-                <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
-            </InfoBox>
-        </Column>
-    </Row>
-    <h5>Social Widgets</h5>
-    <Row>
-        <Column Width="Width.Six" Size="Size.Medium">
-            <WidgetSocial BackgroundColor="Color.Info"
-                          ImageEffect="ImageEffect.Circle"
-                          Elevation="Elevation.Two"
-                          Image="_content/Blazor.AdminLte.Site.Shared/dist/img/user1-128x128.jpg"
-                          Name="Alexander Pierce"
-                          Title="Founder & CEO">
-                <DescriptionHeader1>3,200</DescriptionHeader1>
-                <Description1>SALES</Description1>
-                <DescriptionHeader2>13,000</DescriptionHeader2>
-                <Description2>FOLLOWERS</Description2>
-                <DescriptionHeader3>35</DescriptionHeader3>
-                <Description3>PRODUCTS</Description3>
-            </WidgetSocial>
-        </Column>
-        <Column Width="Width.Six" Size="Size.Medium">
-            <WidgetSocial HeaderAlign="HAlign.Right"
-                          HeaderForeColor="Color.White"
-                          BackgroundImage="_content/Blazor.AdminLte.Site.Shared/dist/img/photo1.png"
-                          ImageEffect="ImageEffect.Circle"
-                          Image="_content/Blazor.AdminLte.Site.Shared/dist/img/user3-128x128.jpg"
-                          Name="Elizabeth Pierce"
-                          Title="Web Designer">
-                <DescriptionHeader1>3,200</DescriptionHeader1>
-                <Description1>SALES</Description1>
-                <DescriptionHeader2>13,000</DescriptionHeader2>
-                <Description2>FOLLOWERS</Description2>
-                <DescriptionHeader3>35</DescriptionHeader3>
-                <Description3>PRODUCTS</Description3>
-            </WidgetSocial>
-        </Column>
-    </Row>
-    <h5>Cards</h5>
-    <h6>Abilities</h6>
-    <Row>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Primary" ToolOptions="new CardToolOptions { Expandable = true }">
-                <Title><CardTitle>Expandable</CardTitle></Title>
-                <Header><CardTools /></Header>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Success" ToolOptions="new CardToolOptions { Collapsable = true }">
-                <Title><CardTitle>Collapsable</CardTitle></Title>
-                <Header><CardTools /></Header>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Warning" ToolOptions="new CardToolOptions { Removable = true }">
-                <Title><CardTitle>Removable</CardTitle></Title>
-                <Header><CardTools /></Header>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Danger" ToolOptions="new CardToolOptions { Maximizable = true }">
-                <Title><CardTitle>Maximizable</CardTitle></Title>
-                <Header><CardTools /></Header>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-    </Row>
+    <div class="container-fluid">
+        <h1>Widgets</h1>
+        <h5>Info Box</h5>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox IconBackgroundColor="Color.Danger" Icon="far fa-envelope" Number=1410>
+                    <Title>Messages</Title>
+                </InfoBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox IconBackgroundColor="Color.Success" Icon="far fa-flag" Number=410>
+                    <Title>Bookmarks</Title>
+                </InfoBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox IconBackgroundColor="Color.Warning" Icon="far fa-copy" Number=13648>
+                    <Title>Uploads</Title>
+                </InfoBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox Gradient="Gradient.Gradient" IconBackgroundColor="Color.Info" Icon="far fa-star" Number=93139>
+                    <Title>Likes</Title>
+                </InfoBox>
+            </Column>
+        </Row>
+        <h5>Info Box With bg-*</h5>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox BackgroundColor="Color.Info" Icon="far fa-bookmark" Percentage=70 Number=41.410>
+                    <Title>Bookmarks</Title>
+                    <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
+                </InfoBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox BackgroundColor="Color.Success" Icon="far fa-thumbs-up" Percentage=70 Number=41.410>
+                    <Title>Likes</Title>
+                    <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
+                </InfoBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox BackgroundColor="Color.Warning" Icon="far fa-calendar" Percentage=70 Number=41.410>
+                    <Title>Events</Title>
+                    <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
+                </InfoBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox BackgroundColor="Color.Danger" Icon="far fa-comments" Percentage=70 Number=41.410>
+                    <Title>Comments</Title>
+                    <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
+                </InfoBox>
+            </Column>
+        </Row>
+        <h5>Info Box With bg-gradient-*</h5>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox Gradient="Gradient.Gradient" BackgroundColor="Color.Info" Icon="far fa-bookmark" Percentage=70 Number=41.410>
+                    <Title>Bookmarks</Title>
+                    <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
+                </InfoBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox Gradient="Gradient.Gradient" BackgroundColor="Color.Success" Icon="far fa-thumbs-up" Percentage=70 Number=41.410>
+                    <Title>Likes</Title>
+                    <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
+                </InfoBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox Gradient="Gradient.Gradient" BackgroundColor="Color.Warning" Icon="far fa-calendar" Percentage=70 Number=41.410>
+                    <Title>Events</Title>
+                    <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
+                </InfoBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <InfoBox Gradient="Gradient.Gradient" BackgroundColor="Color.Danger" Icon="far fa-comments" Percentage=70 Number=41.410>
+                    <Title>Comments</Title>
+                    <ProgressDescription>70% Increase in 30 Days</ProgressDescription>
+                </InfoBox>
+            </Column>
+        </Row>
+        <h5>Small Box</h5>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <SmallBox Icon="fas fa-shopping-cart" BackgroundColor="Color.Info">
+                    <Value>150</Value>
+                    <Title>New Orders</Title>
+                    <Footer><SmallBoxFooter></SmallBoxFooter></Footer>
+                </SmallBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <SmallBox Icon="fas fa-percentage" BackgroundColor="Color.Success">
+                    <Value>53<sup style="font-size: 20px">%</sup></Value>
+                    <Title>Bounce Rate</Title>
+                    <Footer><SmallBoxFooter></SmallBoxFooter></Footer>
+                </SmallBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <SmallBox Icon="fas fa-user-plus" BackgroundColor="Color.Warning">
+                    <Value>44</Value>
+                    <Title>User Registrations</Title>
+                    <Footer><SmallBoxFooter></SmallBoxFooter></Footer>
+                </SmallBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <SmallBox Icon="fas fa-chart-pie" BackgroundColor="Color.Danger">
+                    <Value>65</Value>
+                    <Title>Unique Visitors</Title>
+                    <Footer><SmallBoxFooter></SmallBoxFooter></Footer>
+                </SmallBox>
+            </Column>
+        </Row>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <SmallBox Icon="fas fa-shopping-cart" BackgroundColor="Color.Info" LoadingState="LoadingState.Normal">
+                    <Value>150</Value>
+                    <Title>New Orders</Title>
+                    <Footer><SmallBoxFooter></SmallBoxFooter></Footer>
+                </SmallBox>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <SmallBox Icon="fas fa-percentage" BackgroundColor="Color.Success" LoadingState="LoadingState.Normal">
+                    <Value>53<sup style="font-size: 20px">%</sup></Value>
+                    <Title>Bounce Rate</Title>
+                    <Footer><SmallBoxFooter></SmallBoxFooter></Footer>
+                </SmallBox>
+            </Column>
 
+        </Row>
 
-    <Row>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Primary">
-                <Title><CardTitle>Card Refresh</CardTitle></Title>
-                <Header><CardTools OnRefresh="GetContent" /></Header>
-                <Body>
-                    @BodyRefreshCard
-                </Body>
-            </Card>
-        </Column>
-        @code {
-            private MarkupString BodyRefreshCard { get; set; } = (MarkupString)"The body of the card";
-            private void GetContent(Tuple<ICardTools, MouseEventArgs> tuple)
-            {
-                BodyRefreshCard = (MarkupString)"The body of the card, after refresh";
+        <h4>Cards</h4>
+        <h5>Abilities</h5>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Primary" ToolOptions="new CardToolOptions { Expandable = true }">
+                    <Title><CardTitle>Expandable</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Success" ToolOptions="new CardToolOptions { Collapsable = true }">
+                    <Title><CardTitle>Collapsable</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Warning" ToolOptions="new CardToolOptions { Removable = true }">
+                    <Title><CardTitle>Removable</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Danger" ToolOptions="new CardToolOptions { Maximizable = true }">
+                    <Title><CardTitle>Maximizable</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+        </Row>
+
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Primary">
+                    <Title><CardTitle>Card Refresh</CardTitle></Title>
+                    <Header><CardTools OnRefresh="GetContent" /></Header>
+                    <Body>
+                        @BodyRefreshCard
+                    </Body>
+                </Card>
+            </Column>
+            @code {
+                private MarkupString BodyRefreshCard { get; set; } = (MarkupString)"The body of the card";
+                private void GetContent(Tuple<ICardTools, MouseEventArgs> tuple)
+                {
+                    BodyRefreshCard = (MarkupString)"The body of the card, after refresh";
+                }
             }
-        }
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Success" ToolOptions="new CardToolOptions { Collapsable = true, Removable = true, Maximizable = true }">
-                <Title><CardTitle>All together</CardTitle></Title>
-                <Header><CardTools OnRefresh="GetContent2" /></Header>
-                <Body>
-                    @BodyRefreshCard2
-                </Body>
-            </Card>
-        </Column>
-        @code {
-            private MarkupString BodyRefreshCard2 { get; set; } = (MarkupString)"The body of the card";
-            private void GetContent2(Tuple<ICardTools, MouseEventArgs> tuple)
-            {
-                BodyRefreshCard2 = (MarkupString)"The body of the card, after refresh";
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Success" ToolOptions="new CardToolOptions { Collapsable = true, Removable = true, Maximizable = true }">
+                    <Title><CardTitle>All together</CardTitle></Title>
+                    <Header><CardTools OnRefresh="GetContent2" /></Header>
+                    <Body>
+                        @BodyRefreshCard2
+                    </Body>
+                </Card>
+            </Column>
+            @code {
+                private MarkupString BodyRefreshCard2 { get; set; } = (MarkupString)"The body of the card";
+                private void GetContent2(Tuple<ICardTools, MouseEventArgs> tuple)
+                {
+                    BodyRefreshCard2 = (MarkupString)"The body of the card, after refresh";
+                }
             }
-        }
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Warning" LoadingState="LoadingState.Normal">
-                <Title><CardTitle>Loading state</CardTitle></Title>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Danger" LoadingState="LoadingState.Dark">
-                <Title><CardTitle>Loading state (dark)</CardTitle></Title>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-    </Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Warning" LoadingState="LoadingState.Normal">
+                    <Title><CardTitle>Loading state</CardTitle></Title>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Danger" LoadingState="LoadingState.Dark">
+                    <Title><CardTitle>Loading state (dark)</CardTitle></Title>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+        </Row>
 
 
-    <h6>Color Variations</h6>
-    <Row>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Primary">
-                <Title><CardTitle>Primary</CardTitle></Title>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Success" ToolOptions="new CardToolOptions { Removable = true }">
-                <Title><CardTitle>Success</CardTitle></Title>
-                <Header><CardTools /></Header>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Warning" ToolOptions="new CardToolOptions { Collapsable = true }">
-                <Title><CardTitle>Warning</CardTitle></Title>
-                <Header><CardTools /></Header>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Danger">
-                <Title><CardTitle>Danger</CardTitle></Title>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-    </Row>
-    <Row>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Primary" Styles="new CardStyle[] { CardStyle.Outline }">
-                <Title><CardTitle>Primary Outline</CardTitle></Title>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Success" Styles="new CardStyle[] { CardStyle.Outline }" ToolOptions="new CardToolOptions { Removable = true }">
-                <Title><CardTitle>Success Outline</CardTitle></Title>
-                <Header><CardTools /></Header>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Warning" Styles="new CardStyle[] { CardStyle.Outline }" ToolOptions="new CardToolOptions { Collapsable = true }">
-                <Title><CardTitle>Warning Outline</CardTitle></Title>
-                <Header><CardTools /></Header>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Danger" Styles="new CardStyle[] { CardStyle.Outline }">
-                <Title><CardTitle>Danger Outline</CardTitle></Title>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-    </Row>
+        <h5>Color Variations</h5>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Primary" ToolOptions="new CardToolOptions { Collapsable = true }">
+                    <Title><CardTitle>Primary</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Success" ToolOptions="new CardToolOptions { Removable = true }">
+                    <Title><CardTitle>Success</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Warning" ToolOptions="new CardToolOptions { Collapsable = true }">
+                    <Title><CardTitle>Warning</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Danger">
+                    <Title><CardTitle>Danger</CardTitle></Title>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+        </Row>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Primary" Styles="new CardStyle[] { CardStyle.Outline }" ToolOptions="new CardToolOptions { Collapsable = true }">
+                    <Title><CardTitle>Primary Outline</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Success" Styles="new CardStyle[] { CardStyle.Outline }" ToolOptions="new CardToolOptions { Removable = true }">
+                    <Title><CardTitle>Success Outline</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Warning" Styles="new CardStyle[] { CardStyle.Outline }" ToolOptions="new CardToolOptions { Collapsable = true }">
+                    <Title><CardTitle>Warning Outline</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Danger" Styles="new CardStyle[] { CardStyle.Outline }">
+                    <Title><CardTitle>Danger Outline</CardTitle></Title>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+        </Row>
 
 
-    <Row>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Primary" Styles="new CardStyle[] { CardStyle.Solid }">
-                <Title><CardTitle>Primary Outline</CardTitle></Title>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Success" Styles="new CardStyle[] { CardStyle.Solid }" ToolOptions="new CardToolOptions { Collapsable = true }">
-                <Title><CardTitle>Success Outline</CardTitle></Title>
-                <Header><CardTools /></Header>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Warning" Styles="new CardStyle[] { CardStyle.Solid }" ToolOptions="new CardToolOptions { Collapsable = true }">
-                <Title><CardTitle>Warning Outline</CardTitle></Title>
-                <Header><CardTools /></Header>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-        <Column Width="Width.Three" Size="Size.Medium">
-            <Card HeaderBackgroundColor="Color.Danger" Styles="new CardStyle[] { CardStyle.Solid }">
-                <Title><CardTitle>Danger Outline</CardTitle></Title>
-                <Body>
-                    The body of the card
-                </Body>
-            </Card>
-        </Column>
-    </Row>
+        <Row>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Primary" Styles="new CardStyle[] { CardStyle.Solid }">
+                    <Title><CardTitle>Primary Outline</CardTitle></Title>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Success" Styles="new CardStyle[] { CardStyle.Solid }" ToolOptions="new CardToolOptions { Collapsable = true }">
+                    <Title><CardTitle>Success Outline</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Warning" Styles="new CardStyle[] { CardStyle.Solid }" ToolOptions="new CardToolOptions { Collapsable = true }">
+                    <Title><CardTitle>Warning Outline</CardTitle></Title>
+                    <Header><CardTools /></Header>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+            <Column Width="Width.Three" Size="Size.Medium">
+                <Card HeaderBackgroundColor="Color.Danger" Styles="new CardStyle[] { CardStyle.Solid }">
+                    <Title><CardTitle>Danger Outline</CardTitle></Title>
+                    <Body>
+                        The body of the card
+                    </Body>
+                </Card>
+            </Column>
+        </Row>
+        
+        <h4>Direct Chat</h4>
 
-</div>
+        <h3>Social Widgets</h3>
+        <Row>
+            <Column Width="Width.Four" Size="Size.Medium">
+
+            </Column>
+            <Column Width="Width.Four" Size="Size.Medium">
+                <WidgetSocial BackgroundColor="Color.Info"
+                              ImageEffect="ImageEffect.Circle"
+                              Elevation="Elevation.Two"
+                              Image="_content/Blazor.AdminLte.Site.Shared/dist/img/user1-128x128.jpg"
+                              Name="Alexander Pierce"
+                              Title="Founder & CEO">
+                    <DescriptionHeader1>3,200</DescriptionHeader1>
+                    <Description1>SALES</Description1>
+                    <DescriptionHeader2>13,000</DescriptionHeader2>
+                    <Description2>FOLLOWERS</Description2>
+                    <DescriptionHeader3>35</DescriptionHeader3>
+                    <Description3>PRODUCTS</Description3>
+                </WidgetSocial>
+            </Column>
+            <Column Width="Width.Four" Size="Size.Medium">
+                <WidgetSocial HeaderAlign="HAlign.Right"
+                              HeaderForeColor="Color.White"
+                              BackgroundImage="_content/Blazor.AdminLte.Site.Shared/dist/img/photo1.png"
+                              ImageEffect="ImageEffect.Circle"
+                              Image="_content/Blazor.AdminLte.Site.Shared/dist/img/user3-128x128.jpg"
+                              Name="Elizabeth Pierce"
+                              Title="Web Designer">
+                    <DescriptionHeader1>3,200</DescriptionHeader1>
+                    <Description1>SALES</Description1>
+                    <DescriptionHeader2>13,000</DescriptionHeader2>
+                    <Description2>FOLLOWERS</Description2>
+                    <DescriptionHeader3>35</DescriptionHeader3>
+                    <Description3>PRODUCTS</Description3>
+                </WidgetSocial>
+            </Column>
+        </Row>
+
+    </div>
 @code {
 
 }

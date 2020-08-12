@@ -84,12 +84,12 @@ namespace Blazor.AdminLte
                 {
                     attributes["class"] = $"{attributes["class"]} pt-1";
                 }
+                if (Styles.ToList().Contains(CardStyle.Outline))
+                {
+                    attributes["class"] = $"{attributes["class"]} border-bottom-0";
+                }
             }
-            if (Styles.ToList().Contains(CardStyle.Outline))
-            {
-                attributes["class"] = $"{attributes["class"]} border-bottom-0";
-            }
-            
+
             return attributes;
         }
     }
