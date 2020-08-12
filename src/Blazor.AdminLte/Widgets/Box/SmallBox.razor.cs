@@ -10,7 +10,7 @@ namespace Blazor.AdminLte
         [Parameter] 
         public RenderFragment Value { get; set; } 
         [Parameter] 
-        public string Icon { get; set; } = "";
+        public string Icon { get; set; }
         [Parameter] 
         public Color BackgroundColor { get; set; }
         [Parameter]
