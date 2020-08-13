@@ -1,0 +1,440 @@
+﻿@page "/ui/buttons"
+@inject NavigationManager NavigationManager
+@using Blazor.AdminLte
+
+<Card Styles="new CardStyle[] { CardStyle.Outline }" HeaderBackgroundColor="Color.Primary">
+    <Header><CardTitle> <i class="fas fa-edit"></i> Buttons</CardTitle></Header>
+    <Body>
+        <p>Various types of buttons. Using the base class <code>.btn</code></p>
+        <table class="table table-bordered text-center">
+            <tbody>
+                <tr>
+                    <th>Normal</th>
+                    <th>Large <code>.btn-lg</code></th>
+                    <th>Small <code>.btn-sm</code></th>
+                    <th>Extra Small <code>.btn-xs</code></th>
+                    <th>Flat <code>.btn-flat</code></th>
+                    <th>Disabled <code>.disabled</code></th>
+                </tr>
+                <tr>
+                    <td>
+                        <Button>Default</Button>
+                    </td>
+                    <td>
+                        <Button Size="ButtonSize.Large">Default</Button>
+                    </td>
+                    <td>
+                        <Button Size="ButtonSize.Small">Default</Button>
+                    </td>
+                    <td>
+                        <Button Size="ButtonSize.ExtraSmall">Default</Button>
+                    </td>
+                    <td>
+                        <Button Size="ButtonSize.Flat">Default</Button>
+                    </td>
+                    <td>
+                        <Button>Default</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Color="Color.Primary">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Primary" Size="ButtonSize.Large">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Primary" Size="ButtonSize.Small">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Primary" Size="ButtonSize.ExtraSmall">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Primary" Size="ButtonSize.Flat">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Primary">Primary</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Color="Color.Secondary">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Secondary" Size="ButtonSize.Large">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Secondary" Size="ButtonSize.Small">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Secondary" Size="ButtonSize.ExtraSmall">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Secondary" Size="ButtonSize.Flat">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Secondary">Secondary</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Color="Color.Success">Success</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Success" Size="ButtonSize.Large">Success</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Success" Size="ButtonSize.Small">Success</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Success" Size="ButtonSize.ExtraSmall">Success</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Success" Size="ButtonSize.Flat">Success</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Success">Success</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Color="Color.Info">Info</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Info" Size="ButtonSize.Large">Info</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Info" Size="ButtonSize.Small">Info</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Info" Size="ButtonSize.ExtraSmall">Info</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Info" Size="ButtonSize.Flat">Info</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Info">Info</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Color="Color.Danger">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Danger" Size="ButtonSize.Large">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Danger" Size="ButtonSize.Small">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Danger" Size="ButtonSize.ExtraSmall">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Danger" Size="ButtonSize.Flat">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Danger">Danger</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Color="Color.Warning">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Warning" Size="ButtonSize.Large">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Warning" Size="ButtonSize.Small">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Warning" Size="ButtonSize.ExtraSmall">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Warning" Size="ButtonSize.Flat">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Color="Color.Warning">Warning</Button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </Body>
+</Card>
+
+<Card Styles="new CardStyle[] { CardStyle.Outline }" HeaderBackgroundColor="Color.Primary">
+    <Header><CardTitle> <i class="fas fa-edit"></i> Outline Buttons</CardTitle></Header>
+    <Body>
+        <p>Various types of buttons. Using the base class <code>.btn</code></p>
+        <table class="table table-bordered text-center">
+            <tbody>
+                <tr>
+                    <th>Normal</th>
+                    <th>Large <code>.btn-lg</code></th>
+                    <th>Small <code>.btn-sm</code></th>
+                    <th>Extra Small <code>.btn-xs</code></th>
+                    <th>Flat <code>.btn-flat</code></th>
+                    <th>Disabled <code>.disabled</code></th>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Primary">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Primary" Size="ButtonSize.Large">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Primary" Size="ButtonSize.Small">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Primary" Size="ButtonSize.ExtraSmall">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Primary" Size="ButtonSize.Flat">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Primary">Primary</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Secondary">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Secondary" Size="ButtonSize.Large">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Secondary" Size="ButtonSize.Small">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Secondary" Size="ButtonSize.ExtraSmall">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Secondary" Size="ButtonSize.Flat">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Secondary">Secondary</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Success">Success</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Success" Size="ButtonSize.Large">Success</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Success" Size="ButtonSize.Small">Success</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Success" Size="ButtonSize.ExtraSmall">Success</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Success" Size="ButtonSize.Flat">Success</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Success">Success</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Info">Info</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Info" Size="ButtonSize.Large">Info</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Info" Size="ButtonSize.Small">Info</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Info" Size="ButtonSize.ExtraSmall">Info</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Info" Size="ButtonSize.Flat">Info</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Info">Info</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Danger">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Danger" Size="ButtonSize.Large">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Danger" Size="ButtonSize.Small">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Danger" Size="ButtonSize.ExtraSmall">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Danger" Size="ButtonSize.Flat">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Danger">Danger</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Warning">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Warning" Size="ButtonSize.Large">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Warning" Size="ButtonSize.Small">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Warning" Size="ButtonSize.ExtraSmall">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Warning" Size="ButtonSize.Flat">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Outline" Color="Color.Warning">Warning</Button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </Body>
+</Card>
+
+<Card Styles="new CardStyle[] { CardStyle.Outline }" HeaderBackgroundColor="Color.Primary">
+    <Header><CardTitle> <i class="fas fa-edit"></i> Gradient Buttons (bg-gradient-*)</CardTitle></Header>
+    <Body>
+        <p>Various types of buttons. Using the base class <code>.btn</code></p>
+        <table class="table table-bordered text-center">
+            <tbody>
+                <tr>
+                    <th>Normal</th>
+                    <th>Large <code>.btn-lg</code></th>
+                    <th>Small <code>.btn-sm</code></th>
+                    <th>Extra Small <code>.btn-xs</code></th>
+                    <th>Flat <code>.btn-flat</code></th>
+                    <th>Disabled <code>.disabled</code></th>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Primary">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Primary" Size="ButtonSize.Large">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Primary" Size="ButtonSize.Small">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Primary" Size="ButtonSize.ExtraSmall">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Primary" Size="ButtonSize.Flat">Primary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Primary">Primary</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Secondary">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Secondary" Size="ButtonSize.Large">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Secondary" Size="ButtonSize.Small">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Secondary" Size="ButtonSize.ExtraSmall">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Secondary" Size="ButtonSize.Flat">Secondary</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Secondary">Secondary</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Success">Success</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Success" Size="ButtonSize.Large">Success</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Success" Size="ButtonSize.Small">Success</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Success" Size="ButtonSize.ExtraSmall">Success</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Success" Size="ButtonSize.Flat">Success</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Success">Success</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Info">Info</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Info" Size="ButtonSize.Large">Info</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Info" Size="ButtonSize.Small">Info</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Info" Size="ButtonSize.ExtraSmall">Info</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Info" Size="ButtonSize.Flat">Info</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Info">Info</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Danger">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Danger" Size="ButtonSize.Large">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Danger" Size="ButtonSize.Small">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Danger" Size="ButtonSize.ExtraSmall">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Danger" Size="ButtonSize.Flat">Danger</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Danger">Danger</Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Warning">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Warning" Size="ButtonSize.Large">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Warning" Size="ButtonSize.Small">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Warning" Size="ButtonSize.ExtraSmall">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Warning" Size="ButtonSize.Flat">Warning</Button>
+                    </td>
+                    <td>
+                        <Button Type="ButtonType.Gradient" Color="Color.Warning">Warning</Button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </Body>
+</Card>
