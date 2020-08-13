@@ -1,8 +1,17 @@
 ﻿@namespace Blazor.AdminLte
-<a href="@Url" class="small-box-footer">@Label <i class="fas fa-arrow-circle-right"></i></a>
+<a href="@Url" @onclick="DoOnClick" class="small-box-footer">@Label <i class="fas fa-arrow-circle-right"></i></a>
 @code {
     [Parameter]
     public string Label { get; set; } = "More info";
     [Parameter]
-    public string Url { get; set; } = "#";
+    public string Url { get; set; } = "javascript:void()";
+    
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    private async void DoOnClick(MouseEventArgs e)
+    {
+        if (OnClick.HasDelegate)
+            await OnClick.InvokeAsync(e);
+    }
 }
