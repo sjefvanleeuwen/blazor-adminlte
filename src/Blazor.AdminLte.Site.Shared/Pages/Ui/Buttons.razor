@@ -1,0 +1,308 @@
+﻿@page "/ui/buttons"
+@inject NavigationManager NavigationManager
+@using Blazor.AdminLte
+
+<Card Styles="new CardStyle[] { CardStyle.Outline }" HeaderBackgroundColor="Color.Primary">
+    <Header><CardTitle> <i class="fas fa-edit"></i> Buttons</CardTitle></Header>
+    <Body>
+        <p>Various types of Buttons. Using the base class <code>.btn</code></p>
+        <table class="table table-bordered text-center">
+            <tbody>
+                <tr>
+                    <th>Normal</th>
+                    <th>Large <code>.btn-lg</code></th>
+                    <th>Small <code>.btn-sm</code></th>
+                    <th>Extra Small <code>.btn-xs</code></th>
+                    <th>Flat <code>.btn-flat</code></th>
+                    <th>Disabled <code>.disabled</code></th>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true">Default</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Size="Blazorise.ButtonSize.Large">Default</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Size="Blazorise.ButtonSize.Small">Default</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true">Default</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Primary">Primary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Primary" Size="Blazorise.ButtonSize.Large">Primary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Primary" Size="Blazorise.ButtonSize.Small">Primary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Color="Blazorise.Color.Primary">Primary</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Secondary">Secondary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Secondary" Size="Blazorise.ButtonSize.Large">Secondary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Secondary" Size="Blazorise.ButtonSize.Small">Secondary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Color="Blazorise.Color.Secondary">Secondary</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Success">Success</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Success" Size="Blazorise.ButtonSize.Large">Success</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Success" Size="Blazorise.ButtonSize.Small">Success</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Color="Blazorise.Color.Success">Success</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Info">Info</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Info" Size="Blazorise.ButtonSize.Large">Info</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Info" Size="Blazorise.ButtonSize.Small">Info</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+               
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Color="Blazorise.Color.Info">Info</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Danger">Danger</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Danger" Size="Blazorise.ButtonSize.Large">Danger</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Danger" Size="Blazorise.ButtonSize.Small">Danger</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+          
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Color="Blazorise.Color.Danger">Danger</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Warning">Warning</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Warning" Size="Blazorise.ButtonSize.Large">Warning</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Color="Blazorise.Color.Warning" Size="Blazorise.ButtonSize.Small">Warning</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+      
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Color="Blazorise.Color.Warning">Warning</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </Body>
+</Card>
+
+<Card Styles="new CardStyle[] { CardStyle.Outline }" HeaderBackgroundColor="Color.Primary">
+    <Header><CardTitle> <i class="fas fa-edit"></i> Outline Buttons</CardTitle></Header>
+    <Body>
+        <p>Various types of Buttons. Using the base class <code>.btn</code></p>
+        <table class="table table-bordered text-center">
+            <tbody>
+                <tr>
+                    <th>Normal</th>
+                    <th>Large <code>.btn-lg</code></th>
+                    <th>Small <code>.btn-sm</code></th>
+                    <th>Extra Small <code>.btn-xs</code></th>
+                    <th>Flat <code>.btn-flat</code></th>
+                    <th>Disabled <code>.disabled</code></th>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Primary">Primary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Primary" Size="Blazorise.ButtonSize.Large">Primary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Primary" Size="Blazorise.ButtonSize.Small">Primary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Outline="true" Color="Blazorise.Color.Primary">Primary</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Secondary">Secondary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Secondary" Size="Blazorise.ButtonSize.Large">Secondary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Secondary" Size="Blazorise.ButtonSize.Small">Secondary</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Outline="true" Color="Blazorise.Color.Secondary">Secondary</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Success">Success</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Success" Size="Blazorise.ButtonSize.Large">Success</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Success" Size="Blazorise.ButtonSize.Small">Success</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Outline="true" Color="Blazorise.Color.Success">Success</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Info">Info</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Info" Size="Blazorise.ButtonSize.Large">Info</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Info" Size="Blazorise.ButtonSize.Small">Info</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Outline="true" Color="Blazorise.Color.Info">Info</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Danger">Danger</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Danger" Size="Blazorise.ButtonSize.Large">Danger</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Danger" Size="Blazorise.ButtonSize.Small">Danger</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Outline="true" Color="Blazorise.Color.Danger">Danger</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Warning">Warning</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Warning" Size="Blazorise.ButtonSize.Large">Warning</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Outline="true" Color="Blazorise.Color.Warning" Size="Blazorise.ButtonSize.Small">Warning</Blazorise.Bootstrap.Button>
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <Blazorise.Bootstrap.Button Block="true" Disabled="true" Outline="true" Color="Blazorise.Color.Warning">Warning</Blazorise.Bootstrap.Button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </Body>
+</Card>
+
+<Card Styles="new CardStyle[] { CardStyle.Outline }" HeaderBackgroundColor="Color.Primary">
+    <Header><CardTitle> <i class="fas fa-edit"></i> Gradient Buttons (bg-gradient-*)</CardTitle></Header>
+    <Body>
+        <p>Gradient buttons are not supported with Blazorise.Bootstrap so will not be implemented.</p>   
+    </Body>
+</Card>
