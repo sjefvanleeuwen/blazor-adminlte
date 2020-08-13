@@ -6,9 +6,20 @@
             @Header
         </CascadingValue>
     </div>
-    <div class="card-body">
-        @Body
-    </div>
+    @if (HasForm)
+    {
+        <form>
+            <div class="card-body">
+                @Body
+            </div>
+        </form>
+    }
+    else
+    {
+        <div class="card-body">
+            @Body
+        </div>
+    }
     @if (LoadingState != LoadingState.None)
     {
         <div class="@(LoadingState.GetDescription<StyleAttribute>())">
