@@ -23,6 +23,8 @@ namespace Blazor.AdminLte
         public RenderFragment Header { get; set; }
         [Parameter]
         public RenderFragment Title { get; set; }
+        [Parameter]
+        public RenderFragment Footer { get; set; }
 
         private ElementReference CardReference { get; set; }
 
