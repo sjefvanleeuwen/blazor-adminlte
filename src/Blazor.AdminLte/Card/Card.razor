@@ -20,6 +20,12 @@
             @Body
         </div>
     }
+    @if (Footer != null)
+    {
+    <div class="card-footer">
+        @Footer
+    </div>
+    }
     @if (LoadingState != LoadingState.None)
     {
         <div class="@(LoadingState.GetDescription<StyleAttribute>())">
