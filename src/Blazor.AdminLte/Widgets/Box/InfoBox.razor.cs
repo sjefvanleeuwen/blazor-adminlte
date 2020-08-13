@@ -7,7 +7,7 @@ namespace Blazor.AdminLte
         [Parameter]
         public string Icon { get; set; }
         [Parameter]
-        public double Number { get; set; }
+        public RenderFragment Value { get; set; }
         [Parameter]
         public double? Percentage { get; set; }
         [Parameter]
