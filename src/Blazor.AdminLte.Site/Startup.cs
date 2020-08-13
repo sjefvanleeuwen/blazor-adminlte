@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Westwind.AspNetCore.LiveReload;
 using Blazor.AdminLte;
+using Blazorise;
+using Blazorise.Bootstrap;
 
 namespace Blazor.AdminLte.Site
 {
@@ -23,6 +25,14 @@ namespace Blazor.AdminLte.Site
         {
             services.AddLiveReload();
             services.AddRazorPages();
+
+            services.AddBlazorise(options =>
+            {
+                options.ChangeTextOnKeyPress = true;
+            })
+            .AddBootstrapProviders()
+            ;//.AddFontAwesomeIcons();
+
 
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddMvc().AddRazorRuntimeCompilation();
@@ -49,6 +59,9 @@ namespace Blazor.AdminLte.Site
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.ApplicationServices
+               .UseBootstrapProviders()
+                ;//.UseFontAwesomeIcons();
 
             app.UseEndpoints(endpoints =>
             {
