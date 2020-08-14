@@ -1,5 +1,5 @@
 ﻿@namespace Blazor.AdminLte
-<div class="col-@size-@width">@ChildContent</div>
+<div class="@columnClass">@ChildContent</div>
 @code {
     [Parameter]
     public RenderFragment ChildContent { get; set; }
@@ -7,6 +7,7 @@
     public Size Size { get; set; }
     [Parameter]
     public Width Width { get; set; }
+    private string columnClass => "col" + (Size == Size.ExtraSmall ? "" : "-") + size + (Width == Width.None ? "" : "-") + width;
     private string size => Size.GetDescription<StyleAttribute>();
     private string width => Width.GetDescription<StyleAttribute>();
 }
