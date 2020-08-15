@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using System;
 using System.Globalization;
@@ -18,25 +17,11 @@ namespace Blazor.AdminLte
         [Parameter]
         public string ApplyLabel { get; set; } = "Apply";
 
-
-        private Range<DateTime> _range;
-
         [Parameter]
         public CultureInfo CultureInfo { get; set; } = CultureInfo.CurrentCulture;
 
         [Parameter]
-        public Range<DateTime> Range
-        {
-            get
-            {
-                return _range;
-            }
-            set
-            {
-
-                _range = value;
-            }
-        }
+        public Range<DateTime> Range { get; set; } = new Range<DateTime>(DateTime.Now, DateTime.Now);
 
         [Parameter]
         public EventCallback<Range<DateTime>> RangeChanged { get; set; }
