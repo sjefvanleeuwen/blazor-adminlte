@@ -18,8 +18,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Blazor.AdminLte\Blazor.AdminLte.csproj" />
   </ItemGroup>
-
-
   <ItemGroup>
     <Content Update="_Imports.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>

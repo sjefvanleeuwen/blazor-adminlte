@@ -1,0 +1,46 @@
+﻿@page "/forms/advanced"
+<ContentHeader>
+    <Header>
+        Advanced Form
+    </Header>
+</ContentHeader>
+<ContentMain>
+    <Card>
+        <Title><CardTitle>Date Range Picker (MVP)</CardTitle></Title>
+        <Body>
+            @code {
+                private Range<DateTime> ValNl { get; set; } = new Range<DateTime>(DateTime.Now, DateTime.Now.AddMonths(1));
+                private Range<DateTime> ValUs { get; set; } = new Range<DateTime>(DateTime.Now, DateTime.Now.AddMonths(1));
+                private int changedCallbackCounterNl;
+                private int changedCallbackCounterUs;
+                public void RangeChangedNl(Range<DateTime> range)
+                {
+                    changedCallbackCounterNl++;
+                }
+                public void RangeChangedUs(Range<DateTime> range)
+                {
+                    changedCallbackCounterUs++;
+                }
+
+            }
+            <div class="form-group">
+                <label>Date range (Dutch): DateTime Object: @ValNl.From.Year @ValNl.From.Month @ValNl.From.Day - @ValNl.To.Year @ValNl.To.Month @ValNl.To.Day</label>
+                Callbacks: @changedCallbackCounterNl
+                <div class="input-group">
+                    <DateRangePicker OnRangeChanged="RangeChangedNl" @bind-Range="ValNl" ApplyLabel="Wijzig" CancelLabel="Annuleer"
+                                     CultureInfo='new System.Globalization.CultureInfo("nl-NL")'></DateRangePicker>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Date range (English): DateTime Object: @ValUs.From.Year @ValUs.From.Month @ValUs.From.Day - @ValUs.To.Year @ValUs.To.Month @ValUs.To.Day</label>
+                Callbacks: @changedCallbackCounterUs
+                <div class="input-group">
+                    <DateRangePicker OnRangeChanged="RangeChangedUs" @bind-Range="ValUs"
+                                     CultureInfo='new System.Globalization.CultureInfo("en-US")'></DateRangePicker>
+                </div>
+            </div>
+        </Body>
+    </Card>
+</ContentMain>
+
+

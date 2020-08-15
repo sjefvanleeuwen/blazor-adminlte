@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.AdminLte.Wasm", "Bla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.AdminLte.Content", "Blazor.AdminLte.Content\Blazor.AdminLte.Content.csproj", "{38FD34A9-6D18-4F54-B1ED-484854C334D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.AdminLte.Tests", "Blazor.AdminLte.Tests\Blazor.AdminLte.Tests.csproj", "{2151987F-19C4-4172-B4C4-B9D0573DDFBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{38FD34A9-6D18-4F54-B1ED-484854C334D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38FD34A9-6D18-4F54-B1ED-484854C334D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38FD34A9-6D18-4F54-B1ED-484854C334D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2151987F-19C4-4172-B4C4-B9D0573DDFBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2151987F-19C4-4172-B4C4-B9D0573DDFBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2151987F-19C4-4172-B4C4-B9D0573DDFBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2151987F-19C4-4172-B4C4-B9D0573DDFBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

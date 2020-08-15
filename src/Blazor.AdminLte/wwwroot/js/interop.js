@@ -35,3 +35,19 @@ function click(el) {
 function carousel(el) {
     $(el).carousel();
 }
+
+function dateRangePicker(dotnetRef, el, range, locale, settings) {
+    moment.locale(locale.language);
+    $(el).daterangepicker({
+        /*timePicker: settings.ShowTimePicker,*/ // not in MVP right now
+        startDate: range.From,
+        endDate: range.To,
+        locale: {
+            format: locale.format,
+            applyLabel: locale.applyLabel,
+            cancelLabel: locale.cancelLabel,
+        }
+    },function (start, end, label) {
+            dotnetRef.invokeMethodAsync('hasChanged',Date.parse(start),Date.parse(end),label);
+    });
+}
