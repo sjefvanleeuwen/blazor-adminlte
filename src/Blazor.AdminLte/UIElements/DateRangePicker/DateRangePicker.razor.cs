@@ -34,10 +34,6 @@ namespace Blazor.AdminLte
             {
                 return Range.From.ToString(CultureInfo.DateTimeFormat.ShortDatePattern) + " - " + Range.To.ToString(CultureInfo.DateTimeFormat.ShortDatePattern);
             }
-            set
-            {
-                _range = new Range<DateTime>(new DateTime(), new DateTime());
-            }
         }
 
         [Parameter]

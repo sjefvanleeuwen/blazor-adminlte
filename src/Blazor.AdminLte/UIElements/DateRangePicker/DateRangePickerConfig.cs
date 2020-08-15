@@ -15,7 +15,7 @@ namespace Blazor.AdminLte
         public string CancelLabel { get; set; }
 
 
-        public string Language { get; internal set; }
+        public string Language { get; set; }
     }
 
     public class DateRangePickerSettings
