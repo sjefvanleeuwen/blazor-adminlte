@@ -1,0 +1,22 @@
+﻿@namespace Blazor.AdminLte.Site.Shared
+<Card HeaderBackgroundColor="@HeaderBackgroundColor" ToolOptions="new CardToolOptions { Collapsable = true}">
+    <Title><CardTitle>@CardTitle</CardTitle></Title>
+    <Header>
+        <CardTools>
+            <CustomTools>
+                @code{ private Range<DateTime> Range { get; set; } = new Range<DateTime>(DateTime.Now, DateTime.Now.AddDays(7)); }
+                <DateRangePickerButtonTool @bind-Range="Range" Icon="far fa-calendar-alt"></DateRangePickerButtonTool>
+            </CustomTools>
+        </CardTools>
+    </Header>
+    <Body>
+        @Range.From.ToShortDateString() - @Range.To.ToShortDateString()
+    </Body>
+</Card>
+@code {
+    [Parameter]
+
+    public Color HeaderBackgroundColor { get; set; }
+    [Parameter]
+    public string CardTitle { get; set; }
+}

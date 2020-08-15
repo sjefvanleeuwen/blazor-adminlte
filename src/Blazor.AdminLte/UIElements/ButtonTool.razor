@@ -1,0 +1,16 @@
+﻿@namespace Blazor.AdminLte
+<button type="button" class="btn btn-tool">
+    <i class="@Icon" @onclick="onClick"></i>
+</button>
+@code {
+    [Parameter]
+    public string Icon { get; set; }
+
+    private void onClick(MouseEventArgs args)
+    {
+        OnClick.InvokeAsync(args);
+    }
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+}
