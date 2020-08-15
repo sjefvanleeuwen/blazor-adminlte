@@ -443,35 +443,3 @@
     </Row>
 
 </div>
-@code { 
-    ButtonTool DateRangePickerButton { get; set; }
-    DateRangePicker DateRangePicker { get; set; }
-    private void ShowCalendar(MouseEventArgs args)
-    {
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            /*
-            var dotNetReference = DotNetObjectReference.Create(this);
-            await JS.InvokeVoidAsync("dateRangePicker",
-                dotNetReference,
-                DateRangePicker,
-                DateRangePicker.Range,
-                new DateRangePickerLocale()
-                {
-                    Language = DateRangePicker.CultureInfo.Name.Split('-')[0],
-                    Format = MomentJSHelpers.GenerateMomentJSFormatString(DateRangePicker.CultureInfo.DateTimeFormat.ShortDatePattern),
-                },
-                new DateRangePickerSettings()
-                {
-                    // no extra settings yet in MVP
-                }
-                );
-            */
-        }
-        base.OnAfterRender(firstRender);
-    }
-}
