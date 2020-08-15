@@ -20,5 +20,8 @@ namespace Blazor.AdminLte
         }
 
         private CardToolOptions Options => ToolOptions ?? new CardToolOptions();
+
+        [Parameter]
+        public RenderFragment CustomTools { get; set; }
     }
 }
