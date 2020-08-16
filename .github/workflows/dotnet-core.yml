@@ -23,3 +23,21 @@ jobs:
       run: dotnet build ./src/Blazor.AdminLte --configuration Release --no-restore
 #    - name: Test
 #      run: dotnet test ./src/Blazor.AdminLte --no-restore --verbosity normal
+
+
+# Generate the website
+    - name: Publish
+      run: dotnet publish .src/Blazor.AdminLte.Wasm --configuration Release
+# Publish the website
+    - name: GitHub Pages action
+      if: ${{ github.ref == 'refs/heads/master' }} # Publish only when the push is on master
+      uses: peaceiris/actions-gh-pages@v3.6.1
+      with:
+        github_token: ${{ secrets.PUBLISH_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: bin/Release/netstandard2.1/publish/wwwroot
+        allow_empty_commit: false
+        keep_files: false
+        force_orphan: true
+      # TODO uncomment the following line if you have a custom domain name
+            # cname: demo.meziantou.net
