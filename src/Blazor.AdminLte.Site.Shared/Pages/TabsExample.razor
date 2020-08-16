@@ -5,8 +5,9 @@
     </Header>
 </ContentHeader>
 <ContentMain>
-    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary }">
+    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary }" ToolOptions="new CardToolOptions { Maximizable = true, Collapsable=true }">
         <Header>
+            <CardTools />
             <TabList Identifier="tabExample1">
                 <Tab ContentsIdentifier="Tab1">Home</Tab>
                 <Tab ContentsIdentifier="Tab2" IsActive="true">Profile</Tab>
@@ -32,8 +33,9 @@
         </Body>
     </Card>
 
-    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline }">
+    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline }" ToolOptions="new CardToolOptions { Expandable = true, Maximizable = true }">
         <Header>
+            <CardTools />
             <TabList Identifier="tabExample2">
                 <Tab ContentsIdentifier="Tab1" IsActive="true">Home</Tab>
                 <Tab ContentsIdentifier="Tab2">Profile</Tab>
@@ -59,8 +61,9 @@
         </Body>
     </Card>
 
-    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline, CardStyle.OutlineTabs }">
+    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline, CardStyle.OutlineTabs }" ToolOptions="new CardToolOptions { Expandable = true, Maximizable = true }">
         <Header>
+            <CardTools />
             <TabList Identifier="tabExample3">
                 <Tab ContentsIdentifier="Tab1" IsActive="true">Home</Tab>
                 <Tab ContentsIdentifier="Tab2">Profile</Tab>
@@ -108,7 +111,7 @@
             Tabs.ForEach(t => t.Active = t.Id == id);
         }
     }
-    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline, CardStyle.OutlineTabs }">
+    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline, CardStyle.OutlineTabs }" ToolOptions="new CardToolOptions { Expandable = true, Maximizable = true }">
         <Header>
             <TabList Identifier="tabExample4" ControlleredByBlazor="true">
                 @foreach (var tab in Tabs)
