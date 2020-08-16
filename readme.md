@@ -7,6 +7,8 @@
 
 ADMINLTE for Blazor is a collection of reusable components, with which you can easily develop digital services as a designer or developer. Think of buttons, form elements and page templates. This project adapts ADMINLTE 3 so the components can be used from dotnet core Blazor.
 
+For a quick impression visite the demo site at: https://blazorize-adminlte.morstead.nl/
+
 # Status
 
 The project is in early stage currently, but expanded almost daily. Feel free to follow the project and receive updates as they arrive.
