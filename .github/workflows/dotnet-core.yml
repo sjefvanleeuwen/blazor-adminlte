@@ -27,7 +27,7 @@ jobs:
 
 # Generate the website
     - name: Publish
-      run: dotnet publish ./src/GitHubPages/GitHubPages.csproj --configuration Release
+      run: dotnet publish ./src/Blazor.AdminLte.Wasm/Blazor.AdminLte.Wasm.csproj --configuration Release
 # Publish the website
     - name: GitHub Pages action
       if: ${{ github.ref == 'refs/heads/master' }} # Publish only when the push is on master
@@ -39,5 +39,5 @@ jobs:
         allow_empty_commit: false
         keep_files: false
         force_orphan: true
-        cname: blazorize-adminlte.morstead.nl
-
+      # TODO uncomment the following line if you have a custom domain name
+            # cname: demo.meziantou.net
