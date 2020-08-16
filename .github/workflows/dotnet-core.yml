@@ -26,18 +26,18 @@ jobs:
 
 
 # Generate the website
-    - name: Publish
-      run: dotnet publish ./src/GitHubPages/GitHubPages.csproj --configuration Release
+#    - name: Publish
+#      run: dotnet publish ./src/GitHubPages/GitHubPages.csproj --configuration Release
 # Publish the website
-    - name: GitHub Pages action
-      if: ${{ github.ref == 'refs/heads/master' }} # Publish only when the push is on master
-      uses: peaceiris/actions-gh-pages@v3.6.1
-      with:
-        github_token: ${{ secrets.PUBLISH_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: /src/GitHubPages/bin/Release/netstandard2.1/wwwroot
-        allow_empty_commit: false
-        keep_files: false
-        force_orphan: true
+#    - name: GitHub Pages action
+#      if: ${{ github.ref == 'refs/heads/master' }} # Publish only when the push is on master
+#      uses: peaceiris/actions-gh-pages@v3.6.1
+#      with:
+#        github_token: ${{ secrets.PUBLISH_TOKEN }}
+#        publish_branch: gh-pages
+#        publish_dir: /src/GitHubPages/bin/Release/netstandard2.1/wwwroot
+#        allow_empty_commit: false
+#        keep_files: false
+#        force_orphan: true
       # Set custom domain name
-        cname: blazorize-adminlte.morstead.nl
+#        cname: blazorize-adminlte.morstead.nl
