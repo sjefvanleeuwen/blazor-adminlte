@@ -27,7 +27,7 @@ jobs:
 
 # Generate the website
     - name: Publish
-      run: dotnet publish .src/Blazor.AdminLte.Wasm --configuration Release
+      run: dotnet publish .src/Blazor.AdminLte.Wasm/Blazor.AdminLte.Wasm.csproj --configuration Release
 # Publish the website
     - name: GitHub Pages action
       if: ${{ github.ref == 'refs/heads/master' }} # Publish only when the push is on master
