@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--, maximum-scale=1.0, user-scalable=no-->
+    <title>Blazor.AdminLte.Wasm</title>
+    <base href="/" />
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="_content/Blazorized.AdminLte.Content/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="_content/Blazorized.AdminLte.Content/dist/css/adminlte.min.css">
+    <link href="manifest.json" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <link href="_content/Blazor.AdminLte.Site.Shared/css/site.css" rel="stylesheet" />
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="_content/Blazorized.AdminLte.Content/plugins/daterangepicker/daterangepicker.css">
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+    <div class="wrapper">
+        <app>
+
+        </app>
+        <div id="blazor-error-ui">
+            An unhandled error has occurred.
+            <a href="" class="reload">Reload</a>
+            <a class="dismiss">🗙</a>
+        </div>
+    </div>
+    <script src="_content/Blazorized.AdminLte.Content/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="_content/Blazorized.AdminLte.Content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="_content/Blazorized.AdminLte.Content/dist/js/adminlte.min.js"></script>
+    <script src="_content/Blazorized.AdminLte/js/interop.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script src="_content/Blazorized.AdminLte.Content/plugins/moment/moment-with-locales.js"></script>
+    <script src="_content/Blazorized.AdminLte.Content/plugins/daterangepicker/daterangepicker.js"></script>
+</body>
+</html>
