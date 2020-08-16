@@ -11,11 +11,21 @@ namespace Blazor.AdminLte
         
         [Parameter]
         public EventCallback<Tuple<ICardTools, MouseEventArgs>> OnRefresh { get; set; }
+        [Parameter]
+        public EventCallback<Tuple<ICardTools, MouseEventArgs>> OnMaximize { get; set; }
+
+        public bool IsMaximized { get; private set; } = false;
 
         private bool ShowOnRefresh => OnRefresh.HasDelegate;
 
         private void DoOnRefresh(MouseEventArgs args)
         {
+            OnRefresh.InvokeAsync(new Tuple<ICardTools, MouseEventArgs>(this, args));
+        }
+
+        private void DoOnMaximize(MouseEventArgs args)
+        {
+            IsMaximized = !IsMaximized;
             OnRefresh.InvokeAsync(new Tuple<ICardTools, MouseEventArgs>(this, args));
         }
 
