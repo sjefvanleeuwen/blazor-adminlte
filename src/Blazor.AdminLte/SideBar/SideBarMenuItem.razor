@@ -13,7 +13,7 @@
     [Parameter]
     public string Icon { get; set; }
     [Parameter]
-    public string Link { get; set; } = "javascript:void()";
+    public string Link { get; set; } = "javascript:void(0)";
     [Parameter]
     public RenderFragment ChildContent { get; set; }
     [Parameter]
@@ -23,6 +23,8 @@
 
     private void LocationChanged(object sender, LocationChangedEventArgs args)
     {
+        if (Link.StartsWith("javascript"))
+            return;
         NavLinkState = new Uri(Nav.Uri).PathAndQuery.Trim('/') == Link.Trim('/') ? NavLinkState.Active : NavLinkState.Inactive;
         navLinkState = NavLinkState.GetDescription<StyleAttribute>();
         StateHasChanged();
