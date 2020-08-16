@@ -37,13 +37,16 @@ namespace Blazor.AdminLte
                 switch (Type) {
                     case ButtonType.Outline:
                         return $"btn-{Type.GetDescription<StyleAttribute>()}-{DisplayColor}";
+                        break;
                     case ButtonType.Gradient:
                         return $"bg-{Type.GetDescription<StyleAttribute>()}-{DisplayColor}";
+                        break;
                     default:
                         break;
                 }
                 return $"btn-{DisplayColor}";
             } 
         }
+
     }
 }

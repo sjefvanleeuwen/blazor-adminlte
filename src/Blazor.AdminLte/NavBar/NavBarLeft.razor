@@ -2,6 +2,7 @@
 @inject IJSRuntime JS
 @inject NavigationManager nav
 @inject NavBarLeftInjectableMenu menu
+@implements IDisposable 
 <!-- Left navbar links -->
 <ul class="navbar-nav">
     <li class="nav-item">
@@ -15,12 +16,47 @@
 
     ElementReference pushButton { get; set; }
 
+    protected override void OnParametersSet()
+    {
+        return;
+        if (changed) // only refresh content when actually navigating to another route.
+        {
+            menu.content = null; // for refreshing custom menu injectables per page.
+            menu.OverrideParentContent = false; // reset default to show parent menu content items.
+            changed = false;
+        }
+    }
+
     int x = 0;
+
+    bool changed = false;
+    string location;
+    object last;
+
+    private void LocationChanged(object sender, LocationChangedEventArgs args)
+    {
+        return;
+        if (!args.IsNavigationIntercepted && nav.Uri.ToString() != location) {
+            // { // only actual route changes are subject to change the content or on first load.
+            //      menu.content = null; // for refreshing custom menu injectables per page.
+            //      menu.OverrideParentContent = false; // reset default to show parent menu content items.
+            changed = true;
+        }
+        location = nav.Uri.ToString();
+        last =sender;
+    }
+
+    protected override void OnInitialized()
+    {
+        nav.LocationChanged += LocationChanged;
+    }
 
     protected override void OnAfterRender(bool firstRender)
     {
         if (firstRender)
         {
+
+
             // initiates the data-widget from blazor, preserves the virtual dom.
             JS.InvokeVoidAsync("click", pushButton);
         }
@@ -30,4 +66,10 @@
         if (x == 2)
             x = 0;
     }
+
+    public void Dispose()
+    {
+        nav.LocationChanged -= LocationChanged;
+    }
+
 }
