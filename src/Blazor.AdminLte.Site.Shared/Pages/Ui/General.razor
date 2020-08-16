@@ -1,38 +1,40 @@
 ﻿@page "/ui/general"
-
-    <div class="container-fluid">
-        <h1>General UI Elements</h1>
-        <Row>
-            <Column Width="Width.Six" Size="Size.Medium">
-                <Card HeaderBackgroundColor="Color.Primary" >
-                    <Title><CardTitle>Carousel</CardTitle></Title>
-                    <Body>
-                        <Carousel Items="items" Identifier="blabla" />
-                    </Body>
-                </Card>
-            </Column>
-            <Column Width="Width.Six" Size="Size.Medium">
-                <Card HeaderBackgroundColor="Color.Primary">
-                    <Title><CardTitle>Carousel</CardTitle></Title>
-                    <Body>
-                        <Carousel Items="items1" Identifier="blabla2" />
-                    </Body>
-                </Card>
-            </Column>
-        </Row>
-    </div>
+<ContentHeader>
+    <Header>
+        <PageTitle Title="General UI Elements" />
+    </Header>
+</ContentHeader>
+<ContentMain>
+    <Row>
+        <Column Width="Width.Six" Size="Size.Medium">
+            <Card HeaderBackgroundColor="Color.Primary">
+                <Title><CardTitle>Carousel</CardTitle></Title>
+                <Body>
+                    <Carousel Items="items" Identifier="blabla" />
+                </Body>
+            </Card>
+        </Column>
+        <Column Width="Width.Six" Size="Size.Medium">
+            <Card HeaderBackgroundColor="Color.Primary">
+                <Title><CardTitle>Carousel</CardTitle></Title>
+                <Body>
+                    <Carousel Items="items1" Identifier="blabla2" />
+                </Body>
+            </Card>
+        </Column>
+    </Row>
+</ContentMain>
 @code {
     private CarouselItemCollection items = new CarouselItemCollection()
-    {
+        {
         new CarouselItem(){Image="https://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap",Alt="First slide"},
         new CarouselItem(){Image="https://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap",Alt="Second slide"},
         new CarouselItem(){Image="https://placehold.it/900x500/f39c12/ffffff&text=I+Love+Bootstrap",Alt="Third slide"},
     };
     private CarouselItemCollection items1 = new CarouselItemCollection()
-    {
+        {
         new CarouselItem(){Image="https://placehold.it/900x500/2c8dbc/ffffff&text=I+Love+Bootstrap",Alt="First slide"},
         new CarouselItem(){Image="https://placehold.it/900x500/19CCCC/ffffff&text=I+Love+Bootstrap",Alt="Second slide"},
         new CarouselItem(){Image="https://placehold.it/900x500/339c12/ffffff&text=I+Love+Bootstrap",Alt="Third slide"},
     };
-
 }

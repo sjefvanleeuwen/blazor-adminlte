@@ -51,3 +51,7 @@ function dateRangePicker(dotnetRef, el, range, locale, settings) {
             dotnetRef.invokeMethodAsync('hasChanged',Date.parse(start),Date.parse(end),label);
     });
 }
+
+function setTitle(title) {
+    document.title = title;
+}
