@@ -23,22 +23,22 @@
                 }
 
             }
-            <div class="form-group">
+            <FormGroup>
                 <label>Date range (Dutch): DateTime Object: @ValNl.From.Year @ValNl.From.Month @ValNl.From.Day - @ValNl.To.Year @ValNl.To.Month @ValNl.To.Day</label>
                 Callbacks: @changedCallbackCounterNl
                 <div class="input-group">
                     <DateRangePicker OnRangeChanged="RangeChangedNl" @bind-Range="ValNl" ApplyLabel="Wijzig" CancelLabel="Annuleer"
                                      CultureInfo='new System.Globalization.CultureInfo("nl-NL")'></DateRangePicker>
                 </div>
-            </div>
-            <div class="form-group">
+            </FormGroup>
+            <FormGroup>
                 <label>Date range (English): DateTime Object: @ValUs.From.Year @ValUs.From.Month @ValUs.From.Day - @ValUs.To.Year @ValUs.To.Month @ValUs.To.Day</label>
                 Callbacks: @changedCallbackCounterUs
                 <div class="input-group">
                     <DateRangePicker OnRangeChanged="RangeChangedUs" @bind-Range="ValUs"
                                      CultureInfo='new System.Globalization.CultureInfo("en-US")'></DateRangePicker>
                 </div>
-            </div>
+            </FormGroup>
         </Body>
     </Card>
 </ContentMain>
