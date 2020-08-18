@@ -6,8 +6,6 @@ namespace Blazor.AdminLte
 {
     public partial class Card : ICard
     {
-        [Parameter] 
-        public bool HasForm { get; set; }
         [Parameter]
         public LoadingState LoadingState { get; set; }
         [Parameter]
