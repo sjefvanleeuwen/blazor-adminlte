@@ -1,0 +1,5 @@
+﻿@namespace Blazor.AdminLte
+<div class="custom-control custom-checkbox">
+    <input class="custom-control-input" type="checkbox" id="@State.Identifier" value="@State.Value" disabled="@State.IsDisabled" checked="@State.IsChecked" @onchange="DoChange">
+    <label for="@State.Identifier" class="custom-control-label">@State.Label</label>
+</div>

@@ -7,6 +7,21 @@
 <ContentMain>
     <Card>
         <Title><CardTitle>Some simple link content</CardTitle></Title>
-        <Body>Contents</Body>
+        <Body>
+            <FormGroup>
+                @code{ 
+                        List<CustomCheckboxState> Checkboxes = new List<CustomCheckboxState>()
+                    {
+                        new CustomCheckboxState(){ Identifier = "customCheckbox1", Value="option1", Label=new MarkupString("Custom Checkbox")},
+                        new CustomCheckboxState(){ Identifier = "customCheckbox2", Value="option2", IsChecked=true, Label=new MarkupString("Custom Checkbox checked")},
+                        new CustomCheckboxState(){ Identifier = "customCheckbox3", Value="option3", IsDisabled=true, Label=new MarkupString("Custom Checkbox disabled")}
+                    };
+                }
+                @for (int i=0;i<Checkboxes.Count;i++)
+                {
+                    <CustomCheckbox @bind-State="Checkboxes[i]" />
+                }
+            </FormGroup>
+        </Body>
     </Card>
 </ContentMain>
