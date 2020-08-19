@@ -5,20 +5,20 @@ namespace Blazor.AdminLte
     public partial class CustomCheckbox
     {
         [Parameter]
-        public CustomCheckboxState State { get; set; }
+        public CustomCheckboxState Value { get; set; }
 
         [Parameter]
-        public EventCallback<CustomCheckboxState> StateChanged { get; set; }
+        public EventCallback<CustomCheckboxState>ValueChanged { get; set; }
 
         [Parameter]
         public EventCallback<CustomCheckboxState> OnChange { get; set; }
 
         private void DoChange(ChangeEventArgs e)
         {
-            State.IsChecked = (bool?)e.Value;
-            StateChanged.InvokeAsync(State);
+            Value.IsChecked = (bool?)e.Value;
+            ValueChanged.InvokeAsync(Value);
             if (OnChange.HasDelegate)
-              OnChange.InvokeAsync(State);
+              OnChange.InvokeAsync(Value);
         }
     }
 }

@@ -19,7 +19,7 @@
                 }
                 @for (int i = 0; i < Checkboxes.Count; i++)
                 {
-                    <CustomCheckbox  @bind-State="Checkboxes[i]" /> <text>Checked: @Checkboxes[i].IsChecked;</text>
+                    <CustomCheckbox  @bind-Value="Checkboxes[i]" /> <text>Checked: @Checkboxes[i].IsChecked;</text>
                 }
             </FormGroup>
         </Body>
