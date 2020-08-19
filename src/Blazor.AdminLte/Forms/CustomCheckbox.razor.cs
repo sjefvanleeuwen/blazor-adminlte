@@ -11,15 +11,14 @@ namespace Blazor.AdminLte
         public EventCallback<CustomCheckboxState> StateChanged { get; set; }
 
         [Parameter]
-        public RenderFragment ChildContent { get; set; }
+        public EventCallback<CustomCheckboxState> OnChange { get; set; }
 
-        [Parameter]
-        public EventCallback<ChangeEventArgs> OnChange { get; set; }
-
-        private async void DoChange(ChangeEventArgs e)
+        private void DoChange(ChangeEventArgs e)
         {
+            State.IsChecked = (bool?)e.Value;
+            StateChanged.InvokeAsync(State);
             if (OnChange.HasDelegate)
-                await OnChange.InvokeAsync(e);
+              OnChange.InvokeAsync(State);
         }
     }
 }
