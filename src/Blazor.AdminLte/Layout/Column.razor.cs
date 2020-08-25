@@ -7,7 +7,7 @@ namespace Blazor.AdminLte
 
     public partial class Column
     {
-        public static IFluentColumn Class { get { return new IFluentColumn(); } }
+        public static FluentColumn Class { get { return new FluentColumn(); } }
 
         [Parameter]
         public object Classes { 
@@ -26,7 +26,7 @@ namespace Blazor.AdminLte
         public RenderFragment ChildContent { get; set; }
     }
 
-    public class IFluentClass
+    public class FluentClass
     {
         public override string ToString()
         {
@@ -36,14 +36,14 @@ namespace Blazor.AdminLte
         internal StringBuilder _class { get; set; }
     }
 
-    public class IFluentColumn : IFluentClass
+    public class FluentColumn : FluentClass
     {
-        public IFluentColumn()
+        public FluentColumn()
         {
             this._class = new StringBuilder();
             _class.Append("col");
         }
-        public IFluentColumn(IFluentClass root)
+        public FluentColumn(FluentClass root)
         {
             this._class = root._class;
            
@@ -52,40 +52,40 @@ namespace Blazor.AdminLte
         public IFluentColumnWidth Width { get { return new IFluentColumnWidth(this); } }
     }
 
-    public class IFluentColumnWidth : IFluentClass
+    public class IFluentColumnWidth : FluentClass
     {
-        public IFluentColumnWidth(IFluentClass root)
+        public IFluentColumnWidth(FluentClass root)
         {
             this._class = root._class;
         }
 
-        public IFluentColumn None      { get { _class.Append("");     return new IFluentColumn(this); } }
-        public IFluentColumn One       { get { _class.Append("-1");    return new IFluentColumn(this); } }
-        public IFluentColumn Two       { get { _class.Append("-2");    return new IFluentColumn(this); } }
-        public IFluentColumn Three     { get { _class.Append("-3");    return new IFluentColumn(this); } }
-        public IFluentColumn Four      { get { _class.Append("-4");    return new IFluentColumn(this); } }
-        public IFluentColumn Five      { get { _class.Append("-5");    return new IFluentColumn(this); } }
-        public IFluentColumn Six       { get { _class.Append("-6");    return new IFluentColumn(this); } }
-        public IFluentColumn Seven     { get { _class.Append("-7");    return new IFluentColumn(this); } }
-        public IFluentColumn Eight     { get { _class.Append("-8");    return new IFluentColumn(this); } }
-        public IFluentColumn Nine      { get { _class.Append("-9");    return new IFluentColumn(this); } }
-        public IFluentColumn Ten       { get { _class.Append("-10");   return new IFluentColumn(this); } }
-        public IFluentColumn Eleven    { get { _class.Append("-11");   return new IFluentColumn(this); } }
-        public IFluentColumn Twelve    { get { _class.Append("-12");   return new IFluentColumn(this); } }
-        public IFluentColumn Auto      { get { _class.Append("-auto"); return new IFluentColumn(this); } }
+        public FluentColumn None      { get { _class.Append("");      return new FluentColumn(this); } }
+        public FluentColumn One       { get { _class.Append("-1");    return new FluentColumn(this); } }
+        public FluentColumn Two       { get { _class.Append("-2");    return new FluentColumn(this); } }
+        public FluentColumn Three     { get { _class.Append("-3");    return new FluentColumn(this); } }
+        public FluentColumn Four      { get { _class.Append("-4");    return new FluentColumn(this); } }
+        public FluentColumn Five      { get { _class.Append("-5");    return new FluentColumn(this); } }
+        public FluentColumn Six       { get { _class.Append("-6");    return new FluentColumn(this); } }
+        public FluentColumn Seven     { get { _class.Append("-7");    return new FluentColumn(this); } }
+        public FluentColumn Eight     { get { _class.Append("-8");    return new FluentColumn(this); } }
+        public FluentColumn Nine      { get { _class.Append("-9");    return new FluentColumn(this); } }
+        public FluentColumn Ten       { get { _class.Append("-10");   return new FluentColumn(this); } }
+        public FluentColumn Eleven    { get { _class.Append("-11");   return new FluentColumn(this); } }
+        public FluentColumn Twelve    { get { _class.Append("-12");   return new FluentColumn(this); } }
+        public FluentColumn Auto      { get { _class.Append("-auto"); return new FluentColumn(this); } }
         }
 
-    public class IFluentColumnSize : IFluentClass
+    public class IFluentColumnSize : FluentClass
     {
-        public IFluentColumnSize(IFluentClass root)
+        public IFluentColumnSize(FluentClass root)
         {
             this._class = root._class;
         }
 
-        public IFluentColumn ExtraSmall { get { _class.Append("");    return new IFluentColumn(this); } }
-        public IFluentColumn Small      { get { _class.Append("-sm"); return new IFluentColumn(this); } }
-        public IFluentColumn Medium     { get { _class.Append("-md"); return new IFluentColumn(this); } }
-        public IFluentColumn Large      { get { _class.Append("-lg"); return new IFluentColumn(this); } }
-        public IFluentColumn ExtraLarge { get { _class.Append("-xl"); return new IFluentColumn(this); } }
+        public FluentColumn ExtraSmall { get { _class.Append("");    return new FluentColumn(this); } }
+        public FluentColumn Small      { get { _class.Append("-sm"); return new FluentColumn(this); } }
+        public FluentColumn Medium     { get { _class.Append("-md"); return new FluentColumn(this); } }
+        public FluentColumn Large      { get { _class.Append("-lg"); return new FluentColumn(this); } }
+        public FluentColumn ExtraLarge { get { _class.Append("-xl"); return new FluentColumn(this); } }
     }
 }
