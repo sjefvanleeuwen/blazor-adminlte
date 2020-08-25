@@ -1,12 +1,5 @@
 ﻿@namespace Blazor.AdminLte
-<div class="col-@size-@width">@ChildContent</div>
+<div class="@classes">@ChildContent</div>
 @code {
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-    [Parameter]
-    public Size Size { get; set; }
-    [Parameter]
-    public Width Width { get; set; }
-    private string size => Size.GetDescription<StyleAttribute>();
-    private string width => Width.GetDescription<StyleAttribute>();
+
 }
