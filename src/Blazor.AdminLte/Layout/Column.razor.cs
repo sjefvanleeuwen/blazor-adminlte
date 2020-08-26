@@ -25,7 +25,11 @@ namespace Blazor.AdminLte
         public static FluentColumn _11 { get { return new FluentColumn("-11"); } }
         public static FluentColumn _12 { get { return new FluentColumn("-12"); } }
         public static FluentColumn auto{ get { return new FluentColumn("-auto"); } }
-    } 
+        public static FluentColumn w25 { get { return new FluentColumn("w-100", ""); } }
+        public static FluentColumn w50 { get { return new FluentColumn("w-100", ""); } }
+        public static FluentColumn w75 { get { return new FluentColumn("w-100", ""); } }
+        public static FluentColumn w100 { get { return new FluentColumn("w-100", ""); } }
+    }
 
     public partial class Column
     {
@@ -58,10 +62,10 @@ namespace Blazor.AdminLte
 
     public class FluentColumn : FluentClass
     {
-        public FluentColumn(string s)
+        public FluentColumn(string s, string col="col")
         {
             this._class = new StringBuilder();
-            _class.Append("col" + s);
+            _class.Append(col + s);
         }
 
         public FluentColumn()
