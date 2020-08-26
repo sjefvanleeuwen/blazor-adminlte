@@ -25,9 +25,9 @@ namespace Blazor.AdminLte
         public static FluentColumn _11 { get { return new FluentColumn("-11"); } }
         public static FluentColumn _12 { get { return new FluentColumn("-12"); } }
         public static FluentColumn auto{ get { return new FluentColumn("-auto"); } }
-        public static FluentColumn w25 { get { return new FluentColumn("w-100", ""); } }
-        public static FluentColumn w50 { get { return new FluentColumn("w-100", ""); } }
-        public static FluentColumn w75 { get { return new FluentColumn("w-100", ""); } }
+        public static FluentColumn w25 { get { return new FluentColumn("w-25", ""); } }
+        public static FluentColumn w50 { get { return new FluentColumn("w-50", ""); } }
+        public static FluentColumn w75 { get { return new FluentColumn("w-75", ""); } }
         public static FluentColumn w100 { get { return new FluentColumn("w-100", ""); } }
     }
 
