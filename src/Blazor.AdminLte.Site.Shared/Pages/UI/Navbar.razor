@@ -33,7 +33,7 @@
         </Body>
     </Card>
 
-    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline }" ToolOptions="new CardToolOptions { Expandable = true, Maximizable = true }">
+    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline }" ToolOptions="new CardToolOptions { Collapsable=true, Maximizable = true }">
         <Header>
             <CardTools />
             <TabList Identifier="tabExample2">
@@ -61,7 +61,7 @@
         </Body>
     </Card>
 
-    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline, CardStyle.OutlineTabs }" ToolOptions="new CardToolOptions { Expandable = true, Maximizable = true }">
+    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline, CardStyle.OutlineTabs }" ToolOptions="new CardToolOptions { Collapsable=true, Maximizable = true }">
         <Header>
             <CardTools />
             <TabList Identifier="tabExample3">
@@ -111,8 +111,9 @@
             Tabs.ForEach(t => t.Active = t.Id == id);
         }
     }
-    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline, CardStyle.OutlineTabs }" ToolOptions="new CardToolOptions { Expandable = true, Maximizable = true }">
+    <Card Type="CardType.Tabs" Styles="new CardStyle[] { CardStyle.Primary, CardStyle.Outline, CardStyle.OutlineTabs }" ToolOptions="new CardToolOptions { Collapsable=true, Maximizable = true }">
         <Header>
+            <CardTools />
             <TabList Identifier="tabExample4" ControlleredByBlazor="true">
                 @foreach (var tab in Tabs)
                 {
