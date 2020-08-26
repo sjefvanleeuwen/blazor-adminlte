@@ -5,6 +5,7 @@ namespace Blazor.AdminLte
 {
     public static class col
     {
+        public static FluentColumn _ { get { return new FluentColumn(""); } }
         public static FluentColumn xs { get { return new FluentColumn("-xs"); } }
         public static FluentColumn sm { get { return new FluentColumn("-sm"); } }
         public static FluentColumn md { get { return new FluentColumn("-md"); } }

@@ -1,0 +1,63 @@
+﻿@page "/layout/grid-system"
+<ContentHeader>
+    <Header>
+        <PageTitle Title="Grid System" />
+    </Header>
+</ContentHeader>
+<ContentMain>
+    <Card>
+        <Title><CardTitle>Simple</CardTitle></Title>
+        <Body>
+            <Row>
+                <Column Classes="col.sm"><Card><Title>One of three Columns</Title></Card></Column>
+                <Column Classes="col.sm"><Card><Title>One of three Columns</Title></Card></Column>
+                <Column Classes="col.sm"><Card><Title>One of three Columns</Title></Card></Column>
+            </Row>
+        </Body>
+    </Card>
+    <Card>
+        <Title><CardTitle>Auto-layout columns</CardTitle></Title>
+        <Body>
+            <Row>
+                <Column Classes="col._"><Card><Title>1 of 2</Title></Card></Column>
+                <Column Classes="col._"><Card><Title>2 of 2</Title></Card></Column>
+            </Row>
+            <Row>
+                <Column Classes="col._"><Card><Title>1 of 3</Title></Card></Column>
+                <Column Classes="col._"><Card><Title>2 of 3</Title></Card></Column>
+                <Column Classes="col._"><Card><Title>3 of 3</Title></Card></Column>
+            </Row>
+        </Body>
+    </Card>
+    <Card>
+        <Title><CardTitle>Setting one column width</CardTitle></Title>
+        <Body>
+            <Row>
+                <Column Classes="col._"><Card><Title>1 of 3</Title></Card></Column>
+                <Column Classes="col._6"><Card><Title>2 of 3 (wider)</Title></Card></Column>
+                <Column Classes="col._"><Card><Title>3 of 3</Title></Card></Column>
+            </Row>
+            <Row>
+                <Column Classes="col._"><Card><Title>1 of 3</Title></Card></Column>
+                <Column Classes="col._5"><Card><Title>2 of 3 (wider)</Title></Card></Column>
+                <Column Classes="col._"><Card><Title>3 of 3</Title></Card></Column>
+            </Row>
+        </Body>
+    </Card>
+    <Card>
+        <Title><CardTitle>Variable width content</CardTitle></Title>
+        <Body>
+            Use col-{breakpoint}-auto classes to size columns based on the natural width of their content.
+            <Row>
+                <Column Classes="col._.col.lg._2"><Card><Title>1 of 3</Title></Card></Column>
+                <Column Classes="col.md.auto"><Card><Title>Variable width content</Title></Card></Column>
+                <Column Classes="col._.col.lg._2"><Card><Title>3 of 3</Title></Card></Column>
+            </Row>
+            <Row>
+                <Column Classes="col._"><Card><Title>1 of 3</Title></Card></Column>
+                <Column Classes="col.md.auto"><Card><Title>Variable width content</Title></Card></Column>
+                <Column Classes="col._.col.lg._2"><Card><Title>3 of 3</Title></Card></Column>
+            </Row>
+        </Body>
+    </Card>
+</ContentMain>

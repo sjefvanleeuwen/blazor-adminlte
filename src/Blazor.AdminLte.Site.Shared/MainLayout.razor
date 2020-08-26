@@ -79,8 +79,15 @@
     <SideBarMenu>
         <SideBarMenuItem Link="widgets" Icon="fas fa-th">
             Widgets
-            <span class="right badge badge-danger">New</span>
         </SideBarMenuItem>
+        <SideBarTreeView MenuState="MenuState.Closed" Icon="fas fa-copy">
+            <Title>Layout Options</Title>
+            <Items>
+                <SideBarMenuItem Icon="far fa-circle" Link="layout/grid-system">
+                    Grid System
+                </SideBarMenuItem>
+            </Items>
+        </SideBarTreeView>
         <SideBarTreeView MenuState="MenuState.Open" Icon="fas fa-tachometer-alt">
             <Title>Starter Pages</Title>
             <Items>
