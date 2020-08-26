@@ -60,4 +60,74 @@
             </Row>
         </Body>
     </Card>
+    <Card>
+        <Title><CardTitle>Equal-width multi-row</CardTitle></Title>
+        <Body>
+            Create equal-width columns that span multiple rows by inserting a .w-100 where you want the columns to break to a new line. Make the breaks responsive by mixing the .w-100 with some responsive display utilities.
+            <Row>
+                <Column Classes="col._"><Card><Title>@col._</Title></Card></Column>
+                <Column Classes="col._"><Card><Title>@col._</Title></Card></Column>
+                <Column Classes="col.w100"></Column>
+                <Column Classes="col._"><Card><Title>@col._</Title></Card></Column>
+                <Column Classes="col._"><Card><Title>@col._</Title></Card></Column>
+            </Row>
+        </Body>
+    </Card>
+        <h3>Responsive classes</h3>
+        <p>
+            Bootstrap’s grid includes five tiers of predefined classes for building complex responsive layouts. Customize the size of your columns on extra small, small, medium, large, or extra large devices however you see fit.
+        </p>
+    <Card>
+        <Title><CardTitle>All breakpoints</CardTitle></Title>
+        <Body>
+            For grids that are the same from the smallest of devices to the largest, use the .col and .col-* classes. Specify a numbered class when you need a particularly sized column; otherwise, feel free to stick to .col.
+            <Row>
+                <Column Classes="col._"><Card><Title>@col._</Title></Card></Column>
+                <Column Classes="col._"><Card><Title>@col._</Title></Card></Column>
+                <Column Classes="col._"><Card><Title>@col._</Title></Card></Column>
+                <Column Classes="col._"><Card><Title>@col._</Title></Card></Column>
+            </Row>
+            <Row>
+                <Column Classes="col._8"><Card><Title>@col._8</Title></Card></Column>
+                <Column Classes="col._4"><Card><Title>@col._4</Title></Card></Column>
+            </Row>
+        </Body>
+    </Card>
+    <Card>
+        <Title><CardTitle>Stacked to horizontal</CardTitle></Title>
+        <Body>
+            Using a single set of .col-sm-* classes, you can create a basic grid system that starts out stacked before becoming horizontal with at the small breakpoint (sm).
+            <Row>
+                <Column Classes="col.sm._8"><Card><Title>@col.sm._8</Title></Card></Column>
+                <Column Classes="col.sm._4"><Card><Title>@col.sm._4</Title></Card></Column>
+            </Row>
+            <Row>
+                <Column Classes="col.sm"><Card><Title>@col.sm</Title></Card></Column>
+                <Column Classes="col.sm"><Card><Title>@col.sm</Title></Card></Column>
+                <Column Classes="col.sm"><Card><Title>@col.sm</Title></Card></Column>
+            </Row>
+        </Body>
+    </Card>
+    <Card>
+        <Title><CardTitle>Mix and match</CardTitle></Title>
+        <Body>
+            Don’t want your columns to simply stack in some grid tiers? Use a combination of different classes for each tier as needed. See the example below for a better idea of how it all works.
+            Stack the columns on mobile by making one full-width and the other half-width
+            <Row>
+                <Column Classes="col._12.col.md._8"><Card><Title>@col._12.col.md._8</Title></Card></Column>
+                <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
+            </Row>
+            Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop
+            <Row>
+                <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
+                <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
+                <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
+            </Row>
+            Columns are always 50% wide, on mobile and desktop
+            <Row>
+                <Column Classes="col._6"><Card><Title>@col._6</Title></Card></Column>
+                <Column Classes="col._6"><Card><Title>@col._6</Title></Card></Column>
+            </Row>
+        </Body>
+    </Card>
 </ContentMain>
