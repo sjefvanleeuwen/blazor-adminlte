@@ -17,9 +17,10 @@
                         new CustomCheckboxState(){ Identifier = "customCheckbox3", Value="option3", IsDisabled=true, Label= "Custom Checkbox disabled"}
                     };
                 }
-                @for (int i = 0; i < Checkboxes.Count; i++)
+                @for (int i = 0; i < 3; i++)
                 {
-                    <CustomCheckbox  @bind-Value="Checkboxes[i]" /> <text>Checked: @Checkboxes[i].IsChecked;</text>
+                    <CustomCheckbox @bind-Value="Checkboxes[i]" /> <text>Checked: @Checkboxes[i].IsChecked;</text>
+                    @System.Text.Json.JsonSerializer.Serialize(Checkboxes[i]);
                 }
             </FormGroup>
         </Body>
