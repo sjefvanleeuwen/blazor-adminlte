@@ -1,0 +1,3 @@
+﻿@namespace Blazor.AdminLte
+<label for="@Value.Identifier">@((MarkupString)Value.Label)</label>
+<input class="form-control" id="@Value.Identifier" placeholder="@Value.Placeholder"  value="@Value.Value" @onchange="DoChange" type="@Value.Type">

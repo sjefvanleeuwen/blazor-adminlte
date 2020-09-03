@@ -1,17 +1,46 @@
 ﻿@page "/forms/general"
 <ContentHeader>
     <Header>
-        <PageTitle Title="General Forms" />
+        <PageTitle Title="General Form" />
     </Header>
 </ContentHeader>
 <ContentMain>
+    <Row>
+        <Column Classes="col.md._6">
+            <Card HeaderBackgroundColor="Color.Primary" ToolOptions="new CardToolOptions { Collapsable = true, Maximizable=true}">
+                <Title><CardTitle>Quick Example</CardTitle></Title>
+                <Header><CardTools /></Header>
+                <Body>
+                    <FormGroup>
+                        @code{
+                            List<InputState> Inputs = new List<InputState>()
+                                                                                                            {
+                              new InputState(){Identifier="exampleInputEmail1", Placeholder="Enter email", Label="Email Address", Type="email"},
+                              new InputState(){Identifier="exampleInputPassword1", Placeholder="Password", Label="Password", Type="password"},
+                              new InputState(){Identifier="exampleInputFile1", Placeholder="Choose file", Label="Email Address", Type="file"}
+                        };
+                        }
+                        @for (int i = 0; i < Inputs.Count; i++)
+                        {
+                            <Input @bind-Value="Inputs[i]" /> <text>Value: @Inputs[i].Value;</text>
+                            @System.Text.Json.JsonSerializer.Serialize(Inputs[i]);
+                        }
+                    </FormGroup>
+                </Body>
+                <Footer>
+                    <Button>Submit</Button>
+                </Footer>
+            </Card>
+        </Column>
+    </Row>
+
     <Card>
         <Title><CardTitle>Some simple link content</CardTitle></Title>
         <Body>
             <FormGroup>
                 @code{
                     List<CustomCheckboxState> Checkboxes = new List<CustomCheckboxState>()
-                                                        {
+                                                {
                         new CustomCheckboxState(){ Identifier = "customCheckbox1", Value="option1", Label="Custom Checkbox"},
                         new CustomCheckboxState(){ Identifier = "customCheckbox2", Value="option2", IsChecked=true, Label= "Custom Checkbox checked"},
                         new CustomCheckboxState(){ Identifier = "customCheckbox3", Value="option3", IsDisabled=true, Label= "Custom Checkbox disabled"}
