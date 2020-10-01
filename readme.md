@@ -36,8 +36,8 @@ Install-Package Blazorized.AdminLte.Content -Version 3.0.5
 ```
 or visit https://www.nuget.org/packages/Blazorized.AdminLte.Content/ for more installation options.
 
-**!NOTE** this does not include profile and other specific images from the sample site. you will need manually add them to your wwwroot.
-This will not include resources such as the profile images, if  you want these you will need to get them from the shared sample site's wwwroot
+**!NOTE** this does not include profile and other specific images from the sample site. You will need to manually add them to your wwwroot.
+If you want these you will need to get them from the shared sample site's wwwroot
 
 The extra sample content is located here:
 https://github.com/sjefvanleeuwen/blazor-adminlte/tree/master/src/Blazor.AdminLte.Site.Shared/wwwroot
