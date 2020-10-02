@@ -1,0 +1,49 @@
+﻿@page "/simple-tables"
+<ContentHeader>
+    <Header>
+        <PageTitle Title="Simple Tables" />
+    </Header>
+</ContentHeader>
+<ContentMain>
+    <Card>
+        <Title><CardTitle>Simple Full Width Table</CardTitle></Title>
+        <Body>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableHeadCell>#</TableHeadCell>
+                        <TableHeadCell>Task</TableHeadCell>
+                        <TableHeadCell>Progress</TableHeadCell>
+                        <TableHeadCell>Label</TableHeadCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                        <TableCell>1.</TableCell>
+                        <TableCell>Update software</TableCell>
+                        <TableCell><Progress Percentage="55" Classes="progress.danger" /></TableCell>
+                        <TableCell><Badge Classes="badge.right.danger">55%</Badge></TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>2.</TableCell>
+                        <TableCell>Clean database</TableCell>
+                        <TableCell><Progress Percentage="70" Classes="progress.warning" /></TableCell>
+                        <TableCell><Badge Classes="badge.right.warning">70%</Badge></TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>3.</TableCell>
+                        <TableCell>Cron job running</TableCell>
+                        <TableCell><Progress Percentage="30" Classes="progress.info" /></TableCell>
+                        <TableCell><Badge Classes="badge.right.info">30%</Badge></TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>4.</TableCell>
+                        <TableCell>Fix and squish bugs</TableCell>
+                        <TableCell><Progress Percentage="90" Classes="progress.success" /></TableCell>
+                        <TableCell><Badge Classes="badge.right.success" >90%</Badge></TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </Body>
+    </Card>
+</ContentMain>
