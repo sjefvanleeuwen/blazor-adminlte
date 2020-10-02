@@ -31,21 +31,8 @@ namespace Blazor.AdminLte
         public static FluentColumn w100 { get { return new FluentColumn("w-100", ""); } }
     }
 
-    public partial class Column
+    public partial class Column : BaseClasses
     {
-        [Parameter]
-        public object Classes { 
-            get
-            { 
-                return classes; 
-            } set 
-            { 
-                classes = value.ToString(); 
-            }  
-        }
-
-        public string classes { get; set; } = "";
-
         [Parameter]
         public RenderFragment ChildContent { get; set; }
     }
