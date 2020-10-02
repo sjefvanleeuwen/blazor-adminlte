@@ -42,6 +42,10 @@ If you want these you will need to get them from the shared sample site's wwwroo
 The extra sample content is located here:
 https://github.com/sjefvanleeuwen/blazor-adminlte/tree/master/src/Blazor.AdminLte.Site.Shared/wwwroot
 
+Also you might want to change mainlayout.razor as it contains some linkes to the shared site you might not want to be using anymore.
+
+look for image links containing these:  **_content/Blazor.AdminLte.Site.Shared**
+
 ## Getting Started
 
 
