@@ -5,10 +5,12 @@
         <img src="@UserImage" class="@imageEffect @elevation" alt="User Image">
     </div>
     <div class="info">
-        <a href="#" class="d-block">@ChildContent</a>
+        <a href="@Link" class="d-block">@ChildContent</a>
     </div>
 </div>
 @code {
+    [Parameter]
+    public string Link { get; set; } = "#";
     [Parameter]
     public RenderFragment ChildContent { get; set; }
     [Parameter]
