@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Blazor.AdminLte
 {
@@ -8,6 +6,8 @@ namespace Blazor.AdminLte
     {
         public string Image { get; set; }
         public string Alt { get; set; }
+
+        public string Link { get; set; } = "javascript:void(0)";
     }
 
     public class CarouselItemCollection : List<CarouselItem>
