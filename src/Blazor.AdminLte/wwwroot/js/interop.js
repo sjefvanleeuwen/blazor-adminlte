@@ -55,3 +55,11 @@ function dateRangePicker(dotnetRef, el, range, locale, settings) {
 function setTitle(title) {
     document.title = title;
 }
+
+function sideBarFixed(isFixed)
+{
+    if (isFixed)
+        $("body").addClass("layout-fixed");
+    else
+        $("body").removeClass("layout-fixed");
+}

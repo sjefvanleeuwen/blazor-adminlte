@@ -1,8 +1,25 @@
 ﻿@namespace Blazor.AdminLte
+@inject IJSRuntime JS 
 <div class="sidebar">
     @ChildContent
 </div>
 @code {
     [Parameter]
     public RenderFragment ChildContent { get; set; }
+
+    private bool _isFixed;
+
+    [Parameter]
+    public bool IsFixed
+    {
+        get
+        {
+            return _isFixed;
+        }
+        set
+        {
+            _isFixed = value;
+            JS.InvokeVoidAsync("sideBarFixed", _isFixed);
+        }
+    }
 }
