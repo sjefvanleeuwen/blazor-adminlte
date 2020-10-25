@@ -23,6 +23,10 @@
 
     private void LocationChanged(object sender, LocationChangedEventArgs args)
     {
+        updateNavLinkState();
+    }
+
+    private void updateNavLinkState() {
         if (Link.StartsWith("javascript"))
             return;
         NavLinkState = new Uri(Nav.Uri).PathAndQuery.Trim('/') == Link.Trim('/') ? NavLinkState.Active : NavLinkState.Inactive;
@@ -39,5 +43,14 @@
     void IDisposable.Dispose()
     {
         Nav.LocationChanged -= LocationChanged;
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            updateNavLinkState();
+        }
+        base.OnAfterRender(firstRender);
     }
 }
