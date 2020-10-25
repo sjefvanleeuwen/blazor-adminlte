@@ -22,4 +22,13 @@
             JS.InvokeVoidAsync("sideBarFixed", _isFixed);
         }
     }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            JS.InvokeVoidAsync("sideBarFixed", _isFixed);
+        }
+        base.OnAfterRender(firstRender);
+    }
 }

@@ -58,8 +58,10 @@ function setTitle(title) {
 
 function sideBarFixed(isFixed)
 {
-    if (isFixed)
+    if (isFixed) {
         $("body").addClass("layout-fixed");
+        $("body").trigger("resize");
+    }
     else
         $("body").removeClass("layout-fixed");
 }

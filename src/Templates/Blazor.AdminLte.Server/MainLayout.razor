@@ -1,0 +1,44 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+@inject NavBarLeftInjectableMenu navBarLeftInjectableMenu
+<NavBar>
+    <NavBarLeft>
+        @if (!navBarLeftInjectableMenu.OverrideParentContent)
+        {
+            // Put your global menu here
+            <NavBarMenuItem Link="/About">About</NavBarMenuItem>
+        }
+        @navBarLeftInjectableMenu.content <!-- Injectable for custom menu content per page -->
+    </NavBarLeft>
+</NavBar>
+<SideBarContainer>
+    <BrandLogo Link="https://adminlte.io/" Logo="dist/img/AdminLTELogo.png">AdminLTE 3</BrandLogo>
+    <SideBar>
+        <SideBarMenu>
+            <SideBarMenuItem Icon="far fa-circle" Link="/Home">
+                Home
+            </SideBarMenuItem>
+        </SideBarMenu>
+    </SideBar>
+</SideBarContainer>
+<ContentWrapper>
+    @Body
+</ContentWrapper>
+<MainFooter>
+    <Default>
+        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </Default>
+    <Right>
+        Blazorized by Sjef van Leeuwen
+    </Right>
+</MainFooter>
+@code {
+    protected override void OnParametersSet()
+    {
+        // content = null; for refreshing custom menu injectables per page.
+        // no override; reset default to show parent menu content items.
+        navBarLeftInjectableMenu.SetContent(null, false);
+        StateHasChanged();
+    }
+}

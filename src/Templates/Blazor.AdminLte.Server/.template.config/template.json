@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Sjef van Leeuwen",
+  "classifications": [ "Blazor", ],
+  "identity": "ExampleTemplate.AsyncProject",
+  "name": "Blazor AdminLte Server Template",
+  "shortName": "blazor-adminlte-server",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}
