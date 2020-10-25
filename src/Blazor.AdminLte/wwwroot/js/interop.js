@@ -20,7 +20,7 @@ function pushMenu() {
     $('[data-toggle="push-menu"]').pushMenu('toggle')
 }
 
-function toggle() {
+function toggle(el) {
     $(el).toggle();
 }
 

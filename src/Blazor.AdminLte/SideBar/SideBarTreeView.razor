@@ -5,7 +5,7 @@
         <i class="nav-icon @Icon"></i>
         <p>
             @Title
-            <i class="right fas fa-angle-left"></i>
+            <i class="right fas @chevron"></i>
         </p>
     </a>
     <ul @ref="ul" class="nav nav-treeview">
@@ -26,13 +26,14 @@
     public MenuState MenuState { get; set; }
 
     private string menuState => MenuState.GetDescription<StyleAttribute>();
+    private string chevron { get; set; } = "fa-angle-left";
 
     private ElementReference ul { get; set; }
     private bool Visible { get; set; }
 
     private void OnClick()
     {
-        MenuState = MenuState == MenuState.Open ? MenuState.Open : MenuState.Closed;
+        MenuState = MenuState == MenuState.Open ? MenuState.Closed : MenuState.Open;
         JS.InvokeVoidAsync("toggleSideMenu", ul);
     }
 }
