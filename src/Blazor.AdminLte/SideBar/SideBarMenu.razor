@@ -18,7 +18,10 @@
 
     protected override Task OnAfterRenderAsync(bool firstRender)
     {
-        JS.InvokeVoidAsync("addClass", widget, "data-widget='treeview'");
+        if (firstRender)
+        {
+            JS.InvokeVoidAsync("addClass", widget, "data-widget='treeview'");
+        }
         return base.OnAfterRenderAsync(firstRender);
     }
 }
