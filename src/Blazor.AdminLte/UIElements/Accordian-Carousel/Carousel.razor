@@ -11,7 +11,7 @@
         @for (int i = 0; i < Items.Count; i++)
         {
         <div class="carousel-item@(i == Items.Count - 1 ? " active carousel-item-left" : string.Empty) @(i==0 ? " carousel-item-next carousel-item-left" : string.Empty)">
-            <a href="@Items[i].Link">
+            <a href="@Items[i].Link" target="@LinkTarget">
                 <img class='d-block w-100' src="@Items[i].Image" alt="@Items[i].Alt">
             </a>
         </div>
@@ -29,12 +29,13 @@
 @code {
     [Parameter] public string Identifier { get; set; } = "carouselExampleIndicators";
     [Parameter] public CarouselItemCollection Items { get; set; }
+    [Parameter] public string LinkTarget { get; set; }
 
     protected override Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-           JS.InvokeVoidAsync("carousel", "#" + Identifier);
+            JS.InvokeVoidAsync("carousel", "#" + Identifier);
         }
         return base.OnAfterRenderAsync(firstRender);
     }
