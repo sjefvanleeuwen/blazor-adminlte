@@ -56,6 +56,15 @@ function setTitle(title) {
     document.title = title;
 }
 
+function overlay(isActive) {
+    if (isActive) {
+        $("body").css("overflow-y", "hidden");
+    }
+    else {
+        $("body").css("overflow-y", "auto");
+    }
+}
+
 function sideBarFixed(isFixed)
 {
     if (isFixed) {
