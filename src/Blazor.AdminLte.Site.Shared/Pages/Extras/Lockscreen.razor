@@ -1,0 +1,41 @@
+﻿@page "/lockscreen"
+<!-- note: using styles, not css, we will target Isolated CSS for this component when we upgrade to .NET5 -->
+<Overlay>
+    <div style=" margin: 0 auto; margin-top: 10%; max-width: 400px;">
+        <div class="lockscreen-logo" style=" font-size: 35px; font-weight: 300; margin-bottom: 25px; text-align: center;">
+            <a href="/"><b>Admin</b>LTE</a>
+        </div>
+        <!-- User name -->
+        <div style="font-weight: 600; text-align: center;">John Doe</div>
+
+        <!-- START LOCK SCREEN ITEM -->
+        <div style=" border-radius: 4px; background: #fff; margin: 10px auto 30px; padding: 0; position: relative; width: 290px;">
+            <!-- lockscreen image -->
+            <div style="border-radius: 50%; background: #fff; left: -10px; padding: 5px; position: absolute; top: -25px; z-index: 10;">
+                <img src="_content/Blazor.AdminLte.Site.Shared/dist/img/user1-128x128.jpg" alt="User Image" style=" border-radius: 50%; height: 70px; width: 70px;">
+            </div>
+            <!-- /.lockscreen-image -->
+            <!-- lockscreen credentials (contains the form) -->
+            <form style="margin-left: 70px;">
+                <div class="input-group">
+                    <input type="password" style="border: 0;outline: none;" placeholder="password">
+                    <div class="input-group-append">
+                        <button type="button" class="btn"><i class="fas fa-arrow-right text-muted"></i></button>
+                    </div>
+                </div>
+            </form>
+            <!-- /.lockscreen credentials -->
+        </div>
+        <!-- /.lockscreen-item -->
+        <div class="help-block text-center">
+            Enter your password to retrieve your session
+        </div>
+        <div class="text-center">
+            <a href="login.html">Or sign in as a different user</a>
+        </div>
+        <div class="lockscreen-footer text-center">
+            Copyright © 2014-2019 <b><a href="http://adminlte.io" class="text-black">AdminLTE.io</a></b><br>
+            All rights reserved
+        </div>
+    </div>
+</Overlay>
