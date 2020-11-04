@@ -1,1 +1,9 @@
 *.cs linguist-language=C#
+static/* linguist-vendored
+src/Blazor.AdminLte.Content/* linguist-vendored
+src/Blazor.AdminLte.Site.Shared/* linguist-vendored
+src/Blazor.AdminLte.Site/* linguist-vendored
+src/Blazor.AdminLte.Tests/* linguist-vendored
+src/Blazor.AdminLte.Wasm/* linguist-vendored
+src/Blazor.AdminLte.GitHubPages/* linguist-vendored
+src/Blazor.AdminLte.Templates/* linguist-vendored
