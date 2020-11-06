@@ -1,6 +1,6 @@
 *.cs linguist-language=C#
 *.razor linguist-language=C#
-static/* linguist-vendored
+docs/* linguist-vendored
 src/Blazor.AdminLte/wwwroot/* linguist-vendored
 src/Blazor.AdminLte.Content/* linguist-vendored
 src/Blazor.AdminLte.Site.Shared/* linguist-vendored
