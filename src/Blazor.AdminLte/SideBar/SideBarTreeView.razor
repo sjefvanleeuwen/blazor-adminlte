@@ -1,20 +1,18 @@
 ﻿@namespace Blazor.AdminLte
 @inject IJSRuntime JS  
 <li class="nav-item has-treeview menu-@(menuState)">
-    <a href="@Link" class="nav-link active" @onclick="OnClick">
+    <a @ref="menu" href="javascript:void(0);" class='nav-link' @onclick="OnClick" >
         <i class="nav-icon @Icon"></i>
         <p>
             @Title
             <i class="right fas @chevron"></i>
         </p>
     </a>
-    <ul @ref="ul" class="nav nav-treeview">
+    <ul @ref="ul" class="nav nav-treeview" @onclick="SetActive">
         @Items
     </ul>
 </li>
 @code {
-    [Parameter]
-    public string Link { get; set; } = "javascript:void(0)";
     [Parameter]
     public string Icon { get; set; }
     [Parameter]
@@ -22,18 +20,37 @@
     [Parameter]
     public RenderFragment Items { get; set; }
 
-    [Parameter]
-    public MenuState MenuState { get; set; }
+    private MenuState _menuState { get; set; }
+
+    private MenuState MenuState {
+        get {
+            return _menuState;
+        } set {
+            if (_menuState == value)
+                return;
+            JS.InvokeVoidAsync("toggleSideMenu", ul);
+            _menuState = value;
+        }
+    }
+
+    public void SetActive()
+    {
+        JS.InvokeVoidAsync("activateSideMenu", menu);
+    }
 
     private string menuState => MenuState.GetDescription<StyleAttribute>();
     private string chevron { get; set; } = "fa-angle-left";
 
     private ElementReference ul { get; set; }
-    private bool Visible { get; set; }
+    private ElementReference menu { get; set; }
 
     private void OnClick()
     {
         MenuState = MenuState == MenuState.Open ? MenuState.Closed : MenuState.Open;
-        JS.InvokeVoidAsync("toggleSideMenu", ul);
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
     }
 }

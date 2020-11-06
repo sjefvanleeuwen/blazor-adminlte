@@ -72,7 +72,7 @@
 </NavBar>
 <SideBarContainer>
     <BrandLogo Link="https://adminlte.io/" Logo="_content/Blazor.AdminLte.Site.Shared/dist/img/AdminLTELogo.png">AdminLTE 3</BrandLogo>
-    <SideBar IsFixed="true">
+    <SideBar>
         <!-- Sidebar user panel (optional) -->
         <SideBarUserPanel ImageEffect="ImageEffect.Circle" Link="starter-pages/user-page" Elevation="Elevation.Three" UserImage="_content/Blazor.AdminLte.Site.Shared/dist/img/user2-160x160.jpg">Alexander Pierce</SideBarUserPanel>
         @*<SideBarSearch></SideBarSearch>*@
@@ -80,7 +80,7 @@
         <SideBarMenuItem Link="widgets" Icon="fas fa-th">
             Widgets
         </SideBarMenuItem>
-        <SideBarTreeView MenuState="MenuState.Closed" Icon="fas fa-copy">
+        <SideBarTreeView Icon="fas fa-copy">
             <Title>Layout Options</Title>
             <Items>
                 <SideBarMenuItem Icon="far fa-circle" Link="layout/grid-system">
@@ -88,7 +88,7 @@
                 </SideBarMenuItem>
             </Items>
         </SideBarTreeView>
-        <SideBarTreeView MenuState="MenuState.Open" Icon="fas fa-tachometer-alt">
+        <SideBarTreeView Icon="fas fa-tachometer-alt">
             <Title>Starter Pages</Title>
             <Items>
                 <SideBarMenuItem Icon="far fa-circle" Link="starter-pages/active-page">
@@ -99,7 +99,7 @@
                 </SideBarMenuItem>
             </Items>
         </SideBarTreeView>
-        <SideBarTreeView MenuState="MenuState.Open" Icon="fas fa-tachometer-alt">
+        <SideBarTreeView  Icon="fas fa-tachometer-alt">
             <Title>Content Injections</Title>
             <Items>
                 <SideBarMenuItem Icon="far fa-circle" Link="injections/navbar-left">
@@ -110,7 +110,7 @@
                 </SideBarMenuItem>
             </Items>
         </SideBarTreeView>
-        <SideBarTreeView MenuState="MenuState.Closed" Icon="fas fa-tree">
+        <SideBarTreeView Icon="fas fa-tree">
             <Title>UI Elements</Title>
             <Items>
                 <SideBarMenuItem Icon="far fa-circle" Link="ui/general">
@@ -124,7 +124,7 @@
                 </SideBarMenuItem>
             </Items>
         </SideBarTreeView>
-        <SideBarTreeView MenuState="MenuState.Closed" Icon="fas fa-edit">
+        <SideBarTreeView Icon="fas fa-edit">
             <Title>Forms</Title>
             <Items>
                 <SideBarMenuItem Icon="far fa-circle" Link="forms/general">
@@ -135,7 +135,7 @@
                 </SideBarMenuItem>
             </Items>
         </SideBarTreeView>
-        <SideBarTreeView MenuState="MenuState.Closed" Icon="fas fa-table">
+        <SideBarTreeView  Icon="fas fa-table">
             <Title>Tables</Title>
             <Items>
                 <SideBarMenuItem Icon="far fa-circle" Link="simple-tables">
@@ -143,7 +143,7 @@
                 </SideBarMenuItem>
             </Items>
         </SideBarTreeView>
-        <SideBarTreeView MenuState="MenuState.Closed" Icon="far fa-plus-square">
+        <SideBarTreeView Icon="far fa-plus-square">
             <Title>Extras</Title>
             <Items>
                 <SideBarMenuItem Icon="far fa-circle" Link="lockscreen">
@@ -183,8 +183,7 @@
         // no override; reset default to show parent menu content items.
         navBarLeftInjectableMenu.SetContent(null, false);
     }
-}
-@code {
+
     private DateTime dt = DateTime.Now;
 
     private void SeeAllMessages(Tuple<IDropdownFooter, MouseEventArgs> args)
@@ -197,4 +196,11 @@
         NavigationManager.NavigateTo("messages/see-all-notifications");
     }
 
+    protected override void OnAfterRender(bool isFirstRender)
+    {
+        JS.InvokeVoidAsync("sideBarFixed", true);
+        JS.InvokeVoidAsync("navBarFixed", true);
+        JS.InvokeVoidAsync("footerFixed", true);
+        base.OnAfterRender(isFirstRender);
+    }
 }
