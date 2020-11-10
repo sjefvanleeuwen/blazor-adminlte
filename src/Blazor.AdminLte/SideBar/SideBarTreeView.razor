@@ -1,7 +1,7 @@
 ﻿@namespace Blazor.AdminLte
 @inject IJSRuntime JS  
 <li class="nav-item has-treeview menu-@(menuState)">
-    <a @ref="menu" href="javascript:void(0);" class='nav-link' @onclick="OnClick" >
+    <a @ref="menu" href="javascript:void(0);" class='nav-link' @onclick="OnClick">
         <i class="nav-icon @Icon"></i>
         <p>
             @Title
@@ -35,7 +35,7 @@
 
     public void SetActive()
     {
-        JS.InvokeVoidAsync("activateSideMenu", menu);
+       // JS.InvokeVoidAsync("activateSideMenu", menu);
     }
 
     private string menuState => MenuState.GetDescription<StyleAttribute>();

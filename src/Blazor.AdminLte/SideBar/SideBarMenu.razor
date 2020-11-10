@@ -1,12 +1,11 @@
 ﻿@namespace Blazor.AdminLte
+@implements IDisposable
 @inject IJSRuntime JS
-
+@inject NavigationManager nav
+@inherits BlazorState.BlazorStateComponent
 <!-- Sidebar Menu -->
 <nav class="mt-2">
-    <ul @ref="widget" class="nav nav-pills nav-sidebar flex-column" role="menu">
-        @*data-widget="treeview" role="menu" data-accordion="false"*@
-        <!-- Add icons to the links using the .nav-icon class
-        with font-awesome or any other icon font library -->
+    <ul class="nav nav-pills nav-sidebar flex-column" role="menu">
         @ChildContent
     </ul>
 </nav>
@@ -14,14 +13,19 @@
 @code {
     [Parameter]
     public RenderFragment ChildContent { get; set; }
-    ElementReference widget { get; set; }
 
-    protected override Task OnAfterRenderAsync(bool firstRender)
+    protected override void OnInitialized()
     {
-        if (firstRender)
-        {
-            JS.InvokeVoidAsync("addClass", widget, "data-widget='treeview'");
-        }
-        return base.OnAfterRenderAsync(firstRender);
+        nav.LocationChanged += LocationChanged;
+        base.OnInitialized();
+    }
+    void LocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        Mediator.Send(new SideBarState.SelectMenuItemAction() { Id = "" }); ;
+    }
+    void IDisposable.Dispose()
+    {
+        // Unsubscribe from the event when our component is disposed
+        nav.LocationChanged -= LocationChanged;
     }
 }

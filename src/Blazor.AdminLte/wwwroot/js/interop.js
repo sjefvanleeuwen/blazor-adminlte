@@ -11,13 +11,8 @@ function hideMenu(el) {
 }
 
 function toggleSideMenu(el) {
-    if (el != prevMenu) {
-        $(prevMenu).slideToggle('fast');
-        prevMenu = el;
-    }
     $(el).slideToggle('fast');
-   
-}
+   }
 
 var prevActiveMenu = null;
 

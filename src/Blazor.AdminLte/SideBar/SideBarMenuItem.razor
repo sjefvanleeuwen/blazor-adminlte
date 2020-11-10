@@ -1,8 +1,9 @@
 ﻿@namespace Blazor.AdminLte
+@inject NavigationManager nav;
 @implements IDisposable
-@inject NavigationManager Nav
+@inherits BlazorState.BlazorStateComponent
 <li class="nav-item">
-    <a href="@Link" class="nav-link @navLinkState">
+    <a href="@Link" class="nav-link @(State.GetState(Id).GetDescription<StyleAttribute>())" @onclick="Click" @onclick:preventDefault>
         <i class="nav-icon @Icon"></i>
         <p>
             @ChildContent
@@ -10,47 +11,42 @@
     </a>
 </li>
 @code {
+
+    private string Id = Guid.NewGuid().ToString();
+
     [Parameter]
     public string Icon { get; set; }
     [Parameter]
     public string Link { get; set; } = "javascript:void(0)";
     [Parameter]
     public RenderFragment ChildContent { get; set; }
-    [Parameter]
-    public NavLinkState NavLinkState { get; set; }
 
-    private string navLinkState { get; set; }
+    private SideBarState State => GetState<SideBarState>();
 
-    private void LocationChanged(object sender, LocationChangedEventArgs args)
+    private SideBarState.SelectMenuItemAction action;
+
+    private void Click()
     {
-        updateNavLinkState();
+        nav.NavigateTo(Link);
     }
 
-    private void updateNavLinkState() {
-        if (Link.StartsWith("javascript"))
+    protected override void OnInitialized()
+    {
+        // Subscribe to the event
+        nav.LocationChanged += LocationChanged;
+        base.OnInitialized();
+    }
+
+    void LocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        if (new Uri(nav.Uri).PathAndQuery.Trim('/') != Link.Trim('/'))
             return;
-        NavLinkState = new Uri(Nav.Uri).PathAndQuery.Trim('/') == Link.Trim('/') ? NavLinkState.Active : NavLinkState.Inactive;
-        navLinkState = NavLinkState.GetDescription<StyleAttribute>();
-        StateHasChanged();
-    }
-
-    protected override Task OnInitializedAsync()
-    {
-        Nav.LocationChanged += LocationChanged;
-        return base.OnInitializedAsync();
+        Mediator.Send(new SideBarState.SelectMenuItemAction() { Id = Id }); ;
     }
 
     void IDisposable.Dispose()
     {
-        Nav.LocationChanged -= LocationChanged;
-    }
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        if (firstRender)
-        {
-            updateNavLinkState();
-        }
-        base.OnAfterRender(firstRender);
+        // Unsubscribe from the event when our component is disposed
+        nav.LocationChanged -= LocationChanged;
     }
 }

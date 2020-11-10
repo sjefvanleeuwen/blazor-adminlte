@@ -1,14 +1,8 @@
 ﻿@namespace Blazor.AdminLte
-@inject IJSRuntime JS 
 <div class="sidebar">
     @ChildContent
 </div>
 @code {
     [Parameter]
     public RenderFragment ChildContent { get; set; }
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        base.OnAfterRender(firstRender);
-    }
 }
