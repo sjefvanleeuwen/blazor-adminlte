@@ -9,6 +9,11 @@ ADMINLTE for Blazor is a collection of reusable components, with which you can e
 
 For a quick impression visite the **demo site** at: https://blazorize-adminlte.morstead.nl/
 
+## State management
+
+This project uses a central state store and, in some cases, prefers this method over Cascading Parameters. You can find the Blazor-State project here:
+https://github.com/TimeWarpEngineering/blazor-state
+
 # Status
 
 The project is in early stage currently, but expanded almost daily. Feel free to follow the project and receive updates as they arrive.
