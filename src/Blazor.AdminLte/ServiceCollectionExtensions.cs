@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BlazorState;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Blazor.AdminLte
 {
@@ -6,7 +8,13 @@ namespace Blazor.AdminLte
     {
         public static IServiceCollection AddAdminLte(this IServiceCollection services)
         {
-            return services.AddScoped<NavBarLeftInjectableMenu>();
+            return services.AddScoped<NavBarLeftInjectableMenu>().AddBlazorState((aOptions) =>
+                 aOptions.Assemblies = new Assembly[]
+                 {
+                    typeof(BaseClasses).GetTypeInfo().Assembly,
+                    Assembly.GetExecutingAssembly()
+                 }
+            );
         }
     }
 }
