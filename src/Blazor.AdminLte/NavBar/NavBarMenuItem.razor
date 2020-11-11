@@ -1,10 +1,11 @@
 ﻿@namespace Blazor.AdminLte
 <li class="nav-item d-none d-sm-inline-block">
-    <a href="@Link" class="nav-link">@ChildContent</a>
+    @if (Link != string.Empty)
+    {
+        <a href="@Link" class="nav-link" @onclick="DoClick">@ChildContent</a>
+    }
+    else
+    {
+        <div role="menu" class="nav-link" style="cursor:pointer" @onclick="DoClick">@ChildContent</div>
+    }
 </li>
-@code {
-    [Parameter]
-    public string Link { get; set; } = "#";
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-}

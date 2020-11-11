@@ -7,7 +7,7 @@
         @if (!navBarLeftInjectableMenu.OverrideParentContent)
         {
             <NavBarMenuItem Link="/">Home</NavBarMenuItem>
-            <NavBarMenuItem>Content</NavBarMenuItem><!-- defaults to # -->
+            <NavBarMenuItem OnClick="HandleContent">Content</NavBarMenuItem><!-- defaults to # -->
         }
         @navBarLeftInjectableMenu.content <!-- Injectable for custom menu content per page -->
     </NavBarLeft>
@@ -187,6 +187,11 @@
     private DateTime dt = DateTime.Now;
 
     private void SeeAllMessages(Tuple<IDropdownFooter, MouseEventArgs> args)
+    {
+        NavigationManager.NavigateTo("messages/see-all-messages");
+    }
+
+    private void HandleContent(Tuple<INavBarMenuItem, MouseEventArgs> args)
     {
         NavigationManager.NavigateTo("messages/see-all-messages");
     }
