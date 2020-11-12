@@ -8,6 +8,15 @@
     }
   },
   "profiles": {
+    "Live Reload (dotnet watch run)": {
+      "commandName": "Executable",
+      "executablePath": "dotnet.exe",
+      "commandLineArgs": "watch run",
+      "workingDirectory": "$(ProjectDir)",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
@@ -16,12 +25,12 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "BlazorApp3": {
+    "Self Hosted": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "applicationUrl": "https://localhost:46791;http://localhost:46792",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
