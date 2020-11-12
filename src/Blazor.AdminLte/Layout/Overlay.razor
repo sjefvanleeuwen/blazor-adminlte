@@ -1,6 +1,6 @@
 ﻿@implements IDisposable
 @namespace Blazor.AdminLte
-
+@inject ILayoutManager layoutManager 
 @inject IJSRuntime js
 
 @inject NavigationManager NavigationManager
@@ -32,6 +32,7 @@
     }
     void LocationChanged(object sender, LocationChangedEventArgs e)
     {
+        layoutManager.OverlayMode(false);
         js.InvokeVoidAsync("overlay", false);
     }
     void IDisposable.Dispose()
@@ -43,6 +44,7 @@
 
     protected override Task OnAfterRenderAsync(bool firstRender)
     {
+        layoutManager.OverlayMode(true);
         js.InvokeVoidAsync("overlay", true);
         return base.OnAfterRenderAsync(firstRender);
     }

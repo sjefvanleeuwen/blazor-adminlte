@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JS
+@inject ILayoutManager layoutManager
 @inject NavBarLeftInjectableMenu navBarLeftInjectableMenu
 <NavBar>
     <NavBarLeft>
@@ -203,9 +204,12 @@
 
     protected override void OnAfterRender(bool isFirstRender)
     {
-        JS.InvokeVoidAsync("sideBarFixed", true);
-        JS.InvokeVoidAsync("navBarFixed", true);
-        JS.InvokeVoidAsync("footerFixed", true);
+        layoutManager.IsFooterFixed = true;
+        layoutManager.IsNavBarFixed = true;
+        layoutManager.IsSideBarFixed = true;
+        //JS.InvokeVoidAsync("sideBarFixed", true);
+       // JS.InvokeVoidAsync("navBarFixed", true);
+       // JS.InvokeVoidAsync("footerFixed", true);
         base.OnAfterRender(isFirstRender);
     }
 }

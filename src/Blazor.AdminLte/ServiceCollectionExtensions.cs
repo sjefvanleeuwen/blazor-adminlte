@@ -8,13 +8,15 @@ namespace Blazor.AdminLte
     {
         public static IServiceCollection AddAdminLte(this IServiceCollection services)
         {
-            return services.AddScoped<NavBarLeftInjectableMenu>().AddBlazorState((aOptions) =>
+            return services
+                .AddScoped<NavBarLeftInjectableMenu>()
+                .AddBlazorState((aOptions) =>
                  aOptions.Assemblies = new Assembly[]
                  {
                     typeof(BaseClasses).GetTypeInfo().Assembly,
                     Assembly.GetExecutingAssembly()
                  }
-            );
+            ).AddScoped<ILayoutManager, LayoutManager>();
         }
     }
 }
