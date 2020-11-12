@@ -12,8 +12,6 @@
 </li>
 @code {
 
-    private string Id = Guid.NewGuid().ToString();
-
     [Parameter]
     public string Icon { get; set; }
     [Parameter]
@@ -22,8 +20,6 @@
     public RenderFragment ChildContent { get; set; }
 
     private SideBarState State => GetState<SideBarState>();
-
-    private SideBarState.SelectMenuItemAction action;
 
     private void Click()
     {
