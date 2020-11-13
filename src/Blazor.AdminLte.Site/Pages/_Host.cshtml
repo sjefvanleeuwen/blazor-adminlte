@@ -33,15 +33,14 @@
 <body class="hold-transition sidebar-mini sidebar-collapse">
     <div class="wrapper">
         <app>
-            <component type="typeof(App)" render-mode="Server">
-                <div class="app-load">
-                    <div class="rect1"></div>
-                    <div class="rect2"></div>
-                    <div class="rect3"></div>
-                    <div class="rect4"></div>
-                    <div class="rect5"></div>
-                </div>
-            </component>
+            @*<div class="app-load">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>*@
+            <component type="typeof(App)" render-mode="Server" //>
         </app>
         <div id="blazor-error-ui">
             <environment include="Staging,Production">
