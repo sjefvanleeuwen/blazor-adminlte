@@ -36,8 +36,17 @@ function addClass(el, _class) {
   //  $(el).collapse();
 }
 
-function pushMenu() {
-    $('[data-toggle="push-menu"]').pushMenu('toggle')
+function closeSideBar()
+{
+    if ($(window).width() <= 992)
+    {
+        $("body").removeClass("sidebar-open").addClass("sidebar-closed");
+    }
+}
+
+function pushMenu(action)
+{
+    $('[data-widget="pushmenu"]').PushMenu(typeof action === 'undefined' ? 'toggle' : action);
 }
 
 function toggle(el) {
