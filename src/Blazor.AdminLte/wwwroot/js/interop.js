@@ -29,7 +29,11 @@ function deactivateSideMenu() {
     $('aside').find("li").each(function () { $(this).find("a").removeClass("active") });
 }
 
-
+function toggleAside() {
+    $('#sidebar-overlay').click();
+    //console.log("hi");
+    //$('aside').slideToggle();
+}
 
 function addClass(el, _class) {
     $(el).addClass(_class);

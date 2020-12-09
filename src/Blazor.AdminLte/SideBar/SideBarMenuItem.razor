@@ -2,6 +2,7 @@
 @inject NavigationManager nav;
 @implements IDisposable
 @inherits BlazorState.BlazorStateComponent
+@inject IJSRuntime JS;
 <li class="nav-item">
     <a href="@Link" class="nav-link @(State.GetState(Id).GetDescription<StyleAttribute>())" @onclick="Click" @onclick:preventDefault>
         <i class="nav-icon @Icon"></i>
@@ -24,6 +25,7 @@
     private void Click()
     {
         nav.NavigateTo(Link);
+        JS.InvokeVoidAsync("toggleAside");
     }
 
     protected override void OnInitialized()
