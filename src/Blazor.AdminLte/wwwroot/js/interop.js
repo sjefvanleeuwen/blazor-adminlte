@@ -30,14 +30,13 @@ function deactivateSideMenu() {
 }
 
 function toggleAside() {
-    $('#sidebar-overlay').click();
-    //console.log("hi");
-    //$('aside').slideToggle();
+    if ($("body").hasClass("sidebar-open")) {
+        $('#sidebar-overlay').click();
+    };
 }
 
 function addClass(el, _class) {
     $(el).addClass(_class);
-  //  $(el).collapse();
 }
 
 function pushMenu() {
