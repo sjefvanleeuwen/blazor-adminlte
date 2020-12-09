@@ -27,8 +27,8 @@
   <ItemGroup>
     <PackageReference Include="Blazor-State" Version="3.3.0" />
     <PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE">
