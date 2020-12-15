@@ -64,3 +64,9 @@ The site shared components [`MainLayout.razor`](./src/Blazor.AdminLte.Site.Share
 With such markup you can render something like this:
 
 ![screenshot](docs/img/adminlte-screenshot.png)
+
+### Injectable Left Top Menu
+
+You can have control over the left top menu content's navbar. To do so please follow these guidelines:
+
+[Tutorial Injectable  Left Top Menu](./docs/navbar-left-injectable-menu.md)
