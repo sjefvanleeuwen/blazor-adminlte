@@ -25,10 +25,10 @@
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Blazor-State" Version="3.3.0" />
-    <PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
+    <PackageReference Include="Blazor-State" Version="3.4.4" />
+    <PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE">
