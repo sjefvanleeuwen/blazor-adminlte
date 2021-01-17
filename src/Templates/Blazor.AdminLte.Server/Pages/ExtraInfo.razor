@@ -1,16 +1,17 @@
-﻿@page "/Custom"
+﻿@page "/extra-info"
 @inject NavBarLeftInjectableMenu menu
-@menu.SetContent(@<HomeMenu />)
+
+@menu.SetContent(@<CustomMenu />            )
 <ContentHeader>
     <Header>
-        <PageTitle Title="Custom" />
+        <PageTitle Title="Extra Info Page" />
     </Header>
 </ContentHeader>
 <ContentMain>
     <Card>
         <Title><CardTitle>Title</CardTitle></Title>
         <Body>
-            Custom page navigated from injectable menu in home page.
+            Extra Info
         </Body>
     </Card>
 </ContentMain>

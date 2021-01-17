@@ -3,9 +3,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Blazorized.AdminLte" Version="0.1.5" />
+    <PackageReference Include="Blazorized.AdminLte" Version="0.1.6" />
     <PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.1" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
     <PackageReference Include="System.Text.Json" Version="5.0.0" />
   </ItemGroup>
@@ -21,6 +21,9 @@
   </ItemGroup>
   <ItemGroup>
     <Watch Remove="Pages\Custom.razor" />
+    <Watch Remove="Pages\CustomMenu.razor" />
+    <Watch Remove="Pages\CustomPage.razor" />
+    <Watch Remove="Pages\ExtraInfo.razor" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".template.config\template.json" />
