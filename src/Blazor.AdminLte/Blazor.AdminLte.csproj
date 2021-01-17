@@ -21,12 +21,12 @@
     <Copyright>Copyright (c) 2020-2021 Sjef van Leeuwen</Copyright>
     <PackageIcon>blazor-adminlte-256.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageVersion>0.1.7</PackageVersion>
+    <PackageVersion>0.1.8</PackageVersion>
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Blazor-State" Version="3.4.4" />
-    <PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.6" />
+    <PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
   </ItemGroup>
