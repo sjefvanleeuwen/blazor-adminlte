@@ -9,3 +9,4 @@ src/Blazor.AdminLte.Tests/* linguist-vendored
 src/Blazor.AdminLte.Wasm/* linguist-vendored
 src/Blazor.AdminLte.GitHubPages/* linguist-vendored
 src/Blazor.AdminLte.Templates/* linguist-vendored
+src/not-exported/* linguist-vendored
