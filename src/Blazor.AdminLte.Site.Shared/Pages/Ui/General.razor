@@ -5,6 +5,73 @@
     </Header>
 </ContentHeader>
 <ContentMain>
+    <h5 class="mt-4 mb-2">Alerts</h5>
+    <Row>
+        <Column Classes="col.md._6">
+            <Card HeaderBackgroundColor="Color.White">
+                <Title><CardTitle><i class="fas fa-exclamation-triangle"></i> Alerts</CardTitle></Title>
+                <Body>
+                    <Alert Type="AlertType.Danger" Title="Danger!" IsDismissible="true" OnDismissed="@(() => alertDangerDismissed = "Alert was dismissed.")">
+                        Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my
+                        entire
+                        soul, like these sweet mornings of spring which I enjoy with my whole heart.
+                    </Alert>
+                    <div class="text-danger">@alertDangerDismissed</div>
+                    <Alert Type="AlertType.Info" Title="Info!" IsDismissible="true" OnDismissed="@(() => alertInfoDismissed = "Alert was dismissed.")">
+                        Info alert preview. This alert is dismissable.
+                    </Alert>
+                    <div class="text-info">@alertInfoDismissed</div>
+                    <Alert Type="AlertType.Warning" Title="Warning!" IsDismissible="true" OnDismissed="@(() => alertWarningDismissed = "Alert was dismissed.")">
+                        Warning alert preview. This alert is dismissable.
+                    </Alert>
+                    <div class="text-warning">@alertWarningDismissed</div>
+                    <Alert Type="AlertType.Success" Title="Success!" IsDismissible="true" OnDismissed="@(() => alertSuccessDismissed1 = "Alert was dismissed.")">
+                        Success alert preview. This alert is dismissable.
+                    </Alert>
+                    <div class="text-success">@alertSuccessDismissed1</div>
+                    <Alert Type="AlertType.Success" IsDismissible="true" OnDismissed="@(() => alertSuccessDismissed2 = "Alert was dismissed.")">
+                        Success alert preview with no title. This alert is dismissable.
+                    </Alert>
+                    <div class="text-success">@alertSuccessDismissed2</div>
+                    <Alert Type="AlertType.Success">
+                        Success alert preview with no title.
+                    </Alert>
+                </Body>
+            </Card>
+        </Column>
+        <Column Classes="col.md._6">
+            <Card HeaderBackgroundColor="Color.White">
+                <Title><CardTitle><i class="fas fa-exclamation-triangle"></i> Alerts (light)</CardTitle></Title>
+                <Body>
+                    <Alert Type="AlertType.Danger" IsLight="true" Title="Danger!" IsDismissible="true" OnDismissed="@(() => alertDangerLightDismissed = "Alert was dismissed.")">
+                        Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my
+                        entire
+                        soul, like these sweet mornings of spring which I enjoy with my whole heart.
+                    </Alert>
+                    <div class="text-danger">@alertDangerLightDismissed</div>
+                    <Alert Type="AlertType.Info" IsLight="true" Title="Info!" IsDismissible="true" OnDismissed="@(() => alertInfoLightDismissed = "Alert was dismissed.")">
+                        Info alert preview. This alert is dismissable.
+                    </Alert>
+                    <div class="text-info">@alertInfoLightDismissed</div>
+                    <Alert Type="AlertType.Warning" IsLight="true" Title="Warning!" IsDismissible="true" OnDismissed="@(() => alertWarningLightDismissed = "Alert was dismissed.")">
+                        Warning alert preview. This alert is dismissable.
+                    </Alert>
+                    <div class="text-warning">@alertWarningLightDismissed</div>
+                    <Alert Type="AlertType.Success" IsLight="true" Title="Success!" IsDismissible="true" OnDismissed="@(() => alertSuccessLightDismissed1 = "Alert was dismissed.")">
+                        Success alert preview. This alert is dismissable.
+                    </Alert>
+                    <div class="text-success">@alertSuccessLightDismissed1</div>
+                    <Alert Type="AlertType.Success" IsLight="true" IsDismissible="true" OnDismissed="@(() => alertSuccessLightDismissed2 = "Alert was dismissed.")">
+                        Success alert preview with no title. This alert is dismissable.
+                    </Alert>
+                    <div class="text-success">@alertSuccessLightDismissed2</div>
+                    <Alert Type="AlertType.Success" IsLight="true">
+                        Success alert preview with no title.
+                    </Alert>
+                </Body>
+            </Card>
+        </Column>
+    </Row>
     <Row>
         <Column Classes="col.md._6">
             <Card HeaderBackgroundColor="Color.Primary">
@@ -25,6 +92,9 @@
     </Row>
 </ContentMain>
 @code {
+    private string alertDangerDismissed, alertInfoDismissed, alertWarningDismissed, alertSuccessDismissed1, alertSuccessDismissed2;
+    private string alertDangerLightDismissed, alertInfoLightDismissed, alertWarningLightDismissed, alertSuccessLightDismissed1, alertSuccessLightDismissed2;
+
     private CarouselItemCollection items = new CarouselItemCollection()
         {
         new CarouselItem(){Image="https://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap",Alt="First slide",Link="/starter-pages/active-page?slide=1"},
