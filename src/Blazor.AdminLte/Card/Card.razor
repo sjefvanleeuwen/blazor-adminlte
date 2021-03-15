@@ -2,8 +2,10 @@
 <div @ref="CardReference" @attributes="@Attributes">
     <div @attributes="HeaderAttributes">
         @Title
-        <CascadingValue Name="ToolOptions" Value="ToolOptions">
-            @Header
+        <CascadingValue Name="Parent" Value="this">
+            <CascadingValue Name="ToolOptions" Value="ToolOptions">
+                @Header
+            </CascadingValue>
         </CascadingValue>
     </div>
     <div class="card-body">

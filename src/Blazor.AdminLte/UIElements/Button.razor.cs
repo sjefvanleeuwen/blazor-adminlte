@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using System.Collections.Generic;
 
 namespace Blazor.AdminLte
 {
@@ -17,6 +18,11 @@ namespace Blazor.AdminLte
 
         [Parameter]
         public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+        [Parameter]
+        public bool Disabled { get; set; }
+
+        private IDictionary<string, object> Attributes => GetAttributes();
 
         private async void DoOnClick(MouseEventArgs e)
         {
@@ -44,6 +50,22 @@ namespace Blazor.AdminLte
                 }
                 return $"btn-{DisplayColor}";
             } 
+        }
+
+        private IDictionary<string, object> GetAttributes()
+        {
+            var attributes = new Dictionary<string, object>();
+            attributes["type"] = "button";
+            attributes["class"] = "btn";
+            attributes["class"] = $"{attributes["class"]} btn-block";
+            attributes["class"] = $"{attributes["class"]} {DisplayButtonType}";
+            attributes["class"] = $"{attributes["class"]} btn-{DisplaySize}";
+            if (Disabled)
+            {
+                attributes["class"] = $"{attributes["class"]} disabled";
+            }
+
+            return attributes;
         }
     }
 }
