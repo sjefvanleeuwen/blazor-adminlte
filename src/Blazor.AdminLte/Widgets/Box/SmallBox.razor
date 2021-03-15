@@ -14,7 +14,7 @@
         @if (LoadingState != LoadingState.None)
         {
             <div class="@(LoadingState.GetDescription<StyleAttribute>())">
-                <i class="fas fa-2x fa-sync-alt"></i>
+                <i class="@LoadingStateIcon @(LoadingStateIconSpinning ? "fa-spin" : "")"></i>
             </div>
         }
     </div>
