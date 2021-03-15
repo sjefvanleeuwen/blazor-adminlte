@@ -26,7 +26,7 @@ namespace Blazor.AdminLte
         private void DoOnMaximize(MouseEventArgs args)
         {
             IsMaximized = !IsMaximized;
-            OnRefresh.InvokeAsync(new Tuple<ICardTools, MouseEventArgs>(this, args));
+            OnMaximize.InvokeAsync(new Tuple<ICardTools, MouseEventArgs>(this, args));
         }
 
         private CardToolOptions Options => ToolOptions ?? new CardToolOptions();
