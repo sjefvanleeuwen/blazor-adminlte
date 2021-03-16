@@ -59,7 +59,10 @@ namespace Blazor.AdminLte
             attributes["class"] = "btn";
             attributes["class"] = $"{attributes["class"]} btn-block";
             attributes["class"] = $"{attributes["class"]} {DisplayButtonType}";
-            attributes["class"] = $"{attributes["class"]} btn-{DisplaySize}";
+            if (Color != Color.Default)
+            {
+                attributes["class"] = $"{attributes["class"]} btn-{DisplaySize}";
+            }
             if (Disabled)
             {
                 attributes["class"] = $"{attributes["class"]} disabled";
