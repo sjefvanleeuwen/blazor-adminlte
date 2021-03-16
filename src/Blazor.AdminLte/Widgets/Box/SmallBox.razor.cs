@@ -18,6 +18,10 @@ namespace Blazor.AdminLte
         [Parameter]
         public LoadingState LoadingState { get; set; }
         [Parameter]
+        public string LoadingStateIcon { get; set; } = "fas fa-2x fa-sync-alt";
+        [Parameter]
+        public bool LoadingStateIconSpinning { get; set; } = true;
+        [Parameter]
         public RenderFragment Footer { get; set; }     
 
         private string DisplayBackgroundColor =>

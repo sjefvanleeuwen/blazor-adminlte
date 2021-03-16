@@ -1,34 +1,42 @@
 ﻿@namespace Blazor.AdminLte
-    <div class="card-tools">
-        @CustomTools
-        @if (ShowOnRefresh)
-        {
-            <button type="button" class="btn btn-tool" @onclick="DoOnRefresh">
-                <i class="fas fa-sync-alt"></i>
-            </button>
-        }
-        @if (Options.Maximizable)
-        {
-            <button type="button" class="btn btn-tool" @onclick="DoOnMaximize" data-card-widget="maximize">
-                <i class="fas fa-expand"></i>
-            </button>
-        }
-        @if (Options.Collapsable && !IsMaximized)
-        {
-            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-        }
-        @if (Options.Expandable && !IsMaximized)
-        {
-            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-plus"></i>
-            </button>
-        }
-        @if (Options.Removable && !IsMaximized)
-        {
-            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                <i class="fas fa-times"></i>
-            </button>
-        }
-    </div>
+
+<div class="card-tools">
+    @CustomTools
+    @if (ShowOnRefresh)
+    {
+        <button type="button" class="btn btn-tool" @onclick="DoOnRefresh">
+            <i class="fas fa-sync-alt"></i>
+        </button>
+    }
+    @if (Options.Maximizable && !IsMaximized)
+    {
+        <button type="button" class="btn btn-tool" @onclick="DoOnMaximize" data-card-widget="maximize">
+            <i class="fas fa-expand"></i>
+        </button>
+    }
+    @if (Options.Maximizable && IsMaximized)
+    {
+        <button type="button" class="btn btn-tool" @onclick="DoOnRestore" data-card-widget="maximize">
+            <i class="fas fa-compress"></i>
+        </button>
+    }
+    @if (Options.Collapsable && !IsMaximized && !IsCollapsed)
+    {
+        //data-card-widget="collapse"
+        <button type="button" class="btn btn-tool" @onclick="DoOnCollapse" data-card-widget="collapse">
+            <i class="fas fa-minus"></i>
+        </button>
+    }
+    @if (Options.Expandable && !IsMaximized && IsCollapsed)
+    {
+        <button type="button" class="btn btn-tool" @onclick="DoOnExpand" data-card-widget="collapse">
+            <i class="fas fa-plus"></i>
+        </button>
+    }
+    @if (Options.Removable && !IsMaximized)
+    {
+        <button type="button" class="btn btn-tool" @onclick="DoOnRemove" data-card-widget="remove">
+            <i class="fas fa-times"></i>
+        </button>
+    }
+</div>

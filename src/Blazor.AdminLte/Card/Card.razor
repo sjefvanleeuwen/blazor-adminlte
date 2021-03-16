@@ -2,8 +2,10 @@
 <div @ref="CardReference" @attributes="@Attributes">
     <div @attributes="HeaderAttributes">
         @Title
-        <CascadingValue Name="ToolOptions" Value="ToolOptions">
-            @Header
+        <CascadingValue Name="Parent" Value="this">
+            <CascadingValue Name="ToolOptions" Value="ToolOptions">
+                @Header
+            </CascadingValue>
         </CascadingValue>
     </div>
     <div class="card-body">
@@ -18,7 +20,7 @@
     @if (LoadingState != LoadingState.None)
     {
         <div class="@(LoadingState.GetDescription<StyleAttribute>())">
-            <i class="fas fa-2x fa-sync-alt"></i>
+            <i class="@LoadingStateIcon @(LoadingStateIconSpinning ? "fa-spin" : "")"></i>
         </div>
     }
 </div>

@@ -1,0 +1,17 @@
+﻿@namespace Blazor.AdminLte
+
+<div @attributes="@Attributes">
+    @if (IsDismissible == true)
+    {
+        <a style="cursor: pointer; text-decoration: none; font-size: 1rem;" class="close fas fa-times" data-dismiss="alert" aria-hidden="true" @onclick="HandleOnClick"></a>
+    }
+    @if (string.IsNullOrEmpty(Title))
+    {
+        <i @attributes="@IconAttributes"></i><span>@ChildContent</span>
+    }
+    else
+    {
+        <h5><i @attributes="@IconAttributes"></i> @Title</h5>
+        @ChildContent
+    }
+</div>

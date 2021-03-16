@@ -177,12 +177,19 @@
             <Column Classes="col.md._3">
                 <Card HeaderBackgroundColor="Color.Danger" ToolOptions="new CardToolOptions { Maximizable = true }">
                     <Title><CardTitle>Maximizable</CardTitle></Title>
-                    <Header><CardTools /></Header>
+                    <Header><CardTools OnMaximize="HandleOnMaximize" /></Header>
                     <Body>
-                        The body of the card
+                        @BodyMaximizeCard
                     </Body>
                 </Card>
             </Column>
+            @code { 
+                private MarkupString BodyMaximizeCard { get; set; } = (MarkupString)"The body of the card";
+                private void HandleOnMaximize(Tuple<ICardTools, MouseEventArgs> tuple)
+                {
+                    BodyMaximizeCard = (MarkupString)"The body of the card, maximized";
+                }
+            }
         </Row>
 
         <Row>
