@@ -1,14 +1,52 @@
 ﻿<!-- Navbar -->
 @namespace Blazor.AdminLte
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" @onclick="Update">
-    @ChildContent
+@using Blazor.AdminLte.Enumerations;
+<nav class="main-header navbar navbar-expand @navbarclass @navbarluminosity" @onclick="Update">
+	@ChildContent
 </nav>
 <!-- /.navbar -->
 @code {
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-    private void Update()
-    {
-        StateHasChanged();
-    }
+	[Parameter]
+	public RenderFragment ChildContent { get; set; }
+
+	[Parameter]
+	public bool DarkMode { get; set; } = false;
+
+	[Parameter]
+	public NavBarColor NavColor { get; set; } = NavBarColor.White;
+
+	private string navbarclass = "navbar-white";
+
+	private string navbarluminosity = "navbar-light";
+
+	protected override void OnInitialized()
+	{
+		navbarclass = NavColor switch
+		{
+			NavBarColor.White => "navbar-white",
+			NavBarColor.Primary => "navbar-primary",
+			NavBarColor.Secondary => "navbar-secondary",
+			NavBarColor.Success => "navbar-success",
+			NavBarColor.Danger => "navbar-danger",
+			NavBarColor.Indigo => "navbar-indigo",
+			NavBarColor.Purple => "navbar-purple",
+			NavBarColor.Pink => "navbar-pink",
+			NavBarColor.Navy => "navbar-navy",
+			NavBarColor.Lightblue => "navbar-lightblue",
+			NavBarColor.Teal => "navbar-teal",
+			NavBarColor.Cyan => "navbar-cyan",
+			NavBarColor.GrayDark => "navbar-graydark",
+			NavBarColor.Gray => "navbar-gray",
+			NavBarColor.Warning => "navbar-warning",
+			NavBarColor.Orange => "navbar-orange",
+			_ => "navbar-white"
+		};
+
+		navbarluminosity = DarkMode ? "navbar-dark" : "navbar-light";
+	}
+
+	private void Update()
+	{
+		StateHasChanged();
+	}
 }
