@@ -9,9 +9,12 @@
     [Parameter]
     public bool Hidden { get; set; } = false;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await setTitle();
+        if (firstRender)
+        {
+            await setTitle();
+        }
     }
 
     private async Task setTitle()
