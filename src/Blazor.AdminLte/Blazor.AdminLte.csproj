@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageId>Blazorized.AdminLte</PackageId>
@@ -27,8 +27,8 @@
   <ItemGroup>
     <PackageReference Include="Blazor-State" Version="3.4.4" />
     <PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE">
