@@ -1,0 +1,54 @@
+﻿@namespace Blazor.AdminLte
+@inherits BlazorState.BlazorStateComponent
+@inject NavigationManager nav;
+@implements IDisposable
+
+<li class="breadcrumb-item @(ActiveClass)">
+    @if (Active)
+    {
+    @ChildContent
+    }
+    else
+    {
+    <a href="@Link" @onclick="Click" @onclick:preventDefault>@ChildContent</a>
+    }
+</li>
+@code {
+    [Parameter]
+    public bool Active { get; set; }
+    private string ActiveClass = "";
+    [Parameter]
+    public string Link { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    private void Click()
+    {
+        nav.NavigateTo(Link);
+    }
+    protected override void OnInitialized()
+    {
+        if (Active)
+        {
+            ActiveClass = "active";
+        }
+        if (string.IsNullOrEmpty(Link))
+        {
+            Link = "javascript:void(0)";
+        }
+        // Subscribe to the event
+        nav.LocationChanged += LocationChanged;
+        base.OnInitialized();
+    }
+    void LocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        if (new Uri(nav.Uri).PathAndQuery.Trim('/') != Link.Trim('/'))
+            return;
+        Mediator.Send(new SideBarState.SelectMenuItemAction() { Id = Id }); ;
+    }
+
+    void IDisposable.Dispose()
+    {
+        // Unsubscribe from the event when our component is disposed
+        nav.LocationChanged -= LocationChanged;
+    }
+}
