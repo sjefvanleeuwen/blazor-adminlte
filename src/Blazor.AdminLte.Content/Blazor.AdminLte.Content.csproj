@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageId>Blazorized.AdminLte.Content</PackageId>
     <Authors>Sjef van Leeuwen</Authors>
     <Company></Company>
     <Product>ADMINLTE for Blazor static content files</Product>
-    <PackageProjectUrl>https://github.com/sjefvanleeuwen/blazor-adminlte</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/bitbang00111/blazor-adminlte</PackageProjectUrl>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/sjefvanleeuwen/blazor-adminlte</RepositoryUrl>
+    <RepositoryUrl>https://github.com/bitbang00111/blazor-adminlte</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags></PackageTags>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -21,8 +21,9 @@
     <Copyright>Copyright (c) 2020-2021 Sjef van Leeuwen</Copyright>
     <PackageIcon>blazor-adminlte-256.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageVersion>3.0.7</PackageVersion>
+    <PackageVersion>3.0.8</PackageVersion>
     <PackageReleaseNotes></PackageReleaseNotes>
+    <Version />
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE">

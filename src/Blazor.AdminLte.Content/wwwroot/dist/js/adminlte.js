@@ -371,22 +371,23 @@
         }
 
         if (offset !== false) {
-          if (max == heights.control_sidebar) {
-            $(Selector.CONTENT).css('min-height', max + offset);
-          } else if (max == heights.window) {
-            $(Selector.CONTENT).css('min-height', max + offset - heights.header - heights.footer);
-          } else {
-            $(Selector.CONTENT).css('min-height', max + offset - heights.header);
-          }
+            var contentHeight = heights.window - heights.header;
+            if (max == heights.control_sidebar) {
+                $(Selector.CONTENT).css('height', contentHeight);
+            } else if (max == heights.window) {
+                $(Selector.CONTENT).css('height', contentHeight - heights.footer);
+            } else {
+                $(Selector.CONTENT).css('height', contentHeight);
+            }
 
-          if (this._isFooterFixed()) {
-            $(Selector.CONTENT).css('min-height', parseFloat($(Selector.CONTENT).css('min-height')) + heights.footer);
-          }
+            if (this._isFooterFixed()) {
+                $(Selector.CONTENT).css('height', contentHeight - heights.footer);
+            }
         }
 
         if ($('body').hasClass(ClassName.LAYOUT_FIXED)) {
           if (offset !== false) {
-            $(Selector.CONTENT).css('min-height', max + offset - heights.header - heights.footer);
+              $(Selector.CONTENT).css('height', contentHeight - heights.footer);
           }
 
           if (typeof $.fn.overlayScrollbars !== 'undefined') {

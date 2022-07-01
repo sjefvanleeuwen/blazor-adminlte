@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageId>Blazorized.AdminLte</PackageId>
-    <Authors>Sjef van Leeuwen</Authors>
+    <Authors>Sjef van Leeuwen | Bitbang</Authors>
     <Company></Company>
     <Product>ADMINLTE for Blazor</Product>
-    <PackageProjectUrl>https://github.com/sjefvanleeuwen/blazor-adminlte</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/bitbang00111/blazor-adminlte</PackageProjectUrl>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/sjefvanleeuwen/blazor-adminlte</RepositoryUrl>
+    <RepositoryUrl>https://github.com/bitbang00111/blazor-adminlte</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags></PackageTags>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -21,12 +21,12 @@
     <Copyright>Copyright (c) 2020-2021 Sjef van Leeuwen</Copyright>
     <PackageIcon>blazor-adminlte-256.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageVersion>0.1.8</PackageVersion>
+    <PackageVersion>0.1.9</PackageVersion>
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Blazor-State" Version="3.4.4" />
-    <PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.7" />
+    <PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
   </ItemGroup>

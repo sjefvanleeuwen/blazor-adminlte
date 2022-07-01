@@ -10290,9 +10290,11 @@ body,
   position: relative;
 }
 
-.wrapper .content-wrapper {
-  min-height: calc(100vh - calc(3.5rem + 1px) - calc(3.5rem + 1px));
-}
+    .wrapper .content-wrapper {
+        /*max-height: calc(100vh - calc(3.5rem + 1px) - calc(3.5rem + 1px));*/
+        max-height: calc(100vh);
+        overflow-y: auto;
+    }
 
 .layout-boxed .wrapper {
   box-shadow: 0 0 10 rgba(0, 0, 0, 0.3);
