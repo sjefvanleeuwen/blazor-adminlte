@@ -1,0 +1,52 @@
+﻿@page "/login"
+<!-- note: using styles, not css, we will target Isolated CSS for this component when we upgrade to .NET5 -->
+<Overlay>
+    <div style=" margin: 0 auto; margin-top: 10%; max-width: 400px;">
+        <div class="login-box">
+            <div class="login-logo">
+                <a href="../../index2.html"><b>Admin</b>LTE</a>
+            </div>
+            <div class="card">
+                <div class="card-body login-card-body">
+                    <p class="login-box-msg">Sign in to start your session</p>
+@*                    <form action="../../index3.html" method="post">
+*@
+                    <Input @bind-Value="email" />
+                    <Input @bind-Value="password" />
+                        @code {
+        CustomCheckboxState rememberMe = new CustomCheckboxState() { Identifier = "customCheckbox1", Value = "option1", Label = "Custom Checkbox" };
+                        }
+                        <div class="row">
+                            <div class="col-8">
+                                    <CustomCheckbox @bind-Value="rememberMe" />
+                            </div>
+                            <div class="col-4">
+                                <Button Color="Color.Primary">Sign In</Button>
+                            </div>
+
+                        </div>
+@*                    </form>*@
+                    <div class="social-auth-links text-center mb-3">
+                        <p>- OR -</p>
+                        <a href="#" class="btn btn-block btn-primary">
+                            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                        </a>
+                        <a href="#" class="btn btn-block btn-danger">
+                            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                        </a>
+                    </div>
+                    <p class="mb-1">
+                        <a href="forgot-password">I forgot my password</a>
+                    </p>
+                    <p class="mb-0">
+                        <a href="register" class="text-center">Register a new membership</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</Overlay>
+@code {
+    InputState email = new InputState() { Identifier = "email", Placeholder = "Enter email", Type = "email", Icon = "fas fa-envelope" };
+    InputState password = new InputState() { Identifier = "password", Placeholder = "Enter password", Type = "password", Icon = "fas fa-lock" };
+}

@@ -1,0 +1,61 @@
+﻿@page "/register"
+@inject NavigationManager NavigationManager
+<!-- note: using styles, not css, we will target Isolated CSS for this component when we upgrade to .NET5 -->
+<Overlay>
+    <div style=" margin: 0 auto; margin-top: 10%; max-width: 400px;">
+        <div class="register-box">
+            <div class="register-logo">
+                <a href="../../index2.html"><b>Admin</b>LTE</a>
+            </div>
+            <div class="card">
+                <div class="card-body register-card-body">
+                    <p class="login-box-msg">Register a new membership</p>
+@*                    <form action="../../index.html" method="post">
+*@
+                    <Input @bind-Value="fullName" />
+                    <Input @bind-Value="email" />
+                    <Input @bind-Value="password" />
+                    <Input @bind-Value="passwordVerify" />
+                        <div class="row">
+                            <div class="col-8">
+                                    <CustomCheckbox @bind-Value="isAgreeTos" />
+                            </div>
+
+                            <div class="col-4">
+                                <Button OnClick="OnRegister">Register</Button>
+                            </div>
+
+                        </div>
+@*                    </form>*@
+                    <div class="social-auth-links text-center">
+                        <p>- OR -</p>
+                        <a href="#" class="btn btn-block btn-primary">
+                            <i class="fab fa-facebook mr-2"></i>
+                            Sign up using Facebook
+                        </a>
+                        <a href="#" class="btn btn-block btn-danger">
+                            <i class="fab fa-google-plus mr-2"></i>
+                            Sign up using Google+
+                        </a>
+                    </div>
+                    <a href="login" class="text-center">I already have a membership</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</Overlay>
+@code {
+    InputState fullName = new InputState() { Identifier = "fullName", Placeholder = "Enter Full Name", Type = "text", Icon = "fas fa-user" };
+    InputState email = new InputState() { Identifier = "email", Placeholder = "Enter email", Type = "email", Icon = "fas fa-envelope" };
+    InputState password = new InputState() { Identifier = "password", Placeholder = "Enter password", Type = "password", Icon = "fas fa-lock" };
+    InputState passwordVerify = new InputState() { Identifier = "passwordVerify", Placeholder = "Verify password", Type = "password", Icon = "fas fa-lock" };
+    CustomCheckboxState isAgreeTos = new CustomCheckboxState()
+        {
+            Identifier = "isAgreeTos",
+            Value = "true",
+            Label = "I agree to the <a href='#'>terms</a>" };
+    void OnRegister() {
+        NavigationManager.NavigateTo("thanks-for-registering");
+    }
+}
