@@ -1,3 +1,12 @@
 ﻿@namespace Blazor.AdminLte
 <label for="@Value.Identifier">@((MarkupString)Value.Label)</label>
-<input class="form-control" id="@Value.Identifier" placeholder="@Value.Placeholder"  value="@Value.Value" @onchange="DoChange" type="@Value.Type">
+<div class="input-group">
+    <input class="form-control" id="@Value.Identifier" placeholder="@Value.Placeholder" value="@Value.Value" @onchange="DoChange" type="@Value.Type">
+    @if (!string.IsNullOrEmpty(Value.Icon)) {
+    <div class="input-group-append">
+        <div class="input-group-text">
+            <span class="@Value.Icon"></span>
+        </div>
+    </div>
+    }
+</div>

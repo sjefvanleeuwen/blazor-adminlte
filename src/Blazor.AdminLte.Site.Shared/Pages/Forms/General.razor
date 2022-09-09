@@ -12,18 +12,46 @@
                 <Header><CardTools /></Header>
                 <Body>
                     <FormGroup>
-                        @code{
-                            List<InputState> Inputs = new List<InputState>()
-                                                                                                            {
-                              new InputState(){Identifier="exampleInputEmail1", Placeholder="Enter email", Label="Email Address", Type="email"},
-                              new InputState(){Identifier="exampleInputPassword1", Placeholder="Password", Label="Password", Type="password"},
-                              new InputState(){Identifier="exampleInputFile1", Placeholder="Choose file", Label="Email Address", Type="file"}
+                        @code {
+        List<InputState> Inputs = new List<InputState>()
+                        {
+                        new InputState(){Identifier="exampleInputEmail1", Placeholder="Enter email", Label="Email Address", Type="email"},
+                        new InputState(){Identifier="exampleInputPassword1", Placeholder="Password", Label="Password", Type="password"},
+                        new InputState(){Identifier="exampleInputFile1", Placeholder="Choose file", Label="Email Address", Type="file"}
                         };
                         }
                         @for (int i = 0; i < Inputs.Count; i++)
                         {
                             <Input @bind-Value="Inputs[i]" /> <text>Value: @Inputs[i].Value;</text>
-                            @System.Text.Json.JsonSerializer.Serialize(Inputs[i]);
+                            @System.Text.Json.JsonSerializer.Serialize(Inputs[i])
+                            ;
+                        }
+                    </FormGroup>
+                </Body>
+                <Footer>
+                    <Button>Submit</Button>
+                </Footer>
+            </Card>
+        </Column>
+        <Column Classes="col.md._6">
+            <Card HeaderBackgroundColor="Color.Primary" ToolOptions="new CardToolOptions { Collapsable = true, Maximizable=true}">
+                <Title><CardTitle>Quick Example (Icons)</CardTitle></Title>
+                <Header><CardTools /></Header>
+                <Body>
+                    <FormGroup>
+                        @code {
+        List<InputState> Inputs2 = new List<InputState>()
+                        {
+                        new InputState(){Identifier="exampleInputEmail1", Placeholder="Enter email", Label="Email Address", Type="email", Icon="fas fa-envelope"},
+                        new InputState(){Identifier="exampleInputPassword1", Placeholder="Password", Label="Password", Type="password", Icon="fas fa-lock"},
+                        new InputState(){Identifier="exampleInputFile1", Placeholder="Choose file", Label="Email Address", Type="file", Icon="fas fa-file"}
+                        };
+                        }
+                        @for (int i = 0; i < Inputs2.Count; i++)
+                        {
+                            <Input @bind-Value="Inputs2[i]" /> <text>Value: @Inputs2[i].Value;</text>
+                            @System.Text.Json.JsonSerializer.Serialize(Inputs2[i])
+                            ;
                         }
                     </FormGroup>
                 </Body>
