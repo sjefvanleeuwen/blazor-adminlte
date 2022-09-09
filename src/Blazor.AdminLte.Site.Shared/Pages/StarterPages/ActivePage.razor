@@ -3,8 +3,14 @@
 @menu.SetContent(@<ActivePageMenu />, true)
 <ContentHeader>
     <Header>
-        <PageTitle Title="Active Page" />
+        <PageTitle Title="Active Page" />       
     </Header>
+    <BreadcrumbContainer>
+        <Breadcrumb>
+            <BreadcrumbItem Link="/">Home</BreadcrumbItem>
+            <BreadcrumbItem Active>Active Page</BreadcrumbItem>
+        </Breadcrumb>
+    </BreadcrumbContainer>
 </ContentHeader>
 <ContentMain>
     <Card>

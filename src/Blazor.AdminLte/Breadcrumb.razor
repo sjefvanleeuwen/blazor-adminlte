@@ -1,0 +1,8 @@
+﻿@namespace Blazor.AdminLte
+<ol class="breadcrumb float-sm-right">
+     @ChildContent   
+</ol>
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}
