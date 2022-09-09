@@ -1,6 +1,7 @@
 name: .NET Core
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
   pull_request:
@@ -16,7 +17,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.100-preview.2.20176.6
+        dotnet-version: 6.0.104
     - name: Install dependencies
       run: dotnet restore ./src/Blazor.AdminLte
     - name: Build
