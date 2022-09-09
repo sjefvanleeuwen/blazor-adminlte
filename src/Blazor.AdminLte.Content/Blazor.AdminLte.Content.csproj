@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageId>Blazorized.AdminLte.Content</PackageId>
@@ -18,7 +18,7 @@
     <Title>ADMINLTE for Blazor static content files</Title>
     <Description>ADMINLTE for Blazor is a collection of reusable components, with which you can easily develop digital services as a designer or developer. Think of buttons, form elements and page templates. This project adapts ADMINLTE 3 so the components can be used from dotnet core Blazor.</Description>
     <NeutralLanguage></NeutralLanguage>
-    <Copyright>Copyright (c) 2020-2021 Sjef van Leeuwen</Copyright>
+    <Copyright>Copyright (c) 2020-2022 Sjef van Leeuwen</Copyright>
     <PackageIcon>blazor-adminlte-256.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageVersion>3.0.7</PackageVersion>
@@ -34,4 +34,5 @@
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
+  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4dist_4css_4alt_4adminlte_1core_1css_1map__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>
