@@ -24,6 +24,14 @@
     <PackageVersion>0.1.8</PackageVersion>
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Audio\TrackCard.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Audio\TrackCard.razor.css" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Blazor-State" Version="5.0.3" />
     <PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.7" />

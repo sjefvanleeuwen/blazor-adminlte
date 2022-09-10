@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Blazor.AdminLte
 {
     public class PlayerService : IPlayerService
     {
+        public string Url { get; set; }
+
         public Player Player { get; set; }
 
 
@@ -14,7 +17,8 @@ namespace Blazor.AdminLte
 
         public async void Play(string url)
         {
-            await Player.Submit();
+            Url = url;
+            await Player.Submit(forcePlay: true);
         }
 
         public void Resume()
@@ -25,6 +29,7 @@ namespace Blazor.AdminLte
 
     public interface IPlayerService
     {
+        string Url { get; set; }
         Player Player { get; set; }
         void Pause();
         void Resume();

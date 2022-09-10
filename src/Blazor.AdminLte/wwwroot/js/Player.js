@@ -30,5 +30,6 @@ export function pause() {
 }
 
 export function play(url) {
-    wavesurfer.load('_content/Blazor.AdminLte.Site.Shared/audio/Sjef van Leeuwen - Acid Ocean.mp3');
+    // '_content/Blazor.AdminLte.Site.Shared/audio/Sjef van Leeuwen - Acid Ocean.mp3
+    wavesurfer.load(url);
 }

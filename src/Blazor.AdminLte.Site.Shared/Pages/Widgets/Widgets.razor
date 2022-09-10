@@ -216,11 +216,13 @@
                     </Body>
                 </Card>
             </Column>
-            @code { private MarkupString BodyRefreshCard2 { get; set; } = (MarkupString)"The body of the card";
+            @code {
+            private MarkupString BodyRefreshCard2 { get; set; } = (MarkupString)"The body of the card";
                 private void GetContent2(Tuple<ICardTools, MouseEventArgs> tuple)
                 {
                     BodyRefreshCard2 = (MarkupString)"The body of the card, after refresh";
-                } }
+                }
+}
             <Column Classes="col.md._3">
                 <Card HeaderBackgroundColor="Color.Warning" LoadingState="LoadingState.Normal">
                     <Title><CardTitle>Loading state</CardTitle></Title>
@@ -412,9 +414,6 @@
             </Column>
         </Row>
 
-
-        <H4>Direct Chat</H4>
-
         <H3>Social Widgets</H3>
         <Row>
             <Column Classes="col.md._4">
@@ -452,4 +451,69 @@
                 </WidgetSocial>
             </Column>
         </Row>
-    </ContentMain>
+        
+        <H3>Audio Widgets</H3>
+            <Container >
+        <Row>
+        <Column Classes="col.md._3">
+            <TrackCard Value="TrackState1"></TrackCard>
+        </Column>
+                    <Column Classes="col.md._3">
+                <TrackCard Value="TrackState2"></TrackCard>
+            </Column>
+        <Column Classes="col.md._3">
+            <TrackCard Value="TrackState3"></TrackCard>
+        </Column>
+            <Column Classes="col.md._3">
+                <TrackCard Value="TrackState4"></TrackCard>
+            </Column>
+        </Row>
+    </Container>
+</ContentMain>
+
+
+
+@code {
+    TrackCardState TrackState1 = new TrackCardState()
+        {
+            ArtistName = "Sjef van Leeuwen",
+            Title = "Acid Ocean",
+            CoverImageUrl = "https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            ContentUrl = "_content/Blazor.AdminLte.Site.Shared/audio/Sjef van Leeuwen - Acid Ocean.mp3",
+            AvatarImageUrl = "_content/Blazor.AdminLte.Site.Shared/dist/img/user9-128x128.png",
+            ContentBpm = 120,
+            ContentLength = new TimeSpan(0, 4, 55)
+        };
+        TrackCardState TrackState2 = new TrackCardState()
+        {
+            ArtistName = "Sjef van Leeuwen",
+            Title = "Inside Outside",
+            CoverImageUrl = "https://images.pexels.com/photos/10846324/pexels-photo-10846324.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            ContentUrl = "_content/Blazor.AdminLte.Site.Shared/audio/Sjef van Leeuwen - Inside Outside.mp3",
+            AvatarImageUrl = "_content/Blazor.AdminLte.Site.Shared/dist/img/user9-128x128.png",
+            ContentBpm = 77,
+            ContentLength = new TimeSpan(0, 6, 39)
+        };
+
+        TrackCardState TrackState3 = new TrackCardState()
+        {
+            ArtistName = "Sjef van Leeuwen",
+            Title = "Give Me",
+            CoverImageUrl = "https://images.pexels.com/photos/11329004/pexels-photo-11329004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            ContentUrl = "_content/Blazor.AdminLte.Site.Shared/audio/Sjef van Leeuwen - Give Me.mp3",
+            AvatarImageUrl = "_content/Blazor.AdminLte.Site.Shared/dist/img/user9-128x128.png",
+            ContentBpm = 108,
+            ContentLength = new TimeSpan(0,5,11)
+        };
+        TrackCardState TrackState4 = new TrackCardState()
+        {
+            ArtistName = "Sjef van Leeuwen",
+            Title = "Sacred Rituals",
+            CoverImageUrl = "https://images.pexels.com/photos/10909792/pexels-photo-10909792.jpeg",
+            ContentUrl = "_content/Blazor.AdminLte.Site.Shared/audio/Sjef van Leeuwen - Sacred Rituals.mp3",
+            AvatarImageUrl = "_content/Blazor.AdminLte.Site.Shared/dist/img/user9-128x128.png",
+            ContentBpm = 120,
+            ContentLength = new TimeSpan(0,2,57)
+        };
+
+}

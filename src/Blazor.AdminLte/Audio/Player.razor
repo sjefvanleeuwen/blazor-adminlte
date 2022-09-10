@@ -2,8 +2,8 @@
 @implements IAsyncDisposable
 @inject IPlayerService PlayerService
 @namespace Blazor.AdminLte
-    <a class="nav-link">
-        <i class="@icon" @onclick="Submit"></i>
+    <a class="nav-link" style="cursor: pointer">
+        <i class="@icon" @onclick="()=>Submit()"></i>
         <span class="badge badge-default navbar-badge"></span>
     </a>
 <div id="waveform" style="left:0px;right:0px;width:100vw" />
@@ -35,20 +35,24 @@
         }
     }
 
-    public async Task Submit()
+    public async Task Submit(bool forcePlay = false)
     {
-        if (icon == "fas fa-play")
+        if (string.IsNullOrEmpty(PlayerService.Url))
+            return;
+        if (icon == "fas fa-play" || forcePlay)
         {
             var module = await _module;
-            await module.InvokeVoidAsync("play", "");
+            await module.InvokeVoidAsync("play", PlayerService.Url);
             icon = "fas fa-pause";
+            StateHasChanged();
             return;
         }
-        if (icon == "fas fa-pause")
+        else 
         {
             var module = await _module;
             await module.InvokeVoidAsync("pause");
             icon = "fas fa-play";
+            StateHasChanged();
             return;
         }
     }
