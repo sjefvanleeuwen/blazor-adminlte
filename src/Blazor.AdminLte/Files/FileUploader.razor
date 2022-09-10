@@ -1,0 +1,97 @@
+﻿@namespace Blazor.AdminLte
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ErrorMessage
+    </div>
+}
+<div class="card mb-4">
+    <div class="card-header">Files Uploader</div>
+    <div class="card-body ">
+        <div class="dropzone @dropClass">
+            <label>
+                Drag and drop your files here
+                <br />or click here to select your files
+            </label>
+            <InputFile OnChange="AddFilesToQueue" 
+                @ondragenter="HandleDragEnter"
+                @ondragleave="HandleDragLeave" 
+                disabled="@isUploading" 
+                style="width:100%;height:200px;position:relative;top:-36px;margin-bottom:-40px;"
+                multiple />            
+        </div>         
+    </div>
+</div>
+
+@if (filesQueue.Count > 0) { 
+    <div class="card mb-4">
+        <div class="card-header">Upload queue</div>
+        <div class="card-body">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="text-center" style="width:50px">%</th>
+                        <th style="width:170px;"></th>
+                        <th>FileName</th>
+                        <th class="text-end" style="width:80px;">Size (KB)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>            
+                    @foreach (var file in filesQueue.OrderByDescending(x => x.FileId))
+                    {
+                        var size = Math.Round((file.Size / 1024.00));
+                        var percentage = Math.Round(file.UploadedPercentage);
+                        <tr>
+                            <td class="text-center">
+                                @if (file.HasBeenUploaded)
+                                { 
+                                    <span class="oi oi-circle-check text-success"></span>
+                                }
+                                else
+                                {
+                                    <span class="oi oi-circle-check text-icon-light"></span>
+                                }
+                            </td>
+                            <td class="text-end">@($"{percentage}%")</td>
+                            <td><progress value="@file.UploadedBytes" max="@file.Size" class="fileProgress"></progress></td>
+                            <td>@file.FileName</td>
+                            <td class="text-end">@string.Format("{0:#,0.##}", @size)</td>
+                            
+                            <td class="text-end"><button type="button" class="btn btn-sm btn-link" disabled="@isUploading" @onclick="(() => RemoveFromQueue(file.FileId))"><span class="oi oi-trash" aria-hidden="true"></span></button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="btn-group w-100" role="group" aria-label="Basic mixed styles example">
+                <button type="button" disabled="@isUploading" class="btn btn-sm btn-success" @onclick="UploadFileQueue">Upload file queue</button>
+                <button type="button" disabled="@isUploading" class="btn btn-sm btn-info" @onclick="ClearFileQueue">Clear file queue</button>
+            </div>
+            
+        </div>
+    </div>
+}
+
+    @*
+    <!-- List Files on server in a table -->
+    <div class="card">
+        <div class="card-header">Files On Server</div>
+        <div class="card-body">
+            <div class="list-group">
+                @if (FileUrls.Count == 0)
+                {
+                    <span>No Files have been uploaded</span>
+                } 
+                else
+                {
+                    foreach (var url in FileUrls) 
+                    {
+                        <a href="@url" target="_blank" class="list-group-item list-group-item-action">@url</a>
+                    }
+                }                
+            </div>
+        </div>
+    </div>
+*@

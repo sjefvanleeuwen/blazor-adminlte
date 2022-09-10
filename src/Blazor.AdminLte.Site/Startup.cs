@@ -25,6 +25,7 @@ namespace Blazor.AdminLte.Site
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddMvc().AddRazorRuntimeCompilation();
             services.AddServerSideBlazor();
+            services.AddScoped<IFilesManager, FilesController>();
             services.AddAdminLte();
         }
 

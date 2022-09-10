@@ -14,6 +14,18 @@ namespace Blazor.AdminLte.Wasm
             builder.RootComponents.Add<App>("#app");
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddAdminLte();
+            builder.Services.AddScoped<IFilesManager, WasmFilesManager>();
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            //builder.Services.AddCors(options =>
+            //{
+            //    options.AddDefaultPolicy(
+            //        policy =>
+            //        {
+            //            policy.AllowAnyOrigin();  //set the allowed origin
+            //        });
+            //});
+
             await builder.Build().RunAsync();
         }
     }

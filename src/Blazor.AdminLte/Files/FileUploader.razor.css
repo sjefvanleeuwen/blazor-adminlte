@@ -1,0 +1,28 @@
+﻿.dropzone {
+    position: relative;
+    overflow: hidden;
+    border: 2px dotted rgba(0,0,0,.2);
+    background-color: rgba(0,0,0,.09);
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+    .dropzone.dropzone-active {
+        background-color: #999;
+    }
+
+    .dropzone label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+.fileProgress {
+    vertical-align: middle !important;
+}
+
+.text-icon-light {
+    color: #e9ecef;
+}
