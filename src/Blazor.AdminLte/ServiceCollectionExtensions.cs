@@ -10,6 +10,7 @@ namespace Blazor.AdminLte
         {
             return services
                 .AddScoped<NavBarLeftInjectableMenu>()
+                .AddScoped<IPlayerService, PlayerService>()
                 .AddBlazorState((aOptions) =>
                  aOptions.Assemblies = new Assembly[]
                  {

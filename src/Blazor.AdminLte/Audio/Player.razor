@@ -1,0 +1,60 @@
+﻿@inject IJSRuntime JSRuntime
+@implements IAsyncDisposable
+@inject IPlayerService PlayerService
+@namespace Blazor.AdminLte
+    <a class="nav-link" style="cursor: pointer">
+        <i class="@icon" @onclick="()=>Submit()"></i>
+        <span class="badge badge-default navbar-badge"></span>
+    </a>
+<div id="waveform" style="left:0px;right:0px;width:100vw" />
+@code {
+    private Task<IJSObjectReference> _module;
+    private Task<IJSObjectReference> Module => _module ??= JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/Blazorized.AdminLte/js/Player.js").AsTask();
+    private string icon { get; set; } = "fas fa-play";
+
+    protected override void OnInitialized()
+    {
+        PlayerService.Player = this;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var module = await Module;
+            await module.InvokeVoidAsync("init");
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_module != null)
+        {
+            var module = await _module;
+            //await module.DisposeAsync();
+        }
+    }
+
+    public async Task Submit(bool forcePlay = false)
+    {
+        if (string.IsNullOrEmpty(PlayerService.Url))
+            return;
+        if (icon == "fas fa-play" || forcePlay)
+        {
+            var module = await _module;
+            await module.InvokeVoidAsync("play", PlayerService.Url);
+            icon = "fas fa-pause";
+            StateHasChanged();
+            return;
+        }
+        else 
+        {
+            var module = await _module;
+            await module.InvokeVoidAsync("pause");
+            icon = "fas fa-play";
+            StateHasChanged();
+            return;
+        }
+    }
+
+} 

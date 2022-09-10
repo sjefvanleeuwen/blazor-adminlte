@@ -23,8 +23,10 @@
                         @for (int i = 0; i < Inputs.Count; i++)
                         {
                             <Input @bind-Value="Inputs[i]" /> <text>Value: @Inputs[i].Value;</text>
+
                             @System.Text.Json.JsonSerializer.Serialize(Inputs[i])
                             ;
+                            <br />
                         }
                     </FormGroup>
                 </Body>
@@ -52,6 +54,7 @@
                             <Input @bind-Value="Inputs2[i]" /> <text>Value: @Inputs2[i].Value;</text>
                             @System.Text.Json.JsonSerializer.Serialize(Inputs2[i])
                             ;
+                            <br />
                         }
                     </FormGroup>
                 </Body>
@@ -60,6 +63,37 @@
                 </Footer>
             </Card>
         </Column>
+        <Column Classes="col.md._6">
+            <Card HeaderBackgroundColor="Color.Primary" ToolOptions="new CardToolOptions { Collapsable = true, Maximizable=true}">
+                <Title><CardTitle>Quick Example (Icons and Colors)</CardTitle></Title>
+                <Header><CardTools /></Header>
+                <Body>
+                    <FormGroup>
+                        @code {
+        List<InputState> Inputs3 = new List<InputState>()
+                        {
+                        new InputState(){Identifier="exampleInputEmail1", Placeholder="Enter email", Label="Email Address", Type="email", Icon="fas fa-envelope", BorderColor = Color.Info, IconBgColor= Color.Info},
+                        new InputState(){Identifier="exampleInputPassword1", Placeholder="Password", Label="Password", Type="password", Icon="fas fa-lock", BorderColor = Color.Danger, IconBgColor = Color.Danger},
+                        new InputState(){Identifier="exampleInputFile1", Placeholder="Choose file", Label="Email Address", Type="file", Icon="fas fa-file", BorderColor = Color.Secondary, IconBgColor = Color.Secondary}
+                        };
+                        }
+                        @for (int i = 0; i < Inputs3.Count; i++)
+                        {
+                            <Input @bind-Value="Inputs3[i]" /> <text>Value: @Inputs3[i].Value;</text>
+
+                            @System.Text.Json.JsonSerializer.Serialize(Inputs3[i])
+                            ;
+                            <br />
+                        }
+
+                    </FormGroup>
+                </Body>
+                <Footer>
+                    <Button>Submit</Button>
+                </Footer>
+            </Card>
+        </Column>
+
     </Row>
 
     <Card>

@@ -9,6 +9,10 @@ namespace Blazor.AdminLte
         [Parameter]
         public LoadingState LoadingState { get; set; }
         [Parameter]
+        public string LoadingStateIcon { get; set; } = "fas fa-2x fa-sync-alt";
+        [Parameter]
+        public bool LoadingStateIconSpinning { get; set; } = true;
+        [Parameter]
         public CardToolOptions ToolOptions { get; set; }
         [Parameter]
         public CardType Type { get; set; }
@@ -28,6 +32,8 @@ namespace Blazor.AdminLte
 
         private ElementReference CardReference { get; set; }
 
+        public CardTools CardTools { get; set; }
+
         private IDictionary<string, object> Attributes => GetAttributes();
         private string DisplayHeaderBackgroundColor => HeaderBackgroundColor.GetDescription<StyleAttribute>();
         private string DisplayCardType => Type.GetDescription<StyleAttribute>();
@@ -41,10 +47,6 @@ namespace Blazor.AdminLte
             if (HeaderBackgroundColor != Color.Default)
             {
                 attributes["class"] = $"{attributes["class"]} card-{DisplayHeaderBackgroundColor}";
-            }
-            if (ToolOptions?.Expandable ?? false)
-            {
-                attributes["class"] = $"{attributes["class"]} collapsed-card";
             }
             foreach (var cardStyle in Styles)
             {

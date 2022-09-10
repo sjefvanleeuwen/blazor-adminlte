@@ -13,6 +13,7 @@
         @navBarLeftInjectableMenu.content <!-- Injectable for custom menu content per page -->
     </NavBarLeft>
     <NavBarSearch></NavBarSearch>
+            <Player></Player>
     <NavBarRight>
         <NavBarDropDown>
             <NavBarBadge Color="Color.Danger" Icon="far fa-comments">4</NavBarBadge>
@@ -183,14 +184,17 @@
     @Body
 </ContentWrapper>
 <ControlSideBar>Hello World!</ControlSideBar>
+
 <MainFooter>
     <Default>
         <strong>Copyright &copy; 2014-2022 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+
     </Default>
     <Right>
         Blazorized by Sjef van Leeuwen
     </Right>
 </MainFooter>
+                   
 @code {
     protected override void OnParametersSet()
     {
