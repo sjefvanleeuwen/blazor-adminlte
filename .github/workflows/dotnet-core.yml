@@ -22,9 +22,23 @@ jobs:
       run: dotnet restore ./src/Blazor.AdminLte
     - name: Build
       run: dotnet build ./src/Blazor.AdminLte --configuration Release --no-restore
+    - name: Setup Pages
+      uses: actions/configure-pages@v2
+    # Generate the website
+    - name: Publish
+      run: dotnet publish ./src/GitHubPages/GitHubPages.csproj --configuration Release -o ./publish
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        # Upload entire repository
+        path: './publish/wwwroot'
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
+      
+      
 #    - name: Test
 #      run: dotnet test ./src/Blazor.AdminLte --no-restore --verbosity normal
-
 
 # Generate the website
 #    - name: Publish
