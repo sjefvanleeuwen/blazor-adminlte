@@ -4,12 +4,16 @@
     <label for="@Value.Identifier">@((MarkupString)Value.Label)</label>
 }
 <div class="input-group mb-3">
-    <input class="form-control" id="@Value.Identifier" placeholder="@Value.Placeholder" value="@Value.Value" @onchange="DoChange" type="@Value.Type">
+    <input class="form-control @borderColor" id="@Value.Identifier" placeholder="@Value.Placeholder" value="@Value.Value" @onchange="DoChange" type="@Value.Type">
     @if (!string.IsNullOrEmpty(Value.Icon)) {
-    <div class="input-group-append">
-        <div class="input-group-text">
-            <span class="@Value.Icon"></span>
+        <div class="input-group-append">
+            <div class="@iconBgColor input-group-text">
+                <span class="@Value.Icon"></span>
         </div>
     </div>
     }
 </div>
+@code {
+    private string borderColor => $"border-{@Value.BorderColor.GetDescription<StyleAttribute>()}";
+    private string iconBgColor => $"bg-{@Value.IconBgColor.GetDescription<StyleAttribute>()}";
+}
