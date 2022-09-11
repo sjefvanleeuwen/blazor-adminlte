@@ -7,12 +7,15 @@ using Blazor.AdminLte.Security.Abstractions.Entities;
 using Blazor.AdminLte.Security.Abstractions.Helpers;
 using Blazor.AdminLte.Security.Abstractions.Models.Accounts;
 using Blazor.AdminLte.UserApi.Helpers;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Runtime.Caching;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 
 public interface IAccountService
 {
@@ -29,16 +32,18 @@ public interface IAccountService
     AccountResponse Create(CreateRequest model);
     AccountResponse Update(int id, UpdateRequest model);
     void Delete(int id);
+    CaptchaGenerateResponse GenerateCaptcha();
 }
 
 public class AccountService : IAccountService
 {
+    private readonly MemoryCache _captchaCache;
     private readonly DataContext _context;
     private readonly IJwtUtils _jwtUtils;
     private readonly IMapper _mapper;
     private readonly AppSettings _appSettings;
     private readonly IEmailService _emailService;
-
+    private readonly object _mutex = new object();
     public AccountService(
         DataContext context,
         IJwtUtils jwtUtils,
@@ -46,11 +51,29 @@ public class AccountService : IAccountService
         IOptions<AppSettings> appSettings,
         IEmailService emailService)
     {
+        _captchaCache = new MemoryCache("AccountService:CaptchaCachingProvider");
         _context = context;
         _jwtUtils = jwtUtils;
         _mapper = mapper;
         _appSettings = appSettings.Value;
         _emailService = emailService;
+    }
+
+    public CaptchaGenerateResponse GenerateCaptcha()
+    {
+        var captchaImage = new CaptchaImageGenerator(new CaptchaImageOptions());
+        var imageKey = CaptchaImageExtensions.GetUniqueKey(8);
+        var transactionKey = CaptchaImageExtensions.GetUniqueKey(8);
+        var image = captchaImage.Generate(imageKey);
+        var base64 = $"data:image/png;base64,{Convert.ToBase64String(image)}";
+        var response = new CaptchaGenerateResponse();
+        response.Image = base64;
+        response.TransactionKey = transactionKey;
+        lock(_mutex)
+        {
+            _captchaCache.Add(transactionKey, imageKey, DateTimeOffset.Now.AddMinutes(30));
+        }
+        return response;
     }
 
     public AuthenticateResponse Authenticate(AuthenticateRequest model, string ipAddress)

@@ -29,7 +29,12 @@
 
                         </div>
 @*                    </form>*@
-                    <div class="social-auth-links text-center">
+@if (!string.IsNullOrEmpty(alertBody)) {
+                    <Alert Type="AlertType.Danger" Title="@alertTitle">
+                        @alertBody
+                    </Alert>
+}
+@*                    <div class="social-auth-links text-center">
                         <p>- OR -</p>
                         <a href="#" class="btn btn-block btn-primary">
                             <i class="fab fa-facebook mr-2"></i>
@@ -39,7 +44,7 @@
                             <i class="fab fa-google-plus mr-2"></i>
                             Sign up using Google+
                         </a>
-                    </div>
+                    </div>*@
                     <a href="login" class="text-center">I already have a membership</a>
                 </div>
 
@@ -48,6 +53,9 @@
     </div>
 </Overlay>
 @code {
+    string alertBody;
+    string alertTitle;
+
     InputState fullName = new InputState() { Identifier = "fullName", Placeholder = "Enter Full Name", Type = "text", Icon = "fas fa-user" };
     InputState email = new InputState() { Identifier = "email", Placeholder = "Enter email", Type = "email", Icon = "fas fa-envelope" };
     InputState password = new InputState() { Identifier = "password", Placeholder = "Enter password", Type = "password", Icon = "fas fa-lock" };
@@ -58,6 +66,7 @@
             Value = "true",
             Label = "I agree to the <a href='#'>terms</a>" 
         };
+
 
     async void OnRegister() {
         try
@@ -76,7 +85,22 @@
         }
         catch (ApiException ex)
         {
-
+            var l = ex.ResponseObject;
+            alertTitle = l.Title;
+            alertBody = "";
+            if (l.Errors.ConfirmPassword != null && l.Errors.ConfirmPassword.Length > 0) {
+                alertBody += l.Errors.ConfirmPassword[0];
+                passwordVerify.BorderColor = Color.Danger;
+                passwordVerify.IconBgColor = Color.Danger;
+            }
+            if (l.Errors.Email != null && l.Errors.Email.Length > 0)
+            {
+                alertBody += l.Errors.Email[0];
+                email.BorderColor = Color.Danger;
+                email.IconBgColor = Color.Danger;
+            }
+            
+            StateHasChanged();
         }
     }
 }

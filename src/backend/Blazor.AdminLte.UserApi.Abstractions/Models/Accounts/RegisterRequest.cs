@@ -1,5 +1,6 @@
 namespace Blazor.AdminLte.Security.Abstractions.Models.Accounts;
 
+using Blazor.AdminLte.Security.Abstractions.Helpers;
 using System.ComponentModel.DataAnnotations;
 
 public class RegisterRequest
@@ -14,7 +15,7 @@ public class RegisterRequest
     public string LastName { get; set; }
 
     [Required]
-    [EmailAddress]
+    [Email]
     public string Email { get; set; }
 
     [Required]

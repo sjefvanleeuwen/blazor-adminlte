@@ -21,6 +21,13 @@ public class AccountsController : BaseController
     }
 
     [AllowAnonymous]
+    [HttpGet("captcha")]
+    public ActionResult<CaptchaGenerateResponse> GenerateCaptcha()
+    {
+        return Ok(_accountService.GenerateCaptcha());
+    }
+
+    [AllowAnonymous]
     [HttpPost("authenticate")]
     public ActionResult<AuthenticateResponse> Authenticate(AuthenticateRequest model)
     {

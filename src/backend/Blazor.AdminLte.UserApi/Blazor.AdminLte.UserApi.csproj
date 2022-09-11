@@ -16,8 +16,12 @@
         </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.8" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.2" />
+        <PackageReference Include="SixLabors.Fonts" Version="1.0.0-beta18" />
+        <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta15" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" />
+        <PackageReference Include="System.Memory" Version="4.5.5" />
+        <PackageReference Include="System.Runtime.Caching" Version="6.0.0" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Blazor.AdminLte.UserApi.Abstractions\Blazor.AdminLte.Security.Abstractions.csproj" />
