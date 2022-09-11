@@ -2,6 +2,7 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>8c38cc3d-4b69-492b-94da-1752763cac64</UserSecretsId>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="11.0.1" />
@@ -13,6 +14,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.8" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.2" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" />
