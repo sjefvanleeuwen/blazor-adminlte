@@ -18,7 +18,7 @@ namespace Blazor.AdminLte
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class UserApiClient
+    public partial class UserApiClient : IUserApiClient
     {
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
