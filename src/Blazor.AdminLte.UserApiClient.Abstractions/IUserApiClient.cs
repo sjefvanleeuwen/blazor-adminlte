@@ -4,6 +4,8 @@
 // </auto-generated>
 //----------------------
 
+using Blazor.AdminLte.Security.Abstractions.Models.Accounts;
+
 namespace Blazor.AdminLte
 {
     public interface IUserApiClient

@@ -10,4 +10,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Blazor.AdminLte.UserApiClient.Abstractions\Blazor.AdminLte.UserApiClient.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Blazor.AdminLte;
+using System;
 
 namespace Blazor.AdminLte.Site
 {
@@ -21,12 +22,13 @@ namespace Blazor.AdminLte.Site
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddMvc().AddRazorRuntimeCompilation();
             services.AddServerSideBlazor();
             services.AddScoped<IFilesManager, FilesController>();
             services.AddAdminLte();
+            services.AddHttpClient<IUserApiClient, UserApiClient>(client =>
+            client.BaseAddress = new Uri("https://localhost:4000"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
