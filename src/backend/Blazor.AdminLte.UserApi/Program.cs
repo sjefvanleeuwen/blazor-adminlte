@@ -37,8 +37,13 @@ var app = builder.Build();
 // migrate any database changes on startup (includes initial db creation)
 using (var scope = app.Services.CreateScope())
 {
-    var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();    
-   // dataContext.Database.Migrate();
+    var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
+    try {
+        dataContext.Database.Migrate();
+    }
+    catch (InvalidOperationException ex) {
+        // Some datbases do not support automatic migrations.
+    }
 }
 
 // configure HTTP request pipeline
