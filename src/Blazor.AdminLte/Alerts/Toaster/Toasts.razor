@@ -1,0 +1,21 @@
+﻿@namespace Blazor.AdminLte
+@if (ToastList.Any())
+{
+    <div class="blazor-adminlte-toast-container @PositionClass">
+        <CascadingValue Value=this IsFixed="true">
+            @foreach (var toast in ToastList.OrderBy(x=>x.TimeStamp))
+            {
+                if (toast.BlazoredToast is object)
+                {
+                    <Toast @key="toast" ToastComponentSettings="toast.ToastInstanceSettings" ToastId="toast.Id" Timeout="toast.ToastInstanceSettings.Timeout" >
+                        @toast.BlazoredToast
+                    </Toast>
+                }
+                else
+                {
+                    <Toast @key="toast" ToastSettings="toast.ToastSettings" ToastId="toast.Id" Timeout="Timeout" />
+                }
+            }
+        </CascadingValue>
+    </div>
+}

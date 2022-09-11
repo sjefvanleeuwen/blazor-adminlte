@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Blazor.AdminLte;
 using System;
 
 namespace Blazor.AdminLte.Site
@@ -27,8 +26,9 @@ namespace Blazor.AdminLte.Site
             services.AddServerSideBlazor();
             services.AddScoped<IFilesManager, FilesController>();
             services.AddAdminLte();
-            services.AddHttpClient<IUserApiClient, UserApiClient>(client =>
-            client.BaseAddress = new Uri("https://localhost:4000"));
+            services.AddScoped<IUserApiClient>(_ => new UserApiClient("https://localhost:4000", new System.Net.Http.HttpClient()));
+          ////  services.AddHttpClient<IUserApiClient, UserApiClient>(client =>
+            //client.BaseAddress = new Uri("https://localhost:4000"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

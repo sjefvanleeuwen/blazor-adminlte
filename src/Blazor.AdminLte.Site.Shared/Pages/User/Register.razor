@@ -1,5 +1,7 @@
 ﻿@page "/register"
+@using Security.Abstractions.Models.Accounts;
 @inject NavigationManager NavigationManager
+@inject IUserApiClient UserApiClient
 <!-- note: using styles, not css, we will target Isolated CSS for this component when we upgrade to .NET5 -->
 <Overlay>
     <div style=" margin: 0 auto; margin-top: 10%; max-width: 400px;">
@@ -54,8 +56,27 @@
         {
             Identifier = "isAgreeTos",
             Value = "true",
-            Label = "I agree to the <a href='#'>terms</a>" };
-    void OnRegister() {
-        NavigationManager.NavigateTo("thanks-for-registering");
+            Label = "I agree to the <a href='#'>terms</a>" 
+        };
+
+    async void OnRegister() {
+        try
+        {
+            await UserApiClient.RegisterAsync(new RegisterRequest()
+                {
+                    AcceptTerms = true,
+                    Email = email.Value,
+                    FirstName = fullName.Value,
+                    LastName = "bla",
+                    Title = "",
+                    Password = password.Value,
+                    ConfirmPassword = passwordVerify.Value
+                });
+            NavigationManager.NavigateTo("thanks-for-registering");
+        }
+        catch (ApiException ex)
+        {
+
+        }
     }
 }

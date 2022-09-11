@@ -17,7 +17,8 @@ namespace Blazor.AdminLte
                     typeof(BaseClasses).GetTypeInfo().Assembly,
                     Assembly.GetExecutingAssembly()
                  }
-            ).AddScoped<ILayoutManager, LayoutManager>();
+
+            ).AddScoped<ILayoutManager, LayoutManager>().AddToast();
         }
     }
 }

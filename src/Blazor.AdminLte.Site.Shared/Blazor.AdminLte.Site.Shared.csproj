@@ -15,7 +15,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Blazor.AdminLte.UserApi.Client\Blazor.AdminLte.UserApiClient.csproj" />
+    <ProjectReference Include="..\Blazor.AdminLte.UserApiClient.Abstractions\Blazor.AdminLte.UserApiClient.Abstractions.csproj" />
     <ProjectReference Include="..\Blazor.AdminLte\Blazor.AdminLte.csproj" />
   </ItemGroup>
   <ItemGroup>

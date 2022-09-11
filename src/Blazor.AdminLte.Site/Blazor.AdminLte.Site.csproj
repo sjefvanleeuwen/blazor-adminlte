@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Blazor.AdminLte.Site.Shared\Blazor.AdminLte.Site.Shared.csproj" />
+    <ProjectReference Include="..\Blazor.AdminLte.UserApi.Client\Blazor.AdminLte.UserApiClient.csproj" />
     <ProjectReference Include="..\Blazor.AdminLte\Blazor.AdminLte.csproj" />
   </ItemGroup>
   <ItemGroup>
