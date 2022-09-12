@@ -5,6 +5,7 @@
 }
 <div class="input-group mb-3">
     <input class="form-control @borderColor" id="@Value.Identifier" placeholder="@Value.Placeholder" value="@Value.Value" @onchange="DoChange" type="@Value.Type">
+
     @if (!string.IsNullOrEmpty(Value.Icon)) {
         <div class="input-group-append">
             <div class="@iconBgColor input-group-text">
@@ -12,7 +13,17 @@
         </div>
     </div>
     }
-</div>
+    <div class="input-group">
+        <small class="text-danger">
+        @((MarkupString)Value.ErrorMessage)
+        </small>
+    </div>
+@*    <div>
+        <small class="text-danger">
+            @((MarkupString)Value.ErrorMessage)
+        </small>
+    </div>
+*@</div>
 @code {
     private string borderColor => $"border-{@Value.BorderColor.GetDescription<StyleAttribute>()}";
     private string iconBgColor => $"bg-{@Value.IconBgColor.GetDescription<StyleAttribute>()}";
