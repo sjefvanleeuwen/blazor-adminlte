@@ -1,8 +1,14 @@
 ﻿@namespace Blazor.AdminLte
 <!-- Brand Logo -->
 <a href="@Link" class="brand-link">
-    <img src="@Logo" alt="Logo" class="brand-image @imageEffect @elevation">
-    <span class="brand-text font-weight-light">@ChildContent</span>
+    @if (!string.IsNullOrWhiteSpace(Logo))
+    {
+        <img src="@Logo" alt="Logo" class="brand-image @imageEffect @elevation">
+        <span class="brand-text font-weight-light">@ChildContent</span>
+    }
+    else {
+        <span style="margin-left: 56px" class="brand-text font-weight-light">@ChildContent</span>
+    }
 </a>
 @code {
     [Parameter]
