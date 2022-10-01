@@ -7,7 +7,7 @@ using Blazor.AdminLte.Security.Abstractions.Entities;
 using Blazor.AdminLte.Security.Abstractions.Helpers;
 using Blazor.AdminLte.Security.Abstractions.Models.Accounts;
 using Blazor.AdminLte.UserApi.Helpers;
-using Microsoft.EntityFrameworkCore.ValueGeneration;
+
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -15,7 +15,6 @@ using System.Runtime.Caching;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 
 public interface IAccountService
 {

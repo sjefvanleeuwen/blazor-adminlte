@@ -12,7 +12,7 @@ namespace Blazor.AdminLte
     {
         string BaseUrl { get; set; }
         bool ReadResponseAsString { get; set; }
-
+        Task<CaptchaGenerateResponse> CaptchaAsync();
         Task<ICollection<AccountResponse>> AccountsAllAsync();
         Task<ICollection<AccountResponse>> AccountsAllAsync(CancellationToken cancellationToken);
         Task AccountsDELETEAsync(int id);

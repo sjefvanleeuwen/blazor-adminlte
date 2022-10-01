@@ -14,25 +14,33 @@
         public string Placeholder { get; set; }
         public string Type { get; set; }
         public string Icon { get; set; }
-        public Color BorderColor { get { return _borderColor; } set {
+        public Color BorderColor
+        {
+            get { return _borderColor; }
+            set
+            {
                 _borderColor = value;
                 if (_originalBorderColor == null) _originalBorderColor = value;
             }
         }
-        public Color IconBgColor { 
-            get { return _iconBgColor; } 
-            set { 
+        public Color IconBgColor
+        {
+            get { return _iconBgColor; }
+            set
+            {
                 _iconBgColor = value;
                 if (_originalIconBgColor == null) _originalIconBgColor = value;
             }
         }
         public string IconPointer { get; set; }
 
-        public string ErrorMessage {
+        public string ErrorMessage
+        {
             get
             {
                 return _errorMessage;
-            } set
+            }
+            set
             {
                 _errorMessage = value;
                 _originalBorderColor ??= BorderColor;
@@ -49,6 +57,19 @@
                     IconBgColor = _originalIconBgColor.Value;
                 }
             }
+        }
+
+        public void Validate(string[] errors)
+        {
+            if (errors != null && errors.Length > 0)
+            {
+                ErrorMessage = errors[0];
+            }
+            else
+            {
+                ErrorMessage = null;
+            }
+
         }
     }
 }

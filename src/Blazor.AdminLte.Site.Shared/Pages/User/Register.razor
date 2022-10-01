@@ -22,7 +22,11 @@
                             <div class="col-8">
                                     <CustomCheckbox @bind-Value="isAgreeTos" />
                             </div>
-
+                        @if (captchaGenerateResponse != null)
+                        {
+                            <img src="@captchaGenerateResponse.Image" />
+                            <Input @bind-Value="captchaKey" />
+                        }
                             <div class="col-4">
                                 <Button OnClick="OnRegister">Register</Button>
                             </div>
@@ -31,7 +35,7 @@
 @*                    </form>*@
 @if (!string.IsNullOrEmpty(alertBody)) {
                     <Alert Type="AlertType.Danger" Title="@alertTitle">
-                        @alertBody
+                            @((MarkupString)alertBody)
                     </Alert>
 }
 @*                    <div class="social-auth-links text-center">
@@ -56,10 +60,14 @@
     string alertBody;
     string alertTitle;
 
-    InputState fullName = new InputState() { Identifier = "fullName", Placeholder = "Enter Full Name", Type = "text", Icon = "fas fa-user" };
+    CaptchaGenerateResponse captchaGenerateResponse;
+
+
+    InputState fullName = new InputState() { Identifier = "fullName", Placeholder = "Enter Full Name", Type = "text", Icon = "fas fa-user",IconBgColor=Color.Info };
     InputState email = new InputState() { Identifier = "email", Placeholder = "Enter email", Type = "email", Icon = "fas fa-envelope" };
     InputState password = new InputState() { Identifier = "password", Placeholder = "Enter password", Type = "password", Icon = "fas fa-lock" };
     InputState passwordVerify = new InputState() { Identifier = "passwordVerify", Placeholder = "Verify password", Type = "password", Icon = "fas fa-lock" };
+    InputState captchaKey = new InputState() { Identifier = "captchaKey", Placeholder = "Enter Captcha", Type = "text", Icon = "fas fa-sync", IconBgColor= Color.Warning };
     CustomCheckboxState isAgreeTos = new CustomCheckboxState()
         {
             Identifier = "isAgreeTos",
@@ -67,6 +75,13 @@
             Label = "I agree to the <a href='#'>terms</a>" 
         };
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+            return;
+        captchaGenerateResponse = await UserApiClient.CaptchaAsync();
+        StateHasChanged();
+    }
 
     async void OnRegister() {
         try
@@ -88,18 +103,10 @@
             var l = ex.ResponseObject;
             alertTitle = l.Title;
             alertBody = "";
-            if (l.Errors.ConfirmPassword != null && l.Errors.ConfirmPassword.Length > 0) {
-                alertBody += l.Errors.ConfirmPassword[0];
-                passwordVerify.BorderColor = Color.Danger;
-                passwordVerify.IconBgColor = Color.Danger;
-            }
-            if (l.Errors.Email != null && l.Errors.Email.Length > 0)
-            {
-                alertBody += l.Errors.Email[0];
-                email.BorderColor = Color.Danger;
-                email.IconBgColor = Color.Danger;
-            }
-            
+            email.Validate(l.Errors.Email);
+            password.Validate(l.Errors.Password);
+            fullName.Validate(l.Errors.FirstName);
+            passwordVerify.Validate(l.Errors.ConfirmPassword);
             StateHasChanged();
         }
     }
