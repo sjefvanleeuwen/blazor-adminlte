@@ -1,5 +1,5 @@
 ﻿@namespace Blazor.AdminLte
-<a href="#" class="dropdown-item">
+<a href="@(Link ?? "#")" class="dropdown-item">
     <i class="@Icon"></i>@Message
     @{
         var prettyDate = DateTime.GetPrettyDate();
@@ -14,6 +14,9 @@
     }
 </a>
 @code {
+
+    [Parameter]
+    public string Link { get; set; }
     [Parameter]
     public string Icon { get; set; }
     [Parameter]

@@ -5,7 +5,10 @@
         <i class="nav-icon @Icon"></i>
         <p>
             @Title
-            <i class="right fas @chevron"></i>
+            @if (!string.IsNullOrWhiteSpace(Chevron))
+            {
+                <i class="right rot-right fas @Chevron"></i>
+            }
         </p>
     </a>
     <ul @ref="ul" class="nav nav-treeview" @onclick="SetActive">
@@ -15,6 +18,8 @@
 @code {
     [Parameter]
     public string Icon { get; set; }
+    [Parameter]
+    public string Chevron { get; set; } = "fa-angle-left";
     [Parameter]
     public RenderFragment Title { get; set; }
     [Parameter]
@@ -39,7 +44,6 @@
     }
 
     private string menuState => MenuState.GetDescription<StyleAttribute>();
-    private string chevron { get; set; } = "fa-angle-left";
 
     private ElementReference ul { get; set; }
     private ElementReference menu { get; set; }
