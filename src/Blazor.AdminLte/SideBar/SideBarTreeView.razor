@@ -11,7 +11,7 @@
             }
         </p>
     </a>
-    <ul @ref="ul" class="nav nav-treeview" @onclick="SetActive">
+    <ul @ref="ul" class="nav nav-treeview">
         @Items
     </ul>
 </li>
@@ -25,14 +25,28 @@
     [Parameter]
     public RenderFragment Items { get; set; }
 
+    [Parameter]
+    public bool IsActive
+    {
+        get => _isActive;
+        set
+        {
+            if (value)
+                SetActive();
+            else
+                SetInactive();
+        }
+    }
+
+    private bool _isActive;
     private MenuState _menuState { get; set; }
 
     private MenuState MenuState {
-        get {
-            return _menuState;
-        } set {
+        get => _menuState;
+        set {
             if (_menuState == value)
                 return;
+            
             JS.InvokeVoidAsync("toggleSideMenu", ul);
             _menuState = value;
         }
@@ -40,9 +54,22 @@
 
     public void SetActive()
     {
-       // JS.InvokeVoidAsync("activateSideMenu", menu);
+        if (_isActive)
+            return;
+        
+        _isActive = true;
+        MenuState = MenuState.Open;
     }
 
+    public void SetInactive()
+    {
+        if (!_isActive)
+            return;
+        
+        _isActive = false;
+        MenuState = MenuState.Closed;
+    }
+    
     private string menuState => MenuState.GetDescription<StyleAttribute>();
 
     private ElementReference ul { get; set; }
@@ -51,10 +78,5 @@
     private void OnClick()
     {
         MenuState = MenuState == MenuState.Open ? MenuState.Closed : MenuState.Open;
-    }
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        base.OnAfterRender(firstRender);
     }
 }

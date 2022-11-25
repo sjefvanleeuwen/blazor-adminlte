@@ -32,6 +32,11 @@
     {
         // Subscribe to the event
         nav.LocationChanged += LocationChanged;
+        
+        // Manually invoke location change to set state when user access URL directly
+        // and to preserve highlight state when use refresh the page
+        LocationChanged(this, null);
+        
         base.OnInitialized();
     }
 
@@ -39,7 +44,8 @@
     {
         if (new Uri(nav.Uri).PathAndQuery.Trim('/') != Link.Trim('/'))
             return;
-        Mediator.Send(new SideBarState.SelectMenuItemAction() { Id = Id }); ;
+        
+        Mediator.Send(new SideBarState.SelectMenuItemAction { Id = Id }); ;
     }
 
     void IDisposable.Dispose()
