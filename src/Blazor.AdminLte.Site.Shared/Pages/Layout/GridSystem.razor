@@ -111,22 +111,35 @@
     <Card>
         <Title><CardTitle>Mix and match</CardTitle></Title>
         <Body>
-            Don’t want your columns to simply stack in some grid tiers? Use a combination of different classes for each tier as needed. See the example below for a better idea of how it all works.
-            Stack the columns on mobile by making one full-width and the other half-width
+        Don’t want your columns to simply stack in some grid tiers? Use a combination of different classes for each tier as needed. See the example below for a better idea of how it all works.
+        Stack the columns on mobile by making one full-width and the other half-width
+        <Row>
+            <Column Classes="col._12.col.md._8"><Card><Title>@col._12.col.md._8</Title></Card></Column>
+            <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
+        </Row>
+        Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop
+        <Row>
+            <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
+            <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
+            <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
+        </Row>
+        Columns are always 50% wide, on mobile and desktop
+        <Row>
+            <Column Classes="col._6"><Card><Title>@col._6</Title></Card></Column>
+            <Column Classes="col._6"><Card><Title>@col._6</Title></Card></Column>
+        </Row>
+        </Body>
+    </Card>
+    <Card>
+        <Title><CardTitle>Column with no title</CardTitle></Title>
+        <Body>
             <Row>
-                <Column Classes="col._12.col.md._8"><Card><Title>@col._12.col.md._8</Title></Card></Column>
-                <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
-            </Row>
-            Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop
-            <Row>
-                <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
-                <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
-                <Column Classes="col._6.col.md._4"><Card><Title>@col._6.col.md._4</Title></Card></Column>
-            </Row>
-            Columns are always 50% wide, on mobile and desktop
-            <Row>
-                <Column Classes="col._6"><Card><Title>@col._6</Title></Card></Column>
-                <Column Classes="col._6"><Card><Title>@col._6</Title></Card></Column>
+                <Column Classes="col._12.col.md._8">
+                    <Card><Title>@col._12.col.md._8</Title></Card>
+                </Column>
+                <Column Classes="col._6.col.md._4">
+                    <Card><Body>No Title</Body></Card>
+                </Column>
             </Row>
         </Body>
     </Card>

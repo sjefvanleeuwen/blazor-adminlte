@@ -16,7 +16,7 @@ namespace Blazor.AdminLte
         } //FilesManager
 
 
-        public async Task<bool> UploadFileChunk(ChunkedDataRequestDto fileChunkDto)
+        public async Task<bool> UploadFileChunkAsync(ChunkedDataRequestDto fileChunkDto)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace Blazor.AdminLte
         } //UploadFileChunk
 
 
-        public async Task<List<string>> GetFileNames()
+        public async Task<List<string>> GetFileNamesAsync()
         {
             try
             {

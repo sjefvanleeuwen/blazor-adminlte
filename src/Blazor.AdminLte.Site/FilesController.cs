@@ -16,7 +16,7 @@ namespace Blazor.AdminLte.Site
 
 
         [HttpPost("UploadFileChunk")]
-        public Task<bool> UploadFileChunk([FromBody] ChunkedDataRequestDto chunkedDataRequestDto)
+        public Task<bool> UploadFileChunkAsync([FromBody] ChunkedDataRequestDto chunkedDataRequestDto)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Blazor.AdminLte.Site
 
 
         [HttpGet("GetFiles")]
-        public Task<List<string>> GetFileNames()
+        public Task<List<string>> GetFileNamesAsync()
         {
             var result = new List<string>();
             var files = Directory.GetFiles(Environment.CurrentDirectory + "\\StaticFiles", "*.*");

@@ -5,10 +5,13 @@
         <i class="nav-icon @Icon"></i>
         <p>
             @Title
-            <i class="right fas @chevron"></i>
+            @if (!string.IsNullOrWhiteSpace(Chevron))
+            {
+                <i class="right rot-right fas @Chevron"></i>
+            }
         </p>
     </a>
-    <ul @ref="ul" class="nav nav-treeview" @onclick="SetActive">
+    <ul @ref="ul" class="nav nav-treeview">
         @Items
     </ul>
 </li>
@@ -16,18 +19,34 @@
     [Parameter]
     public string Icon { get; set; }
     [Parameter]
+    public string Chevron { get; set; } = "fa-angle-left";
+    [Parameter]
     public RenderFragment Title { get; set; }
     [Parameter]
     public RenderFragment Items { get; set; }
 
+    [Parameter]
+    public bool IsActive
+    {
+        get => _isActive;
+        set
+        {
+            if (value)
+                SetActive();
+            else
+                SetInactive();
+        }
+    }
+
+    private bool _isActive;
     private MenuState _menuState { get; set; }
 
     private MenuState MenuState {
-        get {
-            return _menuState;
-        } set {
+        get => _menuState;
+        set {
             if (_menuState == value)
                 return;
+            
             JS.InvokeVoidAsync("toggleSideMenu", ul);
             _menuState = value;
         }
@@ -35,11 +54,23 @@
 
     public void SetActive()
     {
-       // JS.InvokeVoidAsync("activateSideMenu", menu);
+        if (_isActive)
+            return;
+        
+        _isActive = true;
+        MenuState = MenuState.Open;
     }
 
+    public void SetInactive()
+    {
+        if (!_isActive)
+            return;
+        
+        _isActive = false;
+        MenuState = MenuState.Closed;
+    }
+    
     private string menuState => MenuState.GetDescription<StyleAttribute>();
-    private string chevron { get; set; } = "fa-angle-left";
 
     private ElementReference ul { get; set; }
     private ElementReference menu { get; set; }
@@ -47,10 +78,5 @@
     private void OnClick()
     {
         MenuState = MenuState == MenuState.Open ? MenuState.Closed : MenuState.Open;
-    }
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        base.OnAfterRender(firstRender);
     }
 }

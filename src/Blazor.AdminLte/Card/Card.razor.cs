@@ -80,6 +80,11 @@ namespace Blazor.AdminLte
         private IDictionary<string, object> GetHeaderAttributes()
         {
             var attributes = new Dictionary<string, object>();
+            if (Title == null)
+            {
+                return attributes;
+            }
+            
             attributes["class"] = "card-header";
             if (IsTabs)
             {
