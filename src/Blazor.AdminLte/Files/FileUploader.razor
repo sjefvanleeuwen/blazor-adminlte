@@ -23,7 +23,7 @@
     </div>
 </div>
 
-@if (filesQueue.Count > 0) { 
+@if (_filesQueue.Count > 0) { 
     <div class="card mb-4">
         <div class="card-header">Upload queue</div>
         <div class="card-body">
@@ -39,7 +39,7 @@
                     </tr>
                 </thead>
                 <tbody>            
-                    @foreach (var file in filesQueue.OrderByDescending(x => x.FileId))
+                    @foreach (var file in _filesQueue.OrderByDescending(x => x.FileId))
                     {
                         var size = Math.Round((file.Size / 1024.00));
                         var percentage = Math.Round(file.UploadedPercentage);

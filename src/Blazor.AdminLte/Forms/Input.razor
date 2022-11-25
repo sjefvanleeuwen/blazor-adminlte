@@ -3,8 +3,15 @@
 {
     <label for="@Value.Identifier">@((MarkupString)Value.Label)</label>
 }
+
 <div class="input-group mb-3">
-    <input class="form-control @borderColor" id="@Value.Identifier" placeholder="@Value.Placeholder" value="@Value.Value" @onchange="DoChange" type="@Value.Type">
+    <input class="form-control @borderColor" 
+           id="@Value.Identifier" 
+           placeholder="@Value.Placeholder" 
+           value="@Value.Value" 
+           @onchange="DoChange" 
+           type="@Value.Type"
+           @attributes="@GetAttributes()">
 
     @if (!string.IsNullOrEmpty(Value.Icon)) {
         <div class="input-group-append">
