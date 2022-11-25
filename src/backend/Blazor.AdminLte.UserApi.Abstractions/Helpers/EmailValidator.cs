@@ -363,6 +363,11 @@ namespace Blazor.AdminLte.Security.Abstractions.Helpers
             return !needGroup && (compact ? groups <= 6 : groups == 8);
         }
 
+        public static bool Validate(string email)
+        {
+            return Validate(email, false, false);
+        }
+        
         /// <summary>
         /// Validate the specified email address.
         /// </summary>
@@ -380,12 +385,12 @@ namespace Blazor.AdminLte.Security.Abstractions.Helpers
         /// <exception cref="ArgumentNullException">
         /// <paramref name="email"/> is <c>null</c>.
         /// </exception>
-        public static bool Validate(string email, bool allowTopLevelDomains = false, bool allowInternational = false)
+        public static bool Validate(string email, bool allowTopLevelDomains, bool allowInternational)
         {
             int index = 0;
 
             if (email == null)
-                throw new ArgumentNullException(nameof(email));
+                return false;
 
             if (email.Length == 0 || email.Length > 254)
                 return false;

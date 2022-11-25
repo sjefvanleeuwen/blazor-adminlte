@@ -1,4 +1,6 @@
-﻿namespace Blazor.AdminLte
+﻿using System;
+
+namespace Blazor.AdminLte
 {
     public class InputState
     {
@@ -59,6 +61,13 @@
             }
         }
 
+        public bool Validate(Func<string, bool> validator, string errorMessage)
+        {
+            var isValid = validator(Value);
+            ErrorMessage = isValid ? null : errorMessage;
+            return isValid;
+        }
+        
         public void Validate(string[] errors)
         {
             if (errors != null && errors.Length > 0)

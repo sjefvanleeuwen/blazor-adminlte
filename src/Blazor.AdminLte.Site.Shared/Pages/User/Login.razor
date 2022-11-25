@@ -1,7 +1,8 @@
 ﻿@page "/login"
+@using Blazor.AdminLte.Security.Abstractions.Helpers
 <!-- note: using styles, not css, we will target Isolated CSS for this component when we upgrade to .NET5 -->
 <Overlay>
-    <div style=" margin: 0 auto; margin-top: 10%; max-width: 400px;">
+    <div style="margin: 0 auto; margin-top: 10%; max-width: 400px;">
         <div class="login-box">
             <div class="login-logo">
                 <a href="./"><b>Admin</b>LTE</a>
@@ -9,23 +10,17 @@
             <div class="card">
                 <div class="card-body login-card-body">
                     <p class="login-box-msg">Sign in to start your session</p>
-@*                    <form action="../../index3.html" method="post">
-*@
-                    <Input @bind-Value="email" />
-                    <Input @bind-Value="password" />
-                        @code {
-        CustomCheckboxState rememberMe = new CustomCheckboxState() { Identifier = "customCheckbox1", Value = "option1", Label = "Custom Checkbox" };
-                        }
-                        <div class="row">
-                            <div class="col-8">
-                                    <CustomCheckbox @bind-Value="rememberMe" />
-                            </div>
-                            <div class="col-4">
-                                <Button Color="Color.Primary">Sign In</Button>
-                            </div>
-
+                    <Input @bind-Value="_email" />
+                    <Input @bind-Value="_password" />
+                    <div class="row">
+                        <div class="col-8">
+                            <CustomCheckbox @bind-Value="_rememberMe" />
                         </div>
-@*                    </form>*@
+                        <div class="col-4">
+                            <Button Color="Color.Primary" @onclick="SignInAsync">Sign In</Button>
+                        </div>
+
+                    </div>
                     <div class="social-auth-links text-center mb-3">
                         <p>- OR -</p>
                         <a href="#" class="btn btn-block btn-primary">
@@ -46,7 +41,33 @@
         </div>
     </div>
 </Overlay>
+
 @code {
-    InputState email = new InputState() { Identifier = "email", Placeholder = "Enter email", Type = "email", Icon = "fas fa-envelope" };
-    InputState password = new InputState() { Identifier = "password", Placeholder = "Enter password", Type = "password", Icon = "fas fa-lock" };
+    InputState _email = new() { Identifier = "email", Placeholder = "Enter email", Type = "email", Icon = "fas fa-envelope" };
+    InputState _password = new() { Identifier = "password", Placeholder = "Enter password", Type = "password", Icon = "fas fa-lock" };
+    CustomCheckboxState _rememberMe = new() { Identifier = "customCheckbox1", Value = "option1", Label = "Remember me?" };
+
+    private async Task SignInAsync()
+    {
+        if (!Validate())
+        {
+            return;
+        }
+        
+        // TODO: Login here
+
+        _password.ErrorMessage = "Incorrect email or password";
+    }
+
+    private bool Validate()
+    {
+        var isValid = _email.Validate(EmailValidator.Validate, "Invalid email address");
+
+        if (!_password.Validate(string.IsNullOrEmpty, "Missing password"))
+        {
+            isValid = false;
+        }
+
+        return isValid;
+    }
 }
